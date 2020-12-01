@@ -1,0 +1,733 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Document</title>
+</head>
+<style>
+    /* .scontainer{
+        display: flex;
+        flex-direction:row
+
+    } */
+    body {
+        padding-top: 0px;
+        background-color: #d5f0f0;
+    }
+    .row {
+        flex-wrap: wrap
+    }
+
+    .card {
+        margin-bottom: 50px;
+    }
+
+    .card-header {
+        font-size: 10px;
+    }
+
+    .inputtextNum {
+        margin-top: 3px;
+    }
+
+    .submitItems {
+        margin-top: 5px;
+    }
+
+    .addArea {
+        background-color: #D2E9FF;
+        background-image: url("../assets/img/adsss1140-min.jpg");
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        margin-top:20px;
+        margin-bottom: 10px;
+        box-shadow: 2px 5px 6px #000;
+    }
+
+    .votePic {
+        margin-top: 10px;
+    }
+
+    .card_flex {
+        display: flex;
+    }
+
+    .vote_btn {
+        margin-top: 15px;
+        margin: auto;
+    }
+
+    .coloum_addtitle {
+        display: flex;
+        flex-direction: column;
+    }
+
+    span {
+        font-size: 20px;
+    }
+
+    .nameChkefalse {
+        display: none;
+    }
+
+    .vote_btntrue {
+        opacity: 0.3;
+    }
+
+
+    button, .submitItems {
+        border-radius: 5px;
+        color: black;
+    }
+
+    .vote_btn {
+        margin-top: 5px;
+        border-radius: 20%;
+    }
+
+
+</style>
+<body>
+    <header>
+        <!-- Header Start -->
+        <div class="header-area" style="background-color: white;">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="#"><img src="../assets/img/Gladxy_co._LOGO_Small.png" alt=""></a>
+                                </div>
+                            </div>
+                            <h3 class="col-xl-2 col-lg-4 col-md-3" style="display:flex;justify-content:center;">員工福利網</h3>
+                            <div class="col-xl-8 col-lg-6 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/cBlog/BlogList">部落格</a></li>
+
+                                            <li><a href="/cBlog/ForumList">討論區</a></li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    揪團GO
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_Open" style="padding: 10px;">
+                                                        我要開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        開團紀錄
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+
+
+                                                </div>
+                                            </li>
+
+                                            <li><a href="/cBlog/Action">活動區</a></li>
+                                            <li>歡迎 @ViewBag.LoginName </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    會員專區
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        我的開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+                                                    @*<div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                        我的郵件
+                                                    </a>*@
+                                                    @*<div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                        我要發信
+                                                    </a>*@
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/MemberDataEdit/@ViewBag.enumber2" style="padding: 10px;">
+                                                        修改資料
+                                                    </a>
+
+
+                                                </div>
+                                            </li>
+                                            <li><a href="/cBlog/LogOut">登出</a></li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="header-area">
+                <div class="main-header ">
+                    <div class="header-bottom  header-sticky">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <!-- Logo -->
+                                <div class="col-xl-2 col-lg-2 col-md-1">
+                                    <div class="logo">
+                                        <a href="#"><img src="../assets/img/Gladxy_co._LOGO_Small.png" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-2 col-md-1" style="margin-left:0px;text-align:right;font-size:30px;">員工福利網</div>
+
+                                <div class="col-xl-7 col-lg-10 col-md-10">
+                                    <!-- Main-menu -->
+                                    <div class="main-menu f-right d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
+
+                                                @*   <li><a href="/cBlog/ForumList">討論區</a></li>
+            <li><a href="~/forumtestpage.html">討論區</a></li>
+            @*-------------------------------------------------------------------------------change site----
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                    揪團GO
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <a class=" dropdown-item" href="/cBlog/Purchase_Open" style="padding: 10px;">
+                        我要開團
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                        開團紀錄
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                        我的跟團
+                    </a>
+
+
+                </div>
+            </li>
+            <li><a href="/cBlog/BlogList">部落格</a></li>
+            <li><a href="/cBlog/Action">活動區</a></li>
+
+            <li><span> 歡迎 @ViewBag.LoginName</span> </li>
+            <li>@*<a href="/cBlog/MemberDataEdit/@ViewBag.enumber2">修改資料</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                    會員專區
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                        我的開團
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class=" dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                        我的跟團
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" style="padding: 10px;">
+                        我的郵件
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" style="padding: 10px;">
+                        我要發信
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/cBlog/MemberDataEdit/@ViewBag.enumber2" style="padding: 10px;">
+                        修改資料
+                    </a>
+
+
+                </div>
+            </li>
+            <li><a href="/cBlog/LogOut">登出</a></li>
+
+            </ul>
+            </nav>
+            </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="col-12">
+                <div class="mobile_menu d-block d-lg-none"></div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>*@
+        <!-- Header End -->
+    </header>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="addArea">
+                    <div style="margin-right: 10px;">
+                        <p><i class="fas fa-chart-bar"></i>投票主題: <input type="text" id="voteTitle" /></p>
+                        <p><i class="far fa-calendar-plus"></i>結束日期: <input type="date" id="voteendDate" min="2020-11-05" /></p>
+                        <p>
+                            <i class="far fa-clock"></i>結束時間: <input type="time" id="voteendTime"
+                                                                     min="14:00" />
+                        </p>
+                        <button id="btncut" onclick="cutField()"><i class="fas fa-redo" style="margin-right: 3px;"></i>重設</button>
+                        <input type="submit" id="btnsubmit" onclick="submit()" class="submitItems" value="送出投票主題與選項" />
+                    </div>
+                    <div class="coloum_addtitle">
+                        <button id="btnadd" onclick="addField()" style="margin-bottom: 5px;"><i class="fas fa-plus" style="margin-right: 3px;"></i>新增選項</button>
+
+                        <div id="textinput"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="votePic">
+                <div class="row" id="test">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function convertToISO(timebit) {
+            // remove GMT offset
+            timebit.setHours(0, -timebit.getTimezoneOffset(), 0, 0);
+            // format convert and take first 10 characters of result
+            var isodate = timebit.toISOString().slice(0, 10);
+            return isodate;
+        }
+
+
+
+        let bookdate = document.getElementById('voteendDate');
+        let currentdate = new Date();
+        bookdate.min = convertToISO(currentdate);
+        bookdate.placeholder = bookdate.min;
+        const request = new XMLHttpRequest();
+        let voteItemsSubmit = "";
+        let voteTitleSubmit = "";
+
+        function getdata() {
+            axios.get('https://localhost:44347/api/Vote',
+            )
+                .then(function (response) {
+
+                    response.data.ftitle.forEach((i) => {
+                        // console.log(response.data)
+                        document.getElementById("test").innerHTML += `
+                            <div class="col-sm-6 col-md-6 col-lg-6" >
+                                    <div class="card vote_btn${i.dateline}"  style="">
+                                        <div class="card_flex">
+                                            <div class="card-header col-sm-8 col-md-8 col-lg-8">
+                                                <i onclick="getData_delete(${i.titleID})" class="fas fa-trash-alt nameChke${i.nameChke}" style=" font-size:30px; float:right;"></i>
+                                                <span >投票主題: ${i.title}</span></br>
+                                                <span >起始日期: ${i.startTime}</span> </br>
+                                                <span>結束日期: ${i.endTime}</span> </br>
+                                                <span style="background-color:#FFE6D9"> 剩餘日期:${i.countdown} 天</span>
+                                                                                                                                <div id="clean${i.titleID}">
+                                                <canvas id="ffourmTypeCount${i.titleID}" width="100" height="100">
+                                                    </canvas>
+                                            </div>
+                                            </div>
+                                            <div class="vote_col col-sm-4 col-md-4 col-lg-4">
+                                                <form id="items${i.titleID}" >
+                                                </form>
+                                                <input class="vote_btn vote_btn${i.dateline} " id="input_${i.titleID}_${i.dateline}" type="submit" onclick="
+                                                itemsSubmit(${i.titleID})"  value="Submit"
+                                                
+                                                 >
+                                        </div>
+                                    </div>
+
+                                    </div>
+                            </div>
+                        `
+
+
+                        if (i.dateline == true) {
+                            $(`#input_${i.titleID}_${i.dateline}`).attr("disabled", true);
+                        }
+
+
+                    })
+
+
+                    let firstNum = 0
+
+                    response.data.ftitle.forEach((i) => {
+
+                        //         document.getElementById("test").innerHTML = `
+                        // <canvas id="ffourmTypeCount${i.titleID}" width="100" height="100"></canvas>
+                        // `
+                        // console.log(i);
+
+                        let labelsData = [[], []]
+                        let setsData = []
+                        let setsData2 = []
+                        let setsData3 = setsData.sort();
+                        let style = [] //=`style${i.titleID}`
+                        let color = [] //=`color${i.titleID}`
+
+
+                        // console.log(firstNum)
+                        let arr = i.fitems.items
+
+                        Chart.scaleService.updateScaleDefaults('horizontalBar', {
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        });
+                        // console.log(arr);
+                        arr.map((v, i) => {
+                            // console.log(v.items)
+                            // console.log(v.name)
+                            setsData[i] = v.count
+                            setsData2[i] = v.name
+                            const color1 = Math.floor(Math.random() * 255);
+                            const color2 = Math.floor(Math.random() * 255);
+                            const color3 = Math.floor(Math.random() * 255);
+                            //labelsData[firstNum] = [[setsData], [setsData2]]
+                            style[i] = `rgba(${color1}, ${color2}, ${color3}, 0.8)`
+                            color[i] = `rgba(${color1}, ${color2}, ${color3}, 0.8)`
+                        })
+
+                        //console.log(labelsData[0][1])
+                        // console.log(setsData)
+                        var ctx = document.getElementById(`ffourmTypeCount${i.titleID}`);
+                        //let searchID = `searchID${i.titleID}`
+                        var myChart = new Chart(ctx, {
+                            type: 'horizontalBar',
+                            data: {
+                                labels: setsData2,
+                                datasets: [{
+                                    backgroundColor: style,
+                                    borderColor: color,
+                                    borderWidth: 0,
+                                    label: "投票數",
+                                    data: setsData
+                                }]
+
+                            }, options: {
+                                scales: {
+                                    xAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            stepSize: 1
+                                        }
+                                    }],
+                                    legend: {
+                                        position: 'right'
+                                    }
+                                }
+                            },
+
+                        });
+                        firstNum++;
+                        for (let j = 0; j < setsData2.length; j++) {
+                            document.getElementById(`items${i.titleID}`).innerHTML +=
+                                `<input type="radio" name="voteItems${i.titleID}" id="${i.titleID}radio${j}" value="${setsData2[j]}" >${setsData2[j]}</input></br>
+                            `
+                        }
+                    })
+                })
+        }
+
+
+        //==============================================
+        function getdataByID(id) {
+            axios.get(`https://localhost:44347/api/Vote/?id=${id}`
+            )
+                .then(function (response) {
+
+                    response.data.ftitle.forEach((i) => {
+                        // console.log(response.data)
+                        document.getElementById(`clean${id}`).innerHTML = `
+
+                                                <canvas id="ffourmTypeCount${i.titleID}" width="100" height="100">
+                                                    </canvas>
+
+
+                        `
+                    })
+                    let firstNum = 0
+
+                    response.data.ftitle.forEach((i) => {
+
+                        //         document.getElementById("test").innerHTML = `
+                        // <canvas id="ffourmTypeCount${i.titleID}" width="100" height="100"></canvas>
+                        // `
+                        // console.log(i);
+
+                        let labelsData = [[], []]
+                        let setsData = []
+                        let setsData2 = []
+
+                        let style = [] //=`style${i.titleID}`
+                        let color = [] //=`color${i.titleID}`
+
+
+                        // console.log(firstNum)
+                        let arr = i.fitems.items
+
+                        Chart.scaleService.updateScaleDefaults('horizontalBar', {
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        });
+                        // console.log(arr);
+                        arr.map((v, i) => {
+                            // console.log(v.items)
+                            // console.log(v.name)
+                            setsData[i] = v.count
+                            console.log(v)
+                            setsData2[i] = v.name
+                            const color1 = Math.floor(Math.random() * 255);
+                            const color2 = Math.floor(Math.random() * 255);
+                            const color3 = Math.floor(Math.random() * 255);
+                            //labelsData[firstNum] = [[setsData], [setsData2]]
+                            style[i] = `rgba(${color1}, ${color2}, ${color3}, 0.8)`
+                            color[i] = `rgba(${color1}, ${color2}, ${color3}, 0.8)`
+                        })
+
+                        //console.log(labelsData[0][1])
+                        // console.log(setsData)
+                        var ctx = document.getElementById(`ffourmTypeCount${i.titleID}`);
+                        //let searchID = `searchID${i.titleID}`
+                        var myChart = new Chart(ctx, {
+                            type: 'horizontalBar',
+                            data: {
+                                labels: setsData2,
+                                datasets: [{
+                                    backgroundColor: style,
+                                    borderColor: color,
+                                    borderWidth: 0,
+                                    label: "投票數",
+                                    data: setsData
+                                }]
+
+                            }, options: {
+                                scales: {
+                                    xAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            stepSize: 1
+                                        }
+                                    }],
+                                    legend: {
+                                        position: 'right'
+                                    }
+                                }
+                            },
+
+                        });
+
+                    })
+                })
+        }
+
+
+
+
+
+
+        //==================================================
+        let countsubmitID = 0
+        let countMin = 0;
+        let countMax = 10;
+        let commonName = "test";
+        let count = countMin;
+
+        // function addhtml(id){
+        //     document.getElementById(`clean${id}`).innerHTML=`<canvas id="ffourmTypeCount${id}" width="100" height="100">
+        //                                     </canvas> `
+        // }
+
+        // async function resethtml (id){
+        //      itemsSubmit(id)
+        //     //  await getdataByID(id)
+        //       addhtml(id)
+        // }
+
+
+        function resethtml() {
+            document.getElementById("test").innerHTML = "  "
+        }
+
+
+        function addField() {
+
+            if (count == countMax) {
+                alert("最多" + countMax + "個欄位");
+            }
+            else {
+                document.getElementById("textinput").innerHTML += "<div>" + "選項" + (++count) + ":  " + '<input type="text" class="inputtextNum" id="' + commonName + count + '"></div>';
+            }
+            countsubmitID++;
+        }
+
+        function cutField() {
+            document.getElementById("textinput").innerHTML = "";
+            document.getElementById("voteTitle").value = "";
+            document.getElementById("voteendDate").value = "";
+            document.getElementById("voteendDate").value = "";
+            count = 0
+            countsubmitID = 0
+        }
+
+        function submit() {
+
+            let JsonAxios = {}
+            JsonAxios['title'] = document.getElementById("voteTitle").value
+            JsonAxios['endtime'] = document.getElementById("voteendDate").value + " " +
+                document.getElementById("voteendTime").value
+            for (let i = 1; i <= countsubmitID; i++) {
+                JsonAxios[`item${i}`] = (document.getElementById(`test${i}`).value)
+            }
+            console.log(JsonAxios)
+
+
+            axios.post('https://localhost:44347/api/Vote',
+                JsonAxios)
+                .then(function (response) {
+                    request.onload = resethtml();
+                    request.onload = getdata();
+                    console.log(response)
+                    
+                })
+                .catch((error) => { console.error(response.data.MSG) })
+
+
+            cutField()
+        }
+
+        function itemsSubmit(id) {
+            // console.log(id)
+            let itemsJsonAxios = {}
+            itemsJsonAxios['items'] = $(`[name='voteItems${id}']:checked`).val()
+            itemsJsonAxios['title'] = (($(`[name='voteItems${id}']:checked`).attr('id')).split('radio'))[0]
+            voteItemsSubmit = $(`[name='voteItems${id}']:checked`).val()
+            voteTitleSubmit = (($(`[name='voteItems${id}']:checked`).attr('id')).split('radio'))[0]
+            console.log(voteItemsSubmit)
+            console.log(voteTitleSubmit)
+            axios.post('https://localhost:44347/api/voteItems', itemsJsonAxios)
+                .then(function (response) {
+                    console.log(response.data)
+                    getdataByID(id);
+                    alert(response.data.MSG);
+                })
+                .catch((error) => { console.error(error) })
+
+        }
+
+        request.onload = getdata();
+
+
+
+        const sendHttpRequest = (method, url, data) => {  //fetch的上半部整理成function
+            return fetch(url, {
+                method: method,
+                body: JSON.stringify(data),
+                headers: data ? { 'Content-Type': 'application/json', } : {},
+                //{}裡面可放物件//三元表達式
+            })  //get data
+                .then(response => {
+                    if (response.status >= 400) {       //參考xml httprequest對於錯誤的處理方法
+                        //!response.ok
+                        return response.json().then(errResData => {
+                            const error = new Error('Something went wrong!');
+                            error.data = errResData;   //找出錯誤的資料為何
+                            throw error;
+                        });
+                    }
+                    return response.json();
+                })
+        }
+
+        const getData_delete = (id) => {
+            // currentPost.iID
+            let UrlPutID = `https://localhost:44347/api/Vote/?id=${id}`
+            sendHttpRequest('Delete', UrlPutID, {
+                "title": "delete",
+
+            }).then(responseData => {
+                request.onload = resethtml();
+                request.onload = getdata();
+            }).catch(err => {
+                console.log(err, err.data);
+            });
+
+        };
+
+    </script>
+    <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    @*<script src="../assets/js/bootstrap.min.js"></script>*@
+    <!-- Jquery Mobile Menu -->
+    <script src="../assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/animated.headline.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="../assets/js/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/jquery.form.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/mail-script.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

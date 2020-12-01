@@ -1,0 +1,388 @@
+﻿@using Action.Models
+@model IEnumerable<ActionViewModel>
+*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/fontawesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    @*---------------------------------------------external css here*@
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/flaticon.css">
+    <link rel="stylesheet" href="../assets/css/slicknav.css">
+    <link rel="stylesheet" href="../assets/css/animate.min.css">
+
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/css/themify-icons.css">
+    <link rel="stylesheet" href="../assets/css/slick.css">
+    <link rel="stylesheet" href="../assets/css/nice-select.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/all.css">
+
+
+    <style>
+        .body {
+            background-color: #e2e2e2 !important;
+           
+        }
+
+        .bg-light {
+            /*background-color: white !important;*/
+            border-bottom: 1px solid #aeaeae;
+        }
+
+        .container {
+            width: 90% !important;
+        }
+
+        .nav-link {
+            font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
+            color: #555555 !important;
+        }
+
+        .fixed-center {
+            position: fixed;
+            top: 60px;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+        }
+
+        .feature-events-cards-container {
+            display: -webkit-box;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .feature-events-cards-container {
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+        }
+
+        .card {
+            width: 94vw;
+            display: inline-block;
+            margin-right: 15px;
+            vertical-align: top
+        }
+
+            .card a {
+                text-decoration: none;
+            }
+
+        .card-title {
+            height: 38px;
+            padding: 0;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 19px;
+            color: #333;
+            white-space: normal;
+            cursor: pointer;
+            overflow: hidden
+        }
+
+        .bottom {
+            background: #fff;
+            font-size: 12px;
+            padding: 15px 15px 8px;
+            border-radius: 0 0 8px 8px
+        }
+
+        .date {
+            font-size: 12px;
+            color: #aaa
+        }
+
+            .date > span {
+                font-weight: 600
+            }
+
+            .date > i {
+                font-size: 1.5em;
+                margin-right: 5px
+            }
+
+            .date > * {
+                vertical-align: middle
+            }
+
+        .card-title {
+            height: 38px;
+            padding: 0;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 19px;
+            color: #333;
+            white-space: normal;
+            cursor: pointer;
+            overflow: hidden
+        }
+
+        .tags {
+            height: 22px;
+            padding-top: 5px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 50%;
+            text-align: left
+        }
+
+        .counts {
+            position: absolute;
+            right: 0;
+            top: 3px;
+            background: #fff;
+            padding-left: 5px
+        }
+
+            .counts > * {
+                padding-left: 5px
+            }
+
+            .counts i {
+                vertical-align: middle
+            }
+
+        .theme {
+            width: 100%;
+            position: relative;
+            overflow: hidden
+        }
+
+        .theme-container {
+            display: -webkit-box;
+            display: flex;
+            width: 100%;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .theme-event-card-container {
+            min-height: 311px;
+            width: 33.33%;
+            padding: 10px
+        }
+
+        .article {
+            margin: 40px auto;
+            padding-bottom: 38px;
+        }
+    </style>
+</head>
+<body style=" background-color:white;/*#f8f8f8 !important;*/">
+    @*<nav class="navbar navbar-expand-md navbar-light bg-light" style="position:relative;">
+            <img src="~/img/LOGO.png" />
+            <img src="~/img/活動平台.jpg" style="width:80px;" class="fixed-center" />
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto"></ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">@Html.ActionLink("購物車", "#")/</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">@Html.ActionLink("部落格", "BlogList")/</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">@Html.ActionLink("討論區", "ForumList")/</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">@Html.ActionLink("活動區", "Action")/</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">@Html.ActionLink("修改資料", "ActionList")/</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">@Html.ActionLink("登出", "ActionList")</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>*@
+    <div class="header-area" >
+        <div class="main-header ">
+            <div class="header-bottom  header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="#"><img src="~/Externalimg/Gladxy_co._LOGO_Small.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-1" style="margin-left:0px;text-align:right;font-size:25px;">員工福利網</div>
+
+                        <div class="col-xl-8 col-lg-10 col-md-10" >
+                            <!-- Main-menu -->
+                            <div class="main-menu f-right d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <!-- <li><a href="#">Home</a></li> -->
+                                        <li><a href="/cBlog/ForumList">討論區</a></li>
+
+                                        <li><a href="/cBlog/PurchaseList">揪團go</a></li>
+                                        <li><a href="/cBlog/BlogList">部落格</a></li>
+                                        <li><a href="/cBlog/ForumListAction">活動區</a></li>
+                                        <li><p> 歡迎 @ViewBag.LoginName</p> </li>
+                                        <li><a href="/cBlog/MemberDataEdit/@ViewBag.enumber4">修改資料</a></li>/
+                                        <li><a href="/cBlog/LogOut">登出</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        @*<div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*//-------------------------header end----------------------//*@
+    <div class="container body-content">
+        @*<div class="row" style="margin-top:20px;">
+            <nav aria-label="breadcrumb" style="width:20%;margin:auto;">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">活動平台</li>
+                </ol>
+            </nav>
+        </div>*@
+
+        @*===================================================*@
+        <a @Html.ActionLink("我參加的活動", "BookingListView")</a>
+        <input type="button" value="活動清單"  onclick="javascript: location.href='ActionList'" />
+        <h3>熱門活動</h3>
+        <div class="theme">
+            <div class="theme-container">
+                @foreach (var item in Model)
+                {
+                    <div class="theme-event-card-container">
+                        <div class="card" style="width: 280px;">
+                            <div>
+                                <div>
+                                    <a href=@Href("~/cBlog/EventReading/",new { id=item.Event_ID})>
+                                        <img data-src="https://static.accupass.com/eventbanner/2009220545161654721153.jpg" class="style-39e1696a-image" style="width: 100%;" src="https://static.accupass.com/eventbanner/2009220545161654721153.jpg"><noscript></noscript>
+                                    </a>
+                                </div>
+                                <div class="bottom">
+                                    <div class="date" style="padding-bottom: 8px;">
+                                        <i class="far fa-clock"></i>
+                                        @*<span>2020-10-07(三)</span>*@
+                                        <div>@item.EventStartDate</div>
+                                        <div>@item.EventEndDate</div>
+                                    </div>
+                                    <div>
+                                        <a @Href("~/Action/EventReading/", new { id = item.Event_ID }) target="_blank">
+                                            @*<h3 class="card-title">野家院子繪心一笑創繪課</h3>*@
+                                            <h3 class="card-title">@item.EventName</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <br>
+        <h3>精選活動</h3>
+        <div class="container">
+            <div class="row artical-area border-bottom mb-3">
+
+
+                @foreach (var item in Model)
+                {
+                    <div class="article col-sm-12 col-md-6 col-lg-4 ">
+                        <div class="theme-event-card-container">
+                            <div class="card" style="width: 280px;">
+                                <div>
+                                    <div>
+                                        <a href="@Href("~/Action/EventReading/",new { id=item.Event_ID})" target="_blank" style="display: block; width: 80%;"><img data-src="https://static.accupass.com/eventbanner/2009220545161654721153.jpg" class="style-39e1696a-image" style="width: 100%;" src="https://static.accupass.com/eventbanner/2009220545161654721153.jpg"><noscript></noscript></a>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="date" style="padding-bottom: 8px;">
+                                            <i class="far fa-clock"></i>
+                                            <div>@item.EventStartDate</div>
+                                            <div>@item.EventEndDate</div>
+                                        </div>
+                                        <div>
+                                            <a href="/event/2009190628484417290410?utm_source=none&amp;utm_medium=home_north&amp;utm_campaign=accu_theme" target="_blank">
+                                                <h3 class="card-title">@item.EventName</h3>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/fontawesome-free-5.15.1-web/js/all.min.js"></script>
+    @*------------------------------------------outerjs*@
+    <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="../assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/animated.headline.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="../assets/js/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/jquery.form.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/mail-script.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+
+
+
+</body>
+</html>

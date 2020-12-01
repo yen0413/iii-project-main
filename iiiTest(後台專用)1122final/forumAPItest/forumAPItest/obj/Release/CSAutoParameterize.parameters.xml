@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="finaldbEntities1-Web.config Connection String" description="finaldbEntities1 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=johnny80826.database.windows.net;initial catalog=finaldb;persist security info=True;user id=Johnny80826;password=Johnny@gmail.com;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Johnny\\Desktop\\iiiTest\(後台專用\)1117final\\forumAPItest\\forumAPItest\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='finaldbEntities1']/@connectionString" />
+  </parameter>
+  <parameter name="final_pEntities-Web.config Connection String" description="final_pEntities 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Model2.csdl|res://*/Model2.ssdl|res://*/Model2.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=johnny80826.database.windows.net;initial catalog=final_p;persist security info=True;user id=Johnny80826;password=Johnny@gmail.com;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Johnny\\Desktop\\iiiTest\(後台專用\)1117final\\forumAPItest\\forumAPItest\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='final_pEntities']/@connectionString" />
+  </parameter>
+</parameters>

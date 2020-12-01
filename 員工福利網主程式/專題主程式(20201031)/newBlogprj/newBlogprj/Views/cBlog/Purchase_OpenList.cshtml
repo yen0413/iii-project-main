@@ -1,0 +1,622 @@
+﻿@model  IEnumerable<newBlogprj.Models.vm_openlistview>
+@*@model newBlogprj.pGroupdb*@
+@*@model List<newBlogprj.Models.vmpurchase_open>*@
+@{
+    int count = 0;
+}
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>揪團go開團 </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/flaticon.css">
+    <link rel="stylesheet" href="../assets/css/slicknav.css">
+    <link rel="stylesheet" href="../assets/css/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/css/themify-icons.css">
+    <link rel="stylesheet" href="../assets/css/slick.css">
+    <link rel="stylesheet" href="../assets/css/nice-select.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-5.14.0-web/css/all.css">
+    <style>
+        body {
+            background-color: #d5f0f0;
+            padding-top: 0px;
+            padding-right: 0px !important;
+        }
+
+        header {
+            background-color: white;
+        }
+
+        .push_right {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .button_margin {
+            margin: 10px;
+        }
+
+        .footer_range {
+            margin-top: 40px;
+        }
+
+
+
+        .footer-end-range {
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            /* width: 900px; */
+        }
+
+        .response_range {
+            display: flex;
+        }
+
+        .main_BCC {
+            background-color: #FFF8D7;
+            border-radius: 5px;
+        }
+
+        .text_mragin {
+            margin-right: 10px;
+        }
+
+        .figure_range {
+            margin: 5px;
+        }
+
+
+
+
+
+
+
+
+        .btn1 {
+            padding: 1px 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 40px;
+            border-radius: 6px;
+            margin-top: 6px;
+        }
+
+        .t {
+            background-color: #d5f0f0;
+            border-color: #d5f0f0;
+        }
+
+        .form-group1 {
+            width: 800px;
+            /* border: 1px solid blue; */
+        }
+
+        .sbtn {
+            background-color: #3D82AB;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    @*<img src="../assets/img/logo.png" alt="">*@
+                    <img src="~/assets/img/Gladxy_co._LOGO_Small.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="#"><img src="../assets/img/Gladxy_co._LOGO_Small.png" alt=""></a>
+                                </div>
+                            </div>
+                            <h3 class="col-xl-2 col-lg-4 col-md-3" style="display:flex;justify-content:center;">員工福利網</h3>
+
+                            <div class="col-xl-8 col-lg-10 col-md-10">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/cBlog/BlogList">部落格</a></li>
+                                            <li><a href="/cBlog/ForumList">討論區</a></li>
+
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    揪團GO
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <a class=" dropdown-item" href="/cBlog/PurchaseList" style="padding: 10px;">
+                                                        回到主頁
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_Open" style="padding: 10px;">
+                                                        我要開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        開團紀錄
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+
+
+                                                </div>
+                                            </li>
+
+                                            <li><a href="/cBlog/Action">活動區</a></li>
+                                            <!-- <li><a href="#">Blog</a>
+                                                <ul class="submenu">
+                                                    <li><a href="#">Blog</a></li>
+                                                    <li><a href="#">Blog Details</a></li>
+                                                </ul>
+                                            </li> -->
+                                            <!-- <li><a href="#">Pages</a>
+                                                <ul class="submenu">
+                                                    <li><a href="#">Element</a></li>
+                                                </ul>
+                                            </li> -->
+                                            @*<li><a href="/cBlog/MemberDataEdit/@ViewBag.enumber6">修改資料</a></li>/*@
+                                            <li>歡迎 @ViewBag.username </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    會員專區
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        我的開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+                                                    @*<div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                            我的郵件
+                                                        </a>*@
+                                                    @*<div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                            我要發信
+                                                        </a>*@
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/MemberDataEdit/@ViewBag.enumber6" style="padding: 10px;">
+                                                        修改資料
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Vote" style="padding: 10px;">
+                                                        我的投票
+                                                    </a>
+
+                                                </div>
+                                            </li>
+                                            <li><a href="/cBlog/LogOut">登出</a></li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+
+    <br />
+    <main style="height:600px;">
+        <input type="text" id="ggid" hidden />
+        <div class="container">
+            <table class="table table-light t" style="margin-left: 10px;">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">開團標題</th>
+                        <th scope="col">開團日期</th>
+                        <th scope="col">截止日期</th>
+
+                        @*<th scope="col">產品一ID</th>*@
+                        @*<th scope="col">p1達標數</th>
+        <th scope="col">p1訂購數</th>*@
+
+
+                        @*<th scope="col">產品二ID</th>*@
+                        @*<th scope="col">p2達標數</th>
+        <th scope="col">p2訂購數</th>*@
+
+
+
+
+                        <th scope="col">團購類型</th>
+                        <th scope="col">開團人ID</th>
+
+                        <th scope="col">查看訂購人</th>
+                        <th scope="col">新增產品</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*<tr>
+                            <th scope="row">1</th>
+                            <td>2020-02-03</td>
+                            <td>2020-08-09</td>
+                            <td>20</td>
+                            <td>25</td>
+                            <td>2</td>
+                            <td>隨便拉</td>
+                            <td>56</td>
+                        </tr>*@
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                            
+                        <tr>
+                            <th scope="row">@count</th>
+                            <th>@item.title</th>
+                            <td>@item.startdate</td>
+                            <td>@item.enddate</td>
+
+                            @*<td>@item.product1ID</td>*@
+                            @*<td>@item.product1targetnumber</td>*@
+                            @*<td>@item.p1currentnumber</td>*@
+
+                            @*<td>@item.product2ID</td>*@
+                            @*<td>@item.product2targetnumber</td>*@
+                            @*<td>@item.p2currentnumber</td>*@
+
+                            <td>@item.group_type</td>
+                            <td>@item.ownerid</td>
+                            @*<td><a href="/cBlog/CheckList?chkgid=@item.groupid" class="btn-primary">查看</a></td>*@
+                            <td><input type="button" onclick="javascript:location.href='/cBlog/CheckList?chkgid=@item.groupid'" class="btn btn-primary" value="查看" /></td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#creatproduct1" onclick="sendgid(@item.groupid)">
+                                    新增商品
+                                </button>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+
+
+
+
+
+        </div>
+        <div class="modal fade bd-example-modal-md" id="creatproduct1" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true" style="margin-top: 0px;">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div id="creatproduct">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6" style="margin:30px auto;">
+                                    <label for="inputEmail4"hidden>團購編號</label>
+                                    <input type="number" class="form-control" id="newgroupid"hidden>
+                                    <label for="inputEmail4" onclick="demo()">商品名稱</label>
+                                    <input type="text" class="form-control" id="newproductname">
+
+                                @*</div>*@
+                                @*<div class="form-group col-md-6">*@
+                                    <label for="from">商品價格</label>
+                                    <input type="number" class="form-control" id="newproductprice">
+                                    <label for="to" hidden>商品訂購量</label>
+        <input type="number" class="form-control" id="newproductcurrentnum" hidden>
+                                    <label for="from">商品庫存</label>
+                                    <input type="number" class="form-control" id="newproductrestnumber"
+                                           > 
+                                    
+                                @*</div>*@
+                                @*<div class="form-group col-md-6">*@
+                                    <label for="to">商品描述</label>
+                                    <input type="text" class="form-control" id="newproductdescription">
+
+                                    <textarea id="uploadPic" rows="1" style="display: none;"></textarea>
+                                    <label for="to">商品圖片 </label>
+                                    <input type="file" class="form-control" id="newproductpictureurl" name="file"
+                                           accept="image/*">
+                                    <img id="img" style="width:150px;height:150px;">
+
+
+
+                                </div>
+                            </div>
+
+                        </form>
+                        <button class="btn btn-primary" onclick="sendData2()"
+                                style=" margin-left: 80%;">
+                            送出
+                        </button>
+                        <input type="button" class="btn btn-success" value="demo1" onclick="demo()" />
+
+
+                    </div>
+                    <!-- <div id="creatorder">
+                    <form>
+                        <div class="form-row " style="margin-left: 25%;">
+                            <div class="form-group col-md-10">
+                                <label for="inputEmail4">訂購團編號</label>
+                                <input type="number" class="form-control" id="newordergroupid" disabled>
+                                <label for="inputEmail4" style="display: none;">商品編號</label>
+                                <input type="number" class="form-control" id="neworderproductid" style="display: none;"
+                                    disabled>
+                                <label for="inputEmail4">商品名稱</label>
+                                <input type="text" class="form-control" id="neworderproductname" disabled>
+                                <label for="to">訂購數量</label>
+                                <input type="number" class="form-control" id="neworderquantity">
+                            </div>
+                            <!-- <div class="form-group col-md-6">
+                                 <label for="from">訂購人編號</label>
+                                <input type="number" class="form-control" id="newordermemberid">
+
+                            </div> -->
+                    <!-- <div class="form-group col-md-6">
+                                <label for="from">訂購日期</label>
+                                <input type="date" class="form-control" id="neworderdate" style="margin-left: 10px;">
+                                <label for="to">訂購狀態</label>
+                                <input type="number" class="form-control" id="neworderstate" style="margin-left: 10px;">
+                            </div> -->
+                </div>
+                </form>
+                <!-- <button class="btn btn-primary" onclick="sendData3()"
+                style="margin-top: 10px; margin-left: 200px;">送出</button> -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_range footer-area footer-padding footer-bg"
+             data-background="../assets/img/footer_bg.jpg">
+            <div class="container">
+                <div class="footer-end-range footer_link">
+                    <div class="col-xl-7 col-lg-7 col-md-7">
+                        <div class="footer-end-left ">
+                            <a href="#">公司主頁</a>
+                            <a href="#">福委會主頁</a>
+                            <a href="#">與我聯繫</a>
+                            <a href="#">聲明事項</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-5 col-lg-5 col-md-5">
+                        <div class="footer-social f-right">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-end-range">
+                    <P>© 2020 Gladxy Daily. All rights reserved</P>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- JS here -->
+    <script>
+        function demo() {
+            document.getElementById("newproductname").value = "隨身碟";
+            document.getElementById("newproductprice").value = "639";
+            document.getElementById("newproductrestnumber").value = "1";
+            document.getElementById("newproductdescription").value = "方便攜帶，隨身好用";
+
+        }
+    </script>
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="../assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/animated.headline.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="../assets/js/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/jquery.form.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/mail-script.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+        const request = new XMLHttpRequest();
+        jQuery.support.cors = true;
+
+        const v_url = '1fuen12iii.azurewebsites.net';
+
+        const sendHttpRequest = (method, url, data) => {  //fetch的上半部整理成function
+            return fetch(url, {
+                method: method,
+                body: JSON.stringify(data),
+                headers: data ? { 'Content-Type': 'application/json', } : {} //{}裡面可放物件//三元表達式
+            })  //get data
+                .then(response => {
+                    if (response.status >= 400) {       //參考xml httprequest對於錯誤的處理方法
+                        //!response.ok
+                        return response.json().then(errResData => {
+                            const error = new Error('Something went wrong!');
+                            error.data = errResData;   //找出錯誤的資料為何
+                            throw error;
+                        });
+                    }
+                    return response.json();
+                })
+        };
+        const sendData2 = () => {
+            if (!document.getElementById("newproductname").value) {
+                alert('請填入產品名稱!');
+            } else if (!document.getElementById("newproductprice").value) {
+                alert("請輸入產品價格")
+            } else if (!document.getElementById("newproductcurrentnum").value) {
+                alert("請輸入產品訂購量")
+            } else if (!document.getElementById("newproductrestnumber").value) {
+                alert("請輸入產品庫存")
+            } else if (!document.getElementById("newproductdescription").value) {
+                alert("請輸入產品描述")
+            }
+            //  else if(!document.getElementById("newproductpictureurl").value){
+            //      alert("請輸入產品圖片")
+            //  }
+
+
+            else {
+                //sendHttpRequest('post', 'https://localhost:44310/api/gpproduct', {
+                sendHttpRequest('post', 'https://' + v_url + '/api/gpproduct', {
+                    "newgroupid": document.getElementById("newgroupid").value, 
+                    "newproductname": document.getElementById("newproductname").value,
+                    "newproductprice": document.getElementById("newproductprice").value,
+                    "newproductcurrentnum": document.getElementById("newproductcurrentnum").value,
+                    "newproductrestnumber": document.getElementById("newproductrestnumber").value,
+                    "newproductdescription": document.getElementById("newproductdescription").value,
+                    "newproductpictureurl": document.getElementById("uploadPic").value,
+
+                }).then(responseData => {
+                    //再次從server取資料
+                    console.log(responseData)
+                    $('#creatproduct1').modal('hide');
+                    $(".modal-backdrop").remove();
+                    request.onload = getData();
+
+                }).catch(err => {
+                    console.log(err, err.data);
+                });
+            }
+
+        };
+
+        $(document).on('change', '#newproductpictureurl', function () {
+            function getObjectURL(file) {
+                var url = null;
+                if (window.createObjcectURL != undefined) {
+                    url = window.createOjcectURL(file);
+                } else if (window.URL != undefined) {
+                    url = window.URL.createObjectURL(file);
+                } else if (window.webkitURL != undefined) {
+                    url = window.webkitURL.createObjectURL(file);
+                }
+                return url;
+
+            }
+            var objURL = getObjectURL(this.files[0]);//objURL為input file的真實路徑
+            getBase64(objURL, (dataURL) => {
+                //console.log(dataURL);
+                document.getElementById('uploadPic').value = dataURL
+            });
+        })
+        function getBase64(url, callback) {
+            //通過建構函式來建立的 img 例項，在賦予 src 值後就會立刻下載圖片，相比 createElement() 建立 <img> 省去了 append()，也就避免了文件冗餘和汙染
+            var Img = new Image(),
+                dataURL = '';
+            Img.src = url;
+            Img.setAttribute("crossOrigin", 'Anonymous')
+            Img.onload = function () { //要先確保圖片完整獲取到，這是個非同步事件
+                var canvas = document.createElement("canvas"), //建立canvas元素
+                    width = Img.width, //確保canvas的尺寸和圖片一樣
+                    height = Img.height;
+                canvas.width = width;
+                canvas.height = height;
+                canvas.getContext("2d").drawImage(Img, 0, 0, width, height); //將圖片繪製到canvas中
+                dataURL = canvas.toDataURL('image/jpg'); //轉換圖片為dataURL
+
+                callback ? callback(dataURL) : null; //呼叫回撥函式
+
+            };
+        }
+        function sendgid(gid) {
+            document.getElementById('ggid').value = gid;
+            document.getElementById('newgroupid').value = document.getElementById('ggid').value;
+            document.getElementById('newproductcurrentnum').value = 0;
+        }
+        const myFile = document.querySelector('#newproductpictureurl')
+
+        myFile.addEventListener('change', function (e) {
+            const file = e.target.files[0]
+            const reader = new FileReader()
+            // 轉換成 DataURL
+            reader.readAsDataURL(file)
+            reader.onload = function () {
+                // 將圖片 src 替換為 DataURL
+                img.src = reader.result
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

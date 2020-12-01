@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EventdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Event2">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventStartDate" Type="datetime" />
+          <Property Name="EventEndDate" Type="datetime" />
+          <Property Name="EventLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="EventName" Type="nvarchar" MaxLength="200" />
+          <Property Name="EventContent" Type="nvarchar" MaxLength="500" />
+          <Property Name="EventRemark" Type="nvarchar" MaxLength="500" />
+          <Property Name="EventMaxPeople" Type="int" Nullable="false" />
+          <Property Name="EventMinPeople" Type="int" />
+          <Property Name="EventLocationX" Type="varchar" MaxLength="50" />
+          <Property Name="EventLocationY" Type="varchar" MaxLength="50" />
+          <Property Name="EventNowJoin" Type="int" />
+          <Property Name="EventCreateEmployeeID" Type="int" />
+          <Property Name="EventImage" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="EventBooking2">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+            <PropertyRef Name="mb_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="mb_ID" Type="int" Nullable="false" />
+          <Property Name="BookingDate" Type="datetime" Nullable="false" />
+          <Property Name="EmployeeJoinStatus" Type="int" Nullable="false" />
+          <Property Name="BookingCount" Type="int" />
+          <Property Name="Event" Type="int" />
+        </EntityType>
+        <EntityType Name="EventComment2">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+            <PropertyRef Name="mb_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="mb_ID" Type="int" Nullable="false" />
+          <Property Name="CommentStatus" Type="int" />
+        </EntityType>
+        <Association Name="FK_EventBooking_Event">
+          <End Role="Event2" Type="Self.Event2" Multiplicity="1" />
+          <End Role="EventBooking2" Type="Self.EventBooking2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event2">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="EventBooking2">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventComment_Event">
+          <End Role="Event2" Type="Self.Event2" Multiplicity="1" />
+          <End Role="EventComment2" Type="Self.EventComment2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event2">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="EventComment2">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EventdbModelStoreContainer">
+          <EntitySet Name="Event2" EntityType="Self.Event2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventBooking2" EntityType="Self.EventBooking2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventComment2" EntityType="Self.EventComment2" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_EventBooking_Event" Association="Self.FK_EventBooking_Event">
+            <End Role="Event2" EntitySet="Event2" />
+            <End Role="EventBooking2" EntitySet="EventBooking2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventComment_Event" Association="Self.FK_EventComment_Event">
+            <End Role="Event2" EntitySet="Event2" />
+            <End Role="EventComment2" EntitySet="EventComment2" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EventdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EventBooking2">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+            <PropertyRef Name="mb_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="mb_ID" Type="Int32" Nullable="false" />
+          <Property Name="BookingDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmployeeJoinStatus" Type="Int32" Nullable="false" />
+          <Property Name="BookingCount" Type="Int32" />
+          <Property Name="Event" Type="Int32" />
+          <NavigationProperty Name="Event2" Relationship="EventdbModel.FK_EventBooking_Event" FromRole="EventBooking2" ToRole="Event2" />
+        </EntityType>
+        <EntityType Name="EventComment2">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+            <PropertyRef Name="mb_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="mb_ID" Type="Int32" Nullable="false" />
+          <Property Name="CommentStatus" Type="Int32" />
+          <NavigationProperty Name="Event2" Relationship="EventdbModel.FK_EventComment_Event" FromRole="EventComment2" ToRole="Event2" />
+        </EntityType>
+        <EntityContainer Name="EventdbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EventBooking2" EntityType="Self.EventBooking2" />
+          <EntitySet Name="EventComment2" EntityType="Self.EventComment2" />
+          <EntitySet Name="Event2" EntityType="EventdbModel.Event2" />
+          <AssociationSet Name="FK_EventBooking_Event" Association="EventdbModel.FK_EventBooking_Event">
+            <End Role="Event2" EntitySet="Event2" />
+            <End Role="EventBooking2" EntitySet="EventBooking2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventComment_Event" Association="EventdbModel.FK_EventComment_Event">
+            <End Role="Event2" EntitySet="Event2" />
+            <End Role="EventComment2" EntitySet="EventComment2" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Event2">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventStartDate" Type="DateTime" Precision="3" />
+          <Property Name="EventEndDate" Type="DateTime" Precision="3" />
+          <Property Name="EventLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EventName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EventContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EventRemark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EventMaxPeople" Type="Int32" Nullable="false" />
+          <Property Name="EventMinPeople" Type="Int32" />
+          <Property Name="EventLocationX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EventLocationY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EventNowJoin" Type="Int32" />
+          <Property Name="EventCreateEmployeeID" Type="Int32" />
+          <Property Name="EventImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EventBooking2" Relationship="EventdbModel.FK_EventBooking_Event" FromRole="Event2" ToRole="EventBooking2" />
+          <NavigationProperty Name="EventComment2" Relationship="EventdbModel.FK_EventComment_Event" FromRole="Event2" ToRole="EventComment2" />
+        </EntityType>
+        <Association Name="FK_EventBooking_Event">
+          <End Type="EventdbModel.Event2" Role="Event2" Multiplicity="1" />
+          <End Type="EventdbModel.EventBooking2" Role="EventBooking2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event2">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="EventBooking2">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventComment_Event">
+          <End Type="EventdbModel.Event2" Role="Event2" Multiplicity="1" />
+          <End Type="EventdbModel.EventComment2" Role="EventComment2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event2">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="EventComment2">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EventdbModelStoreContainer" CdmEntityContainer="EventdbEntities1">
+          <EntitySetMapping Name="EventBooking2">
+            <EntityTypeMapping TypeName="EventdbModel.EventBooking2">
+              <MappingFragment StoreEntitySet="EventBooking2">
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="mb_ID" ColumnName="mb_ID" />
+                <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+                <ScalarProperty Name="EmployeeJoinStatus" ColumnName="EmployeeJoinStatus" />
+                <ScalarProperty Name="BookingCount" ColumnName="BookingCount" />
+                <ScalarProperty Name="Event" ColumnName="Event" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventComment2">
+            <EntityTypeMapping TypeName="EventdbModel.EventComment2">
+              <MappingFragment StoreEntitySet="EventComment2">
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="mb_ID" ColumnName="mb_ID" />
+                <ScalarProperty Name="CommentStatus" ColumnName="CommentStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event2">
+            <EntityTypeMapping TypeName="EventdbModel.Event2">
+              <MappingFragment StoreEntitySet="Event2">
+                <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+                <ScalarProperty Name="EventCreateEmployeeID" ColumnName="EventCreateEmployeeID" />
+                <ScalarProperty Name="EventNowJoin" ColumnName="EventNowJoin" />
+                <ScalarProperty Name="EventLocationY" ColumnName="EventLocationY" />
+                <ScalarProperty Name="EventLocationX" ColumnName="EventLocationX" />
+                <ScalarProperty Name="EventMinPeople" ColumnName="EventMinPeople" />
+                <ScalarProperty Name="EventMaxPeople" ColumnName="EventMaxPeople" />
+                <ScalarProperty Name="EventRemark" ColumnName="EventRemark" />
+                <ScalarProperty Name="EventContent" ColumnName="EventContent" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+                <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />
+                <ScalarProperty Name="EventEndDate" ColumnName="EventEndDate" />
+                <ScalarProperty Name="EventStartDate" ColumnName="EventStartDate" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

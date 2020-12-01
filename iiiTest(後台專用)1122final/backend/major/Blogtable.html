@@ -1,0 +1,413 @@
+<!--
+=========================================================
+ Light Bootstrap Dashboard - v2.0.1
+=========================================================
+
+ Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+ Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard/blob/master/LICENSE)
+
+ Coded by Creative Tim
+
+=========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.svg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Gladxy Co.有限公司後台</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!--     Fonts and icons     -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/css/demo.css" rel="stylesheet" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+        integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+</head>
+<style>
+    .fa-edit,
+    .fa-trash-alt {
+        margin-left: 10px;
+    }
+
+    .search_txt {
+        margin-right: 2px;
+        margin-left: 10px;
+    }
+
+    p {
+        margin-left: 10px;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="" class="simple-text">
+                        員工福利網
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="index.html">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p>主頁</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Blogtable.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>部落格</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Emptable.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>員工</p>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a class="nav-link" href="./Event.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>開團</p>
+                        </a>
+                    </li> -->
+                    <li>
+                        <a class="nav-link" href="./Forum.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>討論區</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Protable.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>團購</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#pablo"> 部落格後台管理 </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pablo">
+                                    <span class="no-icon" onclick="logOut()">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card strpied-tabled-with-hover">
+                                <div class="card-header ">
+                                    <h4 class="card-title" onclick="demoblog()">新增資料</h4>
+
+                                </div>
+                                <div class="card-body table-full-width table-responsive">
+                                    <table class="table table-hover table-striped">
+                                        <!-- <button id="addBtn" onclick="addNew()">新增資料</button> -->
+                                        <form name='form' action='#' method='post' class="formtxt" id="addNew">
+                                            <p>人員:<br />
+                                                <input list="browsers" name="myBrowser" id="memberedit"></label>
+                                                <datalist id="browsers">
+
+                                                </datalist>
+                                                <br />
+                                            <p>標題:<br /><input type="text" id="titleedit"></p><br />
+                                            <p>內容:
+                                                <textarea name="contenttxt" id="contenttxt" rows="10"
+                                                    cols="80"></textarea></p>
+                                            <script>
+                                                CKEDITOR.replace('contenttxt', { width: 700, });
+                                                const intxt = CKEDITOR.instances.contenttxt.getData();
+                                            </script>
+                                            <p><input type='button' value='送出' onclick="sendData()"></p>
+                                        </form><br /><br />
+                                        <thead>
+                                            <th>ID</th>
+                                            <!-- <input type="text" class="search_txt" placeholder="還沒做" id="srchtxt_ID"> -->
+                                            <th>Title</th>
+                                            <input type="text" class="search_txt" placeholder="請填寫Title"
+                                                id="srchtxt_Title">
+                                            <th>Countent</th>
+                                            <input type="text" class="search_txt" placeholder="請填寫Content"
+                                                id="srchtxt_Content">
+                                            <th>CreatTime</th>
+                                            <!-- <input type="text" class="search_txt" placeholder="還沒做" id="srchtxt_CreatTime"> -->
+                                            <button><i class="fas fa-search" onclick="`${getDataKey()}`"></i></button>
+                                            <th>修改</th>
+                                            <th>刪除</th>
+                                        </thead>
+                                        <tbody>
+                                            <!-- <tr>
+                                                <td>1</td>
+                                                <td contentEditable="true">Dakota Rice</td>
+                                                <td contentEditable="true">$36,738</td>
+                                                <td >Niger</td>                                               
+                                                <td><button class="button1">修改<i class="fas fa-edit"></i></button></td>
+                                                <td><button>刪除<i class="fas fa-trash-alt"></i></button></i></td>                                                 
+                                            </tr>                                                                                    -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav>
+                        <p class="copyright text-center">
+                            © Gladxy Co.有限公司
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+<!--   Core JS Files   -->
+
+<script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="../assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Google Maps Plugin    -->
+
+<!--  Chartist Plugin  -->
+<script src="../assets/js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="../assets/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/js/demo.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+<script>
+
+
+    let cURL = 'https://1fuen12iii.azurewebsites.net';
+    // const srchtxt_ID =document.querySelector('#srchtxt_ID').value;
+    const srchtxt_Title = document.querySelector('#srchtxt_Title'),
+        srchtxt_Content = document.querySelector('#srchtxt_Content');
+    // srchtxt_CreatTime=document.querySelector('#srchtxt_CreatTime').value;
+
+    const request = new XMLHttpRequest();
+    jQuery.support.cors = true;
+
+    const sendHttpRequest = (method, url, data) => {  //fetch的上半部整理成function
+        return fetch(url, {
+            method: method,
+            body: JSON.stringify(data),
+            headers: data ? { 'Content-Type': 'application/json', } : { Authorization: 'Bearer ' + localStorage.getItem("token") },
+            //{}裡面可放物件//三元表達式
+        })  //get data  
+            .then(response => {
+                if (response.status >= 400) {       //參考xml httprequest對於錯誤的處理方法
+                    //!response.ok
+                    return response.json().then(errResData => {
+                        const error = new Error('Something went wrong!');
+                        error.data = errResData;   //找出錯誤的資料為何
+                        throw error;
+                    });
+                }
+                return response.json();
+            })
+    }
+
+
+
+
+    const getData = () => {
+        sendHttpRequest('get', cURL + '/api/blogback')
+            .then(responseData => {
+                let str = '';
+                responseData.ftable.forEach(i => {
+                    count = i.count;
+                    str += content_tpl(i);
+                })
+                $('tbody').html(str);
+            })
+    };
+
+    const getDataKey = () => {
+        const url = cURL + `/api/blogback/?titletxt=${srchtxt_Title.value}&contenttxt=${srchtxt_Content.value}`
+        sendHttpRequest('get', url)
+            .then(responseData => {
+                let str = '';
+                responseData.ftable.forEach(i => {
+                    count = i.count;
+                    str += content_tpl(i);
+                })
+                $('tbody').html(str);
+                // console.log(srchtxt_Title.value)  
+                // console.log(srchtxt_Content.value)  
+            })
+
+    };
+
+    const getData_delete = (id) => {
+        var check = confirm("確定要刪除嗎?");
+        if (!check) {
+            return
+        };
+        let UrlPutID = cURL + `/api/blogback/?id=${id}`
+        sendHttpRequest('Delete', UrlPutID
+        ).then(responseData => {
+            console.log(responseData);
+            //console.log(typeof responseData);
+            console.log(id);
+            //console.log(message.fmessage);
+            request.onload = getData();
+        }).catch(err => {
+            console.log(err, err.data);
+        });
+
+    };
+
+    const putEditData = (id) => {
+        // currentPost.iID
+        var check = confirm("確定要修改此筆資料嗎?");
+        const title = document.querySelector(`#title_${id}`).innerText
+        const content = document.querySelector(`#content_${id}`).innerText;
+
+        let UrlPutID = cURL + `/api/blogback/?id=${id}`
+        sendHttpRequest('Put', UrlPutID, {
+            "title": title,
+            "content": content
+        }).then(responseData => {
+            request.onload = getData();
+        }).catch(err => {
+            console.log(err, err.data);
+        });
+
+    };
+
+
+    const sendData = () => {
+        if (!document.getElementById("titleedit").value) {
+            alert('請填入標題!');
+        }
+        else if (!CKEDITOR.instances.contenttxt.getData()) {
+            alert('請填入內容!');
+        }
+        else {
+            sendHttpRequest('post', cURL + '/api/blogback', {
+                "title": document.getElementById("titleedit").value,
+                "content": CKEDITOR.instances.contenttxt.getData(),
+                "member": document.getElementById("memberedit").value,
+            }).then(responseData => {
+
+                //再次從server取資料
+                request.onload = getData();
+            }).catch(err => {
+                console.log(err, err.data);
+            });
+        }
+    };
+
+
+    const content_tpl = tpl => {
+        return ` <tr>
+                    <td>${tpl.id}</td>
+                    <td contentEditable="true" id="title_${tpl.id}">${tpl.title}</td>
+                    <td contentEditable="true" id="content_${tpl.id}">${tpl.Content}</td>
+                    <td >${tpl.time}</td>                                               
+                    <td><button class="btn btn-primary" onclick="putEditData(${tpl.id})">修改<i class="fas fa-edit" ></i></button></td>                  
+                    <td><button class="btn btn-danger" onclick="getData_delete(${tpl.id})">刪除<i class="fas fa-trash-alt" ></i></button></td></tr>`;
+    };
+
+    request.onload = getData();
+
+    srchtxt_Title.addEventListener('change', (event) => { request.onload = getData() });
+    srchtxt_Content.addEventListener('change', (event) => { request.onload = getData() });
+
+    let availableTags;
+    const string1 = [];
+    let selectTags;
+    const string2 = [];
+    $.ajax({
+        url: cURL + "/api/blogback",
+        type: "GET", headers: { Authorization: 'Bearer ' + localStorage.getItem("token") },
+        success: function (response) {
+            response.ftable.forEach((v, i) => {
+                string1[i] = v.title
+            })
+            //console.log(string1)
+            availableTags = string1.splice(",");
+            $("#srchtxt_Title").autocomplete({
+                source: availableTags
+            });
+            response.allName.forEach((v, i) => {
+                string2[i] = v.name
+            });
+            //console.log(string2)
+            selectTags = string2.splice(",");
+
+            selectTags.forEach(element => {//console.log(element);
+                document.getElementById('browsers').innerHTML += `<option value="${element}">${element}</option>`
+            });
+        }
+    });
+
+
+    function logOut() {
+        localStorage.removeItem("token");
+        location.href = "login.html"
+    }
+
+
+
+    function demoblog() {
+        document.getElementById("titleedit").value = "密西根州最大郡反轉僵局終認證總統選舉結果";
+        CKEDITOR.instances.contenttxt.setData("美國密西根州最大郡韋恩郡今晚推翻稍早決定，一致同意認證總統選舉結果。現任總統川普所屬的共和黨先前在表決中阻止認證，試圖暫緩密西根州正式認可民主黨籍的拜登勝出。");
+
+    }
+
+</script>
+
+</html>

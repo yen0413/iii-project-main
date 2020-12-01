@@ -1,0 +1,435 @@
+﻿@*@model IEnumerable<newBlogprj.Models.vmpurchase_open>*@
+
+    
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>forums討論區 </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/flaticon.css">
+    <link rel="stylesheet" href="../assets/css/slicknav.css">
+    <link rel="stylesheet" href="../assets/css/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/css/themify-icons.css">
+    <link rel="stylesheet" href="../assets/css/slick.css">
+    <link rel="stylesheet" href="../assets/css/nice-select.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-5.14.0-web/css/all.css">
+    <style>
+        .push_right {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .button_margin {
+            margin: 10px;
+        }
+
+        .footer_range {
+            margin-top: 40px;
+        }
+
+        /* .footer-end-social a,
+        .footer_link a {
+            font-size: 120%;
+            color: black;
+            text-decoration: none;
+            margin: 5px;
+        } */
+
+        .footer-end-range {
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            /* width: 900px; */
+        }
+
+        .response_range {
+            display: flex;
+        }
+
+        .main_BCC {
+            background-color: #FFF8D7;
+            border-radius: 5px;
+        }
+
+        .text_mragin {
+            margin-right: 10px;
+        }
+
+        .figure_range {
+            margin: 5px;
+        }
+
+        .card {
+            width: 430px;
+            height: 440px;
+            margin:0 10px;   
+            /*border: 1px solid blue;*/
+        }
+
+        .card-body1 {
+            /*border: 1px solid blue;*/
+        }
+        .card-textarea{
+            /*border:1px solid green;*/
+            width:295px;
+            display:flex;
+        }
+        .card-text1 {
+            /*border: 1px solid red;*/
+            margin:auto;
+            width:130px;
+        }
+        
+        .p_area {
+            /*border: 1px solid blue;*/
+            width: 1200px;
+            height: 2000px;
+        }
+
+        .p_area-card {
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content:space-between;
+            margin-top: 20px;
+        }
+
+        .pa1 {
+            /*border: 1px solid green;*/
+            max-width:1200px;
+            height: 400px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap:wrap;
+        }
+
+        .n {
+            
+            margin-top: -5px;
+        }
+
+        .btn1 {
+            padding: 1px 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 35px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="../assets/img/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="#"><img src="../assets/img/Gladxy_co._LOGO_Small.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-2 col-md-1" style="margin-left:0px;text-align:right;font-size:30px;">員工福利網</div>
+
+                            <div class="col-xl-7 col-lg-10 col-md-10">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            
+                                            @*   <li><a href="/cBlog/ForumList">討論區</a></li>*@
+                                            <li><a href="~/forumtestpage.html">討論區</a></li>
+                                            @*-------------------------------------------------------------------------------change site----*@
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    揪團GO
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_Open" style="padding: 10px;">
+                                                        我要開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        開團紀錄
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+
+
+                                                </div>
+                                            </li>
+                                            <li><a href="/cBlog/BlogList">部落格</a></li>
+                                            <li><a href="/cBlog/Action">活動區</a></li>
+                                            
+                                            <li><span> 歡迎 @ViewBag.LoginName</span> </li>
+                                            <li><a href="/cBlog/MemberDataEdit/@ViewBag.enumber2">修改資料</a></li>/
+                                            <li><a href="/cBlog/LogOut">登出</a></li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+
+    <br />
+    <main>
+        <div class="container">
+            <div class="p_area">
+
+                <div class="pa1 ">
+
+                    <div class="card col-xl-3" style="height:500px;width:440px;">
+                        <div style="display:flex;height:180px; ">
+                            <img src="~/pimg/椅子.jpg" class="card-img-top" style="margin:0 auto; width:100px;height:100px;border:1px solid blue;" alt="...">
+                            <img src="~/pimg/椅子.jpg" class="card-img-top" style="margin:0 auto; width:100px;height:100px;" alt="...">
+                        </div>
+                        <div class="card-body1">
+                            <h5 class="card-title1">iKea實用小椅子</h5>
+                            <div class="card-textarea">
+                                <p class="card-text1">
+                                    <br />
+                                    
+                                    目標人數<br />55<br />
+                                    現在人數<br />6<br />
+                                    目前價格<br />987<br />
+                                              <select class="n">
+                                                  <option>請選擇數量</option>
+                                                  <option>0</option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                              </select>
+                                </p>
+                                <p class="card-text1">
+                                    <br />
+                                    
+                                    目標人數<br /><br />
+                                    現在人數<br /><br />
+                                    目前價格<br /><br />
+                                              <select class="n">
+                                                  <option>請選擇數量</option>
+                                                  <option>0</option>
+                                                  <option>1</option>
+                                                  <option>2</option>
+                                                  <option>3</option>
+                                                  <option>4</option>
+                                                  <option>5</option>
+                                                  <option>6</option>
+                                                  <option>7</option>
+                                                  <option>8</option>
+                                                  <option>9</option>
+                                                  <option>10</option>
+                                              </select>
+                                </p>
+                            </div>
+
+                            <div class="p_area-card">
+                                <p>截止日期20201212</p>
+                                <a href="#" class="btn1 btn-primary">我要跟團</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                  
+                    <div class="card col-xl-3" style="height:500px;width:440px;">
+                        <div style="display:flex;height:180px; ">
+                            <img src="~/pimg/椅子.jpg" class="card-img-top" style="margin:0 auto; width:100px;height:100px;border:1px solid blue;" alt="...">
+                            <img src="~/pimg/椅子.jpg" class="card-img-top" style="margin:0 auto; width:100px;height:100px;" alt="...">
+                        </div>
+                        <div class="card-body1">
+                            <h5 class="card-title1">iKea實用小椅子</h5>
+                            <div class="card-textarea">
+                                <p class="card-text1">
+                                    <br />
+                                    截止日期<br /><br />
+                                    目標人數<br /><br />
+                                    現在人數<br /><br />
+                                    目前價格<br /><br />
+                                    <select class="n">
+                                        <option>請選擇數量</option>
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </p>
+                                <p class="card-text1">
+                                    <br />
+                                    截止日期<br /><br />
+                                    目標人數<br /><br />
+                                    現在人數<br /><br />
+                                    目前價格<br /><br />
+                                    <select class="n">
+                                        <option>請選擇數量</option>
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </p>
+                            </div>
+
+                            <div class="p_area-card">
+                                <a href="#" class="btn1 btn-primary">商品詳情</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+
+
+
+                </div>
+
+
+                
+
+               
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer_range footer-area footer-padding footer-bg"
+             data-background="assets/img/service/footer_bg.jpg">
+            <div class="container">
+                <div class="footer-end-range footer_link">
+                    <div class="col-xl-7 col-lg-7 col-md-7">
+                        <div class="footer-end-left ">
+                            <a href="#">公司主頁</a>
+                            <a href="#">福委會主頁</a>
+                            <a href="#">與我聯繫</a>
+                            <a href="#">聲明事項</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-5 col-lg-5 col-md-5">
+                        <div class="footer-social f-right">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-end-range">
+                    <P>© 2020 Gladxy Daily. All rights reserved</P>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="../assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/animated.headline.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="../assets/js/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/jquery.form.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/mail-script.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+
+</body>
+
+</html>

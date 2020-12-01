@@ -1,0 +1,433 @@
+﻿
+@{
+    //ViewBag.Title = "Start";
+}
+
+@*<h2>Start</h2>
+    <h2>@ViewBag.Title</h2>
+    <p>
+        @Html.ActionLink("註冊", "Register", "Login", new { style = "color : blue" })
+    </p>
+    <p>
+        @Html.ActionLink("忘記密碼", "ForgetPsw", "Login", new { style = "color : blue" })
+    </p>*@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Gladxy Co._LogIn</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Externalimg/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="~/ExternalCss/bootstrap.min.css">
+    <link rel="stylesheet" href="~/ExternalCss/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/ExternalCss/flaticon.css">
+    <link rel="stylesheet" href="~/ExternalCss/slicknav.css">
+    <link rel="stylesheet" href="~/ExternalCss/animate.min.css">
+    <link rel="stylesheet" href="~/ExternalCss/magnific-popup.css">
+    <link rel="stylesheet" href="~/ExternalCss/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/ExternalCss/themify-icons.css">
+    <link rel="stylesheet" href="~/ExternalCss/slick.css">
+    <link rel="stylesheet" href="~/ExternalCss/nice-select.css">
+    <link rel="stylesheet" href="~/ExternalCss/style.css">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .modal-dialog {
+            top: -20px;
+            margin-left: 460px;
+        }
+
+        .area {
+            /*border: 1px solid blue;*/
+            display: flex;
+            margin-left: 100px;
+        }
+
+        .area1 {
+            /* border: 1px solid red; */
+            width: 300px;
+        }
+
+        .area2 {
+            /*border: 1px solid blue;*/
+            margin-left: 150px;
+        }
+
+        .typearea {
+            /* border: 1px solid blue; */
+            width: 500px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            margin-left: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="~/Externalimg/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="#"><img src="~/Externalimg/Gladxy_co._LOGO_Small.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-10">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <!-- <li><a href="#">Home</a></li> -->
+                                            <li><a href="#">關於我們</a></li>
+                                            <!-- <li><a href="#">Package</a></li> -->
+                                            <!-- <li><a href="#">Blog</a>
+                                                <ul class="submenu">
+                                                    <li><a href="#">Blog</a></li>
+                                                    <li><a href="#">Blog Details</a></li>
+                                                </ul>
+                                            </li> -->
+                                            <!-- <li><a href="#">Pages</a>
+                                                <ul class="submenu">
+                                                    <li><a href="#">Element</a></li>
+                                                </ul>
+                                            </li> -->
+                                            <li><a href="#">聯絡我們</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+    <main>
+
+        <!-- slider Area Start-->
+        <div class="slider-area ">
+            <!-- Mobile Menu -->
+            <div class="slider-active">
+                @*<div class="single-slider hero-overly d-flex slider-height align-items-center"
+                    data-background="../Externalimg/main.jpg">*@
+                <!-- 主頁圖片 -->
+                <div class="container">
+                    <div class="row">
+                        @*<div class="col-xl-9 col-lg-9 col-md-9">
+                            <div class="hero__caption">
+                                <h1>Welcome to </h1>
+                                <h1><span>Gladxy Daily System!</span></h1>*@
+                        <!-- <p>LogIn Here</p> -->
+                        @*</div>
+                            </div>*@
+                    </div>
+                    <!-- Login Box -->
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <!-- form -->
+                            <form method="post">
+                                <div class="area">
+                                    <div class="area1">
+
+                                        <div class="typearea">
+                                            <span>帳號:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <input type="text" name="txtac" placeholder="enter your account" required><span>@ViewBag.rmsg</span>
+                                        </div>
+                                        <div class="typearea">
+                                            <span>密碼: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <input type="text" name="txtpsw" placeholder="enter your password" required>
+                                        </div>
+                                        <div class="typearea">
+                                            <span>姓名: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <input type="text" name="txtname" placeholder="enter your name" required>
+                                        </div>
+                                        <div class="typearea">
+                                            <span>性別: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            @*<input type="text" placeholder="enter your gender">*@
+                                            <input type="radio" name="txtgender" value="男" checked>男生
+                                            <input type="radio" name="txtgender" value="女">女生
+                                        </div>
+                                        <div class="typearea">
+                                            <span>地址: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                                            <input type="text" name="txtaddress" placeholder="enter your address" required>
+                                        </div>
+                                        <div class="typearea">
+                                            <span>部門: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <input type="radio" name="txtdept" value="1">研發
+                                            <input type="radio" name="txtdept" value="2">管理
+                                            <input type="radio" name="txtdept" value="3" />行政
+                                        </div>
+                                        <div class="typearea">
+                                            <span>出生年月日: </span>
+                                            <input type="date" name="txtbirthday" placeholder="enter your birthday" required>
+                                        </div>
+                                        <div class="typearea">
+                                            <span>連絡電話: &nbsp;&nbsp;&nbsp;</span>
+                                            <input type="text" name="txtphone" placeholder="enter your phone" required>
+                                        </div>
+                                        <div class="typearea">
+                                            <span>居住城市: &nbsp;&nbsp;&nbsp;</span>
+                                            <input type="text" name="txtlivecity" placeholder="enter your location" required>
+                                        </div>
+                                        <div class="typearea">
+                                            <span>個人照片: &nbsp;&nbsp;&nbsp;</span>
+                                            <input type="file" name="txtpic" placeholder="enter your constellation">
+                                            <img src="@ViewBag.img" />
+                                            @*<img src="../Content/images.jpg" />*@
+                                        </div>
+
+                                        @*<div class="submit">
+                                                <input type="button" value="submit">
+                                            </div>*@
+                                    </div>
+                                    <div class="area2">
+                                        <div class="typearea">
+                                            <span>電郵: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <input type="email" name="txtemail" placeholder="enter your email" required>
+                                        </div>
+                                        <div class="typearea">
+                                            <span>興趣: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            <input type="text" name="txthobby" placeholder="enter your hobby" required>
+                                        </div>
+                                        <div class="typearea">
+                                            <span>到職日: &nbsp;&nbsp;</span>
+                                            <input type="date" name="txthireday" placeholder="enter your startday">
+                                        </div>
+                                        <div class="typearea" style="display:flex">
+                                            <p style="font-size:14px; color:#333;">交通工具: </p>
+                                            @*<input type="text" placeholder="enter your bike">*@
+                                            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                            <select name="txttransport">
+                                                <option value="汽車">汽車</option>
+                                                <option value="機車">機車</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <input class="btn btn-primary" type="submit" value="ok" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @*</div>*@
+            </div>
+        </div>
+        <!-- slider Area End-->
+        <!-- Our Services Start -->
+        <div class="our-services servic-padding">
+            <div class="container">
+                <div class="row d-flex justify-contnet-center">
+                    @*<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6" onclick="javascript:location.href='/cBlog/ForumList'">
+                            <div class="single-services text-center mb-30">
+                                <div class="services-ion">
+                                    <span class="flaticon-tour"></span>
+                                </div>
+                                <div class="services-cap">
+                                    <h5>討論區<br>Guides</h5>
+                                </div>
+                            </div>
+                        </div>*@
+                    @*<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="single-services text-center mb-30">
+                                <div class="services-ion">
+                                    <span class="flaticon-pay"></span>
+                                </div>
+                                <div class="services-cap">
+                                    <h5>揪團Go<br>Shopping</h5>
+                                </div>
+                            </div>
+                        </div>*@
+                    @*<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6" onclick="javascript:location.href='/cBlog/BlogList' ">
+                            <div class="single-services text-center mb-30">
+                                <div class="services-ion">
+                                    <span class="flaticon-experience"></span>
+                                </div>
+                                <div class="services-cap">
+                                    <h5>部落格<br>Blog</h5>
+                                </div>
+                            </div>
+                        </div>*@
+                    @*<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6" onclick="javascript:location.href='/cBlog/Action' ">
+                            <div class="single-services text-center mb-30">
+                                <div class="services-ion">
+                                    <span class="flaticon-good"></span>
+                                </div>
+                                <div class="services-cap">
+                                    <h5>活動區<br>Activity</h5>
+                                </div>
+                            </div>
+                        </div>*@
+                    <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                        <div class="single-services text-center mb-30">
+                            <div class="services-ion">
+                                <span class="flaticon-good"></span>
+                            </div>
+                            <div class="services-cap">
+                                <h5>98% Our Travelers<br>are Happy</h5>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">忘記密碼</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <input type="text" id="semail" width="200" placeholder="your Email">
+                        <input type="text" id="showe" hidden />
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <a id="c" class="btn btn-primary" @*href="/Login/SendEmail"*@ onclick="sendemail()">Save changes</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <script type="text/javascript">
+            function sendemail() {
+                var se = document.getElementById("semail");
+                var count = 0;
+                var she = document.getElementById("showe");
+                she.value = se.value;
+
+                for (let i = 0; i < se.value.length; i++) {
+                    const c = se.value[i];
+                    if (c == "@@") {
+                        count++;
+                    }
+                    if (c == ".") {
+                        count++;
+                    }
+                }
+                if (count == 2) {
+                    document.location.href = "/cBlog/SendEmail?id=" + se.value + "";
+                } else {
+                    alert("email格式錯誤");
+                }
+
+            }
+
+
+        </script>
+
+
+
+
+    </main>
+
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    @*<script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>*@
+    <script src="~/Externaljs/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    @*<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>*@
+    <script src="~/Externaljs/jquery-1.12.4.min.js"></script>
+
+    @*<script src="./assets/js/popper.min.js"></script>*@
+    <script src="~/Externaljs/popper.min.js"></script>
+
+    @*<script src="./assets/js/bootstrap.min.js"></script>*@
+    <script src="~/Externaljs/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    @*<script src="./assets/js/jquery.slicknav.min.js"></script>*@
+    <script src="~/Externaljs/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    @*<script src="./assets/js/owl.carousel.min.js"></script>*@
+    <script src="~/Externaljs/owl.carousel.min.js"></script>
+
+    @*<script src="./assets/js/slick.min.js"></script>*@
+    <script src="~/Externaljs/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    @*<script src="./assets/js/wow.min.js"></script>
+        <script src="./assets/js/animated.headline.js"></script>
+        <script src="./assets/js/jquery.magnific-popup.js"></script>*@
+    <script src="~/Externaljs/wow.min.js"></script>
+    <script src="~/Externaljs/animated.headline.js"></script>
+    <script src="~/Externaljs/jquery.magnific-popup.js"></script>
+    <!-- Scrollup, nice-select, sticky -->
+    @*<script src="./assets/js/jquery.scrollUp.min.js"></script>
+        <script src="./assets/js/jquery.nice-select.min.js"></script>
+        <script src="./assets/js/jquery.sticky.js"></script>*@
+    <script src="~/Externaljs/jquery.scrollUp.min.js"></script>
+    <script src="~/Externaljs/jquery.nice-select.min.js"></script>
+    <script src="~/Externaljs/jquery.sticky.js"></script>
+    <!-- contact js -->
+    @*<script src="./assets/js/contact.js"></script>
+        <script src="./assets/js/jquery.form.js"></script>
+        <script src="./assets/js/jquery.validate.min.js"></script>
+        <script src="./assets/js/mail-script.js"></script>
+        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>*@
+    <script src="~/Externaljs/contact.js"></script>
+    <script src="~/Externaljs/jquery.form.js"></script>
+    <script src="~/Externaljs/jquery.validate.min.js"></script>
+    <script src="~/Externaljs/mail-script.js"></script>
+    <script src="~/Externaljs/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    @*<script src="./assets/js/plugins.js"></script>
+        <script src="./assets/js/main.js"></script>*@
+    <script src="~/Externaljs/plugins.js"></script>
+    <script src="~/Externaljs/main.js"></script>
+</body>
+
+</html>
+
+

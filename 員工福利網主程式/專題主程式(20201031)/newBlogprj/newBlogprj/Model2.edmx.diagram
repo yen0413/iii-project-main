@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="014bd9dafb1946ebaacafb1edd1b8877" Name="Diagram1">
+        <EntityTypeShape EntityType="final_pModel.Group_Order_Binding" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="final_pModel.Group_Product_Binding" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="final_pModel.Order" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="final_pModel.pGroupdb" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="final_pModel.pProductdb" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="final_pModel.FK_Group_Order_Binding_Groupdb" ManuallyRouted="false" />
+        <AssociationConnector Association="final_pModel.FK_Group_Order_Binding_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="final_pModel.FK_Group_Product_Binding_Groupdb" ManuallyRouted="false" />
+        <AssociationConnector Association="final_pModel.FK_Group_Product_Binding_Productdb" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

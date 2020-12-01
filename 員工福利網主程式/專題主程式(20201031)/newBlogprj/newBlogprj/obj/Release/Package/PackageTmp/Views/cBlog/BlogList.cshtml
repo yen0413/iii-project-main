@@ -1,0 +1,447 @@
+﻿@model IEnumerable<newBlogprj.Models.mBlogViewmodels>
+
+@{
+    ViewBag.Title = "BlogList";
+    int count = 0;
+    decimal totalDays = 0;
+    var name = "";
+    var email = "";
+    var phone = "";
+    var address = "";
+    var hobby = "";
+    var picture = "";
+    var birthday = "";
+    var livecity = "";
+    var hireday = "";
+    int packge = 1;
+}
+
+
+
+
+@foreach (var item in Model)
+{
+    name = @Html.DisplayFor(modelItem => item.mb_employeeName).ToString();
+
+    phone = @Html.DisplayFor(modelItem => item.mb_employeePhone).ToString();
+
+    email = @Html.DisplayFor(modelItem => item.mb_employeeEmail).ToString();
+
+    address = @Html.DisplayFor(modelItem => item.mb_employeeAddress).ToString();
+
+    hobby = @Html.DisplayFor(modelItem => item.mb_employeeHobby).ToString();
+
+    picture = @Html.DisplayFor(modelItem => item.mb_employeePicture).ToString();
+
+    birthday = @Html.DisplayFor(modelItem => item.mb_employeeBirthday).ToString();
+
+    livecity = @Html.DisplayFor(modelItem => item.mb_employeeLiveCity).ToString();
+
+    hireday = @Html.DisplayFor(modelItem => item.mb_employeeHireDate).ToString();
+
+}
+
+
+
+<title>Document</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        /* 按下GoTop按鈕時的事件 */
+        $('#gotop').click(function () {
+            $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+            return false;
+        });
+
+        /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 400) {
+                $('#gotop').fadeIn();
+            } else {
+                $('#gotop').fadeOut();
+            }
+        });
+    });
+
+    if (@packge>0) {
+        $("#packige").removeClass("packige").addClass("packige2");
+    }
+
+</script>
+<!-- CSS here -->
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="../assets/css/flaticon.css">
+<link rel="stylesheet" href="../assets/css/slicknav.css">
+<link rel="stylesheet" href="../assets/css/animate.min.css">
+
+<link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="../assets/css/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/slick.css">
+<link rel="stylesheet" href="../assets/css/nice-select.css">
+<link rel="stylesheet" href="~/spcss/style.css">
+<link rel="stylesheet" href="../assets/css/all.css">
+<style>
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: .88rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        text-align: left;
+        background-color: #eef1f3;
+        /*background-color:white;*/
+    }
+
+    .mt-100 {
+        margin-top: 100px
+    }
+
+    .card {
+        box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+        border-width: 0;
+        transition: all .2s
+    }
+
+    .card-header:first-child {
+        border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        border-bottom-width: 1px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: .625rem;
+        height: 3.5rem;
+        text-transform: uppercase;
+        background-color: #fff;
+        border-bottom: 1px solid rgba(26, 54, 126, 0.125)
+    }
+
+    .btn-primary {
+        color: #000000;
+        background-color: #FAFAFA;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        font-weight: 500;
+        outline: none !important;
+        position: relative;
+        transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1.25rem
+    }
+
+        .card-body p {
+            font-size: 13px
+        }
+
+    a {
+        color: #0F0F0F;
+        text-decoration: none !important;
+        background-color: transparent
+    }
+
+    .media img {
+        width: 40px;
+        height: auto
+    }
+
+    .creat {
+        margin-left: 20px;
+        margin-bottom: 20px;
+        background-color: #FFE8BF;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .fas {
+        margin-left: 50px;
+    }
+
+    .personpicture {
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .card-title {
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    .card1 {
+        background-color: #FFF7E8;
+    }
+
+    #gotop {
+        position: fixed;
+        z-index: 90;
+        right: 30px;
+        bottom: 31px;
+        display: none;
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        background: #33b5e5;
+        line-height: 50px;
+        border-radius: 50%;
+        transition: all 0.5s;
+        text-align: center;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    }
+
+        #gotop :hover {
+            background: #0099CC;
+        }
+
+    .packige {
+        margin-top: 50px;
+        opacity: 0.3;
+    }
+
+    .packige2 {
+        margin-top: 50px;
+        opacity: 1;
+    }
+
+    /*.btn{
+        width:30px;
+        height:20px;
+    }*/
+</style>
+
+<body>
+    <div class="header-area">
+        <div class="main-header ">
+            <div class="header-bottom  header-sticky">
+                <div class="container" >
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="#"><img src="~/Externalimg/Gladxy_co._LOGO_Small.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-2 col-md-1" style="margin-left:0px;text-align:right;font-size:30px;">員工福利網</div>
+
+                        <div class="col-xl-7 col-lg-10 col-md-10">
+                            <!-- Main-menu -->
+                            <div class="main-menu f-right d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <!-- <li><a href="#">Home</a></li> -->
+                                        <li><a href="/cBlog/ForumList">討論區</a></li>
+
+                                        <li><a href="/cBlog/PurchaseList">揪團go</a></li>
+                                        <li><a href="/cBlog/BlogList">部落格</a></li>
+                                        <li><a href="/cBlog/Action">活動區</a></li>
+                                        <li><p>  @ViewBag.LoginName</p> </li>
+                                        <li><a href="/cBlog/MemberDataEdit/@ViewBag.enumber3">修改資料</a></li>/
+                                        <li><a href="/cBlog/LogOut">登出</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*//-------------------------header end----------------------//*@
+
+
+
+    <a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+    <div class="rrr " style="display:block;width:1400px;margin-top:30px;margin-left:30px;">
+        <div class="rr" >
+            <div class="col-md-2">
+                <h5 class="card-title">個人資料</h5>
+                <div class="row">
+                    <div class="card card1 " style="width: 300px;">
+                        <img src="~/Content/金城武.jpg" class="personpicture">
+                        <div class="card-body ">
+                            <p>姓名: <span class="card-text">@name</span></p>
+                            <p>郵件地址:<span class="card-text">@email</span></p>
+                            <p>電話:<span class="card-text">@phone</span></p>
+                            <p>地址:<span class="card-text">@address</span></p>
+                            <p>興趣:<span class="card-text">@hobby</span></p>
+                            <p>生日:<span class="card-text">@birthday</span></p>
+                            <p>居住城市:<span class="card-text">@livecity</span></p>
+                            <p>聘用日期:<span class="card-text">@hireday</span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="d-flex flex-wrap justify-content-between align-items-center " style="width:550px;margin-left:50px;">
+                    <div>
+                        <button type="button" class="creat" id="creat" name="creat">
+                            @Html.ActionLink("新增", "Create")
+                        </button>
+                        @*<i class="fas fa-plus"></i>*@
+                    </div>
+                    @using (Html.BeginForm())
+                    {
+                        <p>
+                            @Html.TextBox("searchString")
+                            <input type="submit" value="查詢" />
+                            @*<i class="fas fa-search"></i>*@
+                        </p>
+                    }
+                </div>
+                @foreach (var item in Model)
+                {
+                    if (item.blog_date != null)
+                    {
+                        DateTime y = DateTime.Parse(item.blog_date);
+                        TimeSpan ts = DateTime.Now - y;
+                        totalDays = Math.Floor(decimal.Parse(ts.TotalDays.ToString()));
+                    }
+
+                    count++;
+                    <div class="container-fluid mt-50" style=" width:600px">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <div class="media flex-wrap w-100 align-items-center">
+                                            <a href="javascript:void(0)" data-abc="true">@count</a>
+                                            <div class="media-body ml-3">
+                                                <span>@Html.DisplayFor(modelItem => item.blog_title)</span>
+                                                <div class="text-muted small">@totalDays days ago</div>
+                                            </div>
+                                            <div class="text-muted small ml-3">
+                                                <div>最後編輯時間: <strong>@Html.DisplayFor(modelItem => item.blog_date)</strong></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>@Html.DisplayFor(modelItem => item.blog_content, "HTML")</p>
+                                    </div>
+                                    <div class="card-footer d-flex flex-wrap justify-content-end align-items-center px-0 pt-0 pb-3" style="height:60px;">
+                                        <div class="px-4 pt-3">
+                                            <labal class="" >
+                                                @*<i class="far fa-edit"></i>*@
+                                                @Html.ActionLink("編輯", "Edit", new { id = item.blog_ID }, new { @class = "btn btn-primary"})
+
+                                            </labal>
+                                            @*<button class="">*@
+                                                @*<i class="far fa-trash-alt"></i>*@
+                                            <label class="">
+                                                @Html.ActionLink("刪除", "Delete", new { id = item.blog_ID },
+                                                                                                new { OnClick = "return confirm('確定要刪除嗎?')", @class = "btn btn-primary" })
+                                            </label>
+                                                
+                                            @*</button>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*count++;
+                        <div class="row">
+                            <div class="col-sm-6 col-md-10">
+                                <div class="alert-danger">@count</div>
+                                <h5>@Html.DisplayFor(modelItem => item.blog_title)</h5>
+                                <div id="innerContent">
+                                    @Html.DisplayFor(modelItem => item.blog_content, "HTML")
+                                </div>
+                                @Html.ActionLink("編輯", "Edit", new { id = item.blog_ID }) |
+                                @Html.ActionLink("刪除", "Delete", new { id = item.blog_ID },
+                               new { OnClick = "return confirm('確定要刪除嗎?')", Class = "btn btn-danger" })
+                            </div>
+                        </div>*@
+                }
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-3">
+            <div class="packige" id="packige ">
+                <img src="~/Content/郵件包裹.jpg" />
+            </div>
+            <p class="pagcount">您有 @packge 件包裹</p>
+        </div>
+    </div>
+
+
+
+
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="../assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/animated.headline.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="../assets/js/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/jquery.form.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/mail-script.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,122 @@
+﻿@using Action.Models
+@model ActionViewModel
+
+@{
+    ViewBag.Title = "EventReading";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/fontawesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <style>
+        .body {
+            background-color: #e2e2e2 !important;
+        }
+
+        .bg-light {
+            background-color: white !important;
+            border-bottom: 1px solid #aeaeae;
+        }
+
+        .container {
+            width: 90% !important;
+        }
+
+        .nav-link {
+            font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
+            color: #555555 !important;
+        }
+
+        .fixed-center {
+            position: fixed;
+            top: 60px;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+        }
+
+        .container {
+            padding: 60px;
+        }
+    </style>
+</head>
+<body style=" background-color:#f8f8f8 !important;">
+    <nav class="navbar navbar-expand-md navbar-light bg-light" style="position:relative;">
+        <img src="~/img/LOGO.png" />
+        <img src="~/img/活動平台.jpg" style="width:80px;" class="fixed-center" />
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Html.ActionLink("購物車", "ActionList")/</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Html.ActionLink("討論區", "ActionList")/</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Html.ActionLink("活動平台", "Action")/</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Html.ActionLink("修改資料", "ActionList")/</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Html.ActionLink("登出", "ActionList")</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container body-content">
+
+        <div class="container">
+            <div class="card">
+                <i class="fab fa-angellist"></i>
+                <img style="width:100%" src="~/img/1.jpg" />
+                <div class="card-body">
+                    <h5 class="card-title">活動名稱: @Model.EventName</h5>
+                    <p class="card-text">活動備註:Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        活動時間: @Model.EventStartDate~@Model.EventEndDate
+                    </li>
+                    <li class="list-group-item">
+                        活動地點: @Model.EventLocation
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-primary">報名活動</a>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="#" class="btn btn-primary">回上頁</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/fontawesome-free-5.15.1-web/js/all.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+

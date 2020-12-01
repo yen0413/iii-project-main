@@ -1,0 +1,444 @@
+﻿
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>forums討論區 test</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
+
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/owl.carousel.min.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/flaticon.css"> -->
+    <link rel="stylesheet" href="../assets/css/slicknav.css">
+    <link rel="stylesheet" href="../assets/css/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/css/themify-icons.css">
+    <!-- <link rel="stylesheet" href="assets/css/slick.css"> -->
+    <link rel="stylesheet" href="../assets/css/nice-select.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!--<link rel="stylesheet" href="../assets/fonts/fontawesome-free-5.14.0-web/css/all.css">-->
+    <!--<script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>-->
+
+    <style>
+        body {
+            background-color: #BCD3E1;
+            padding-top:0px;
+        }
+
+        .img_radius {
+            border-radius: 50px;
+            width: 74px;
+            height: 74px;
+            margin-left: 16px;
+        }
+        .push {
+          display:flex;
+          justify-content:space-between;
+        }
+      .push_right{
+          display:flex;
+          justify-content:flex-end;
+      }
+        
+        .button_margin {
+            margin: 10px;
+        }
+
+        .footer_range {
+            margin-top: 40px;
+        }
+
+        .icon_right {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* .footer-end-social a,
+        .footer_link a {
+            font-size: 120%;
+            color: black;
+            text-decoration: none;
+            margin: 5px;
+        } */
+        .member_chkfalse {
+            display: none;
+        }
+       .member_chktrue{
+           display:flex;
+       }
+        .footer-end-range {
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            /* width: 900px; */
+        }
+
+        .response_range {
+            display: flex;
+        }
+
+        .main_BCC {
+            background-color: #ECF5FF;
+            border-radius: 5px;
+            padding: 25px;
+            /*border:10px solid blue;*/
+        }
+
+        .text_mragin {
+            margin-right: 10px;
+        }
+
+        .figure_range {
+            margin: 5px;
+        }
+
+        .like_design {
+            padding: 5px;
+            background-color: #014B85;
+            border-radius: 5px;
+            color: white;
+            width: 100px;
+        }
+
+        .like_count {
+            /*color:*/
+        }
+
+        .header-area {
+            background-color: white;
+        }
+
+        .main-flex {
+            display: flex
+        }
+
+        .card_side {
+            height: 650px;
+        }
+
+        .text_range {
+            padding: 15px;
+        }
+        .ftitle{
+            font-family:"微軟正黑體";
+        }
+        .fontsize{
+            font-size:20px;
+            padding:20px;
+        }
+        .fontsize2{
+            font-size:14px !important;
+        }
+        .main-menu ul li a{
+            font-size:20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    @*<img src="../assets/img/" alt="">*@
+                    <img src="~/assets/img/Gladxy_co._LOGO_Small.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-3 col-lg-5 col-md-5">
+                                <div class="logo">
+                                    <a href="/cBlog/SecondStart"><img src="../assets/img/Gladxy_co._LOGO_Small.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div  class="col-xl-2 col-lg-2 col-md-2" >
+                                <h3 style="display:flex;justify-content:center;">員工福利網</h3>
+                            </div>
+                                
+                            <div class="col-xl-7 col-lg-5 col-md-5">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li ><a href="/../cBlog/BlogList" class="fontsize2">部落格</a></li >
+                                            <li><a href="/cBlog/ForumList" class="fontsize2">討論區</a></li>
+                                            <li><a href="/../cBlog/PurchaseList" class="fontsize2">揪團GO</a></li>
+
+                                            <li><a href="/../cBlog/Action" class="fontsize2">活動區</a></li>
+                                            <li class="fontsize2">歡迎 @ViewBag.LoginName</li>
+                                            <!-- <li><a href="#">Blog</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="#">Blog</a></li>
+                                                        <li><a href="#">Blog Details</a></li>
+                                                    </ul>
+                                                </li> -->
+                                            <!-- <li><a href="#">Pages</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="#">Element</a></li>
+                                                    </ul>
+                                                </li> -->
+                                            <!--<li><a href="#">修改資料</a></li>/-->
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle fontsize2" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    會員專區
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item fontsize2" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        我的開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item fontsize2" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item fontsize2" href="/cBlog/Vote" style="padding: 10px;">
+                                                        我要投票
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item fontsize2" href="/cBlog/MemberDataEdit/@ViewBag.enumber" style="padding: 10px;">
+                                                        修改資料
+                                                    </a>
+
+                                                </div>
+                                            </li>
+                                            <li><a href="/../cBlog/LogOut" class="fontsize2">登出</a></li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+    <!-- slider Area Start-->
+    <div class="slider-area ">
+        <!-- Mobile Menu -->
+        <div class="single-slider slider-height2 d-flex align-items-center" onclick="Demo()" data-background="../assets/img/forum4.png" style="opacity:1;background-size:cover;width:100%;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2 class="ftitle" onclick="Demo()">討論區</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+    <br />
+    <main class="main-flex">
+        <!--<div class="card card_side col-xl-2 col-lg-2 col-md-2" id="groupProduct">
+
+        </div>-->
+        <div class="container main-flex">
+            <div class="col-xl-10 col-lg-10 col-md-10">
+                <div class="form-group">
+                    <input class="form-control" type="text" required id="get-title" placeholder="請填寫標題！">
+                    <p></p>
+                    <textarea class="form-control" id="get-content" placeholder="請填寫內容!" rows="4"></textarea>
+                    <!--<div id="editor"></div>-->
+                    <div class="push">
+                        <div class="push_left">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary button_margin nav-link dropdown-toggle fontsize" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">文章類型</button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item">公告</a></li>
+                                    <li><a class="dropdown-item">訊息</a></li>
+                                    <li><a class="dropdown-item">全部</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <textarea style="display: none;" id="uploadPic" rows="1"></textarea>
+                            <label class="btn btn-secondary button_margin fontsize">
+                                <input type="file" id="PictureUrl"
+                                       accept="image/*" style="display: none;" class="fontsize">上傳圖片
+                            </label> <!-- multiple="multiple" --> 
+                            <button type="submit" class="btn btn-secondary button_margin fontsize" 
+                                                                          id="post-btn" value="">
+                                發佈
+                            </button>
+
+
+                        </div>
+                    </div>
+                    
+
+                    <img id="img" style="width:330px">
+
+                </div>
+                
+
+                <div id="tpl"></div>
+                <!--<p id="tpl_message"></p>-->
+
+            </div>
+            <div class="card card_side col-xl-2 col-lg-2 col-md-2" id="groupProduct">
+
+
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_range footer-area footer-padding footer-bg"
+             data-background="../assets/img/footer_bg.jpg">
+            <div class="container">
+                <div class="footer-end-range footer_link">
+                    <div class="col-xl-7 col-lg-7 col-md-7">
+                        <div class="footer-end-left ">
+                            <a href="#">公司主頁</a>
+                            <a href="#">福委會主頁</a>
+                            <a href="#">與我聯繫</a>
+                            <a href="#">聲明事項</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-5 col-lg-5 col-md-5">
+                        <div class="footer-social f-right">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-end-range">
+                    <P>© 2020 Gladxy Daily. All rights reserved</P>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!--===================================edit dialog================================================-->
+    <div class="modal fade" id="editMessage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">修改發文內容</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="modal_form">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">標題:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">內容:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                    <button type="button" class="btn btn-primary" id="edit-put" data-id="" onclick="putEditData()"
+                            data-dismiss="modal">
+                        儲存
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JS here -->
+    <script>
+
+
+    </script>
+
+
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="../assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/animated.headline.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="../assets/js/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/jquery.form.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/mail-script.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <!-- sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!--fetch js-->
+    <script src="../assets/js/fetch_測試.js"></script>
+    <!--CK Editor-->
+    <!--<script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                removePlugins: ['Heading', 'Link'],
+                toolbar: ['bold', 'italic', 'bulletedList', 'numberedList']
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>-->
+    <script>
+        function Demo() {
+            document.getElementById("get-title").value = "台灣索尼公告：PS5上市當天限量網路販售，店頭無現貨";
+            document.getElementById("get-content").value = "繼日本索尼公告：PS5上市當天無現貨，台灣索尼互動娛樂（SIET）已經在 5 日深夜確認 11 月 19 日台灣首賣會，同樣沒有 PS5 現貨，但是有少量網路現貨。根據 SIET 聲明，本次 11 月 19 日台灣首賣與日本同樣考量疫情險峻，因此完全不開放實體店頭販售 PS5 現貨，玩家切勿提前抵達店頭夜排搶購。 另外，SIET 確認 11 月 19 日當天成功從網路商城下訂的 PS5 主機現貨，將於上市後數日內寄出。目前沒有公開確定有貨的網路通路，僅提供全台 PlayStation 特約經銷商名單查詢，建議有意購買的消費者，可以提前向熟悉的通路聯繫（）。"
+        }
+
+    </script>
+</body>
+
+</html>

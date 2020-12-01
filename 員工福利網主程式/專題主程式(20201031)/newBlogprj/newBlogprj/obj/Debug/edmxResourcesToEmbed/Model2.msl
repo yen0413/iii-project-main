@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="final_pModelStoreContainer" CdmEntityContainer="final_pEntities2">
+    <EntitySetMapping Name="Group_Order_Binding">
+      <EntityTypeMapping TypeName="final_pModel.Group_Order_Binding">
+        <MappingFragment StoreEntitySet="Group_Order_Binding">
+          <ScalarProperty Name="Go_id" ColumnName="Go_id" />
+          <ScalarProperty Name="GroupdID" ColumnName="GroupdID" />
+          <ScalarProperty Name="Orderid" ColumnName="Orderid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group_Product_Binding">
+      <EntityTypeMapping TypeName="final_pModel.Group_Product_Binding">
+        <MappingFragment StoreEntitySet="Group_Product_Binding">
+          <ScalarProperty Name="gp_id" ColumnName="gp_id" />
+          <ScalarProperty Name="Groupid" ColumnName="Groupid" />
+          <ScalarProperty Name="Productid" ColumnName="Productid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="final_pModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="Orderid" ColumnName="Orderid" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="orderdate" ColumnName="orderdate" />
+          <ScalarProperty Name="orderstate" ColumnName="orderstate" />
+          <ScalarProperty Name="followmember_id" ColumnName="followmember_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pGroupdb">
+      <EntityTypeMapping TypeName="final_pModel.pGroupdb">
+        <MappingFragment StoreEntitySet="pGroupdb">
+          <ScalarProperty Name="Group_ID" ColumnName="Group_ID" />
+          <ScalarProperty Name="Group_Title" ColumnName="Group_Title" />
+          <ScalarProperty Name="Group_StartDate" ColumnName="Group_StartDate" />
+          <ScalarProperty Name="Group_EndDate" ColumnName="Group_EndDate" />
+          <ScalarProperty Name="Group_TartgetNumber1" ColumnName="Group_TartgetNumber1" />
+          <ScalarProperty Name="Group_TartgetNumber2" ColumnName="Group_TartgetNumber2" />
+          <ScalarProperty Name="Group_type" ColumnName="Group_type" />
+          <ScalarProperty Name="Group_description" ColumnName="Group_description" />
+          <ScalarProperty Name="OwnerMember_ID" ColumnName="OwnerMember_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pProductdb">
+      <EntityTypeMapping TypeName="final_pModel.pProductdb">
+        <MappingFragment StoreEntitySet="pProductdb">
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="Product_currentnum" ColumnName="Product_currentnum" />
+          <ScalarProperty Name="Product_restnumber" ColumnName="Product_restnumber" />
+          <ScalarProperty Name="Product_description" ColumnName="Product_description" />
+          <ScalarProperty Name="PictureURL" ColumnName="PictureURL" />
+          <ScalarProperty Name="Picturebyte" ColumnName="Picturebyte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

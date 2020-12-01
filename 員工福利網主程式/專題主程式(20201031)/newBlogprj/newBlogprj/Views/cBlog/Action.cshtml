@@ -1,0 +1,580 @@
+﻿@using Action.Models
+@model IEnumerable<ActionViewModel>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/LinkScriptforAction/css/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/LinkScriptforAction/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/LinkScriptforAction/css/fontawesome.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link href="~/spforaction/css/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/../assets/css/slicknav.css">
+    <link rel="stylesheet" href="/../assets/css/animate.min.css">
+    <link rel="stylesheet" href="/../assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/../assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/../assets/css/nice-select.css">
+    <link rel="stylesheet" href="/../assets/css/style.css">
+    <style>
+        body {
+            padding-top: 0px;
+            background-color: #91D4C2;
+        }
+
+        .bg-light {
+            background-color: white !important;
+            border-bottom: 1px solid #aeaeae;
+        }
+
+        .container {
+            width: 90% !important;
+        }
+
+        .nav-link {
+            font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
+            color: #555555 !important;
+        }
+
+        .fixed-center {
+            position: fixed;
+            top: 60px;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+        }
+
+        .bottom {
+            background: #fff;
+            font-size: 12px;
+            padding: 15px 15px 8px;
+            border-radius: 0 0 8px 8px
+        }
+
+        .date {
+            font-size: 20px;
+            color: #000;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+
+            .date > span {
+                font-weight: 600
+            }
+
+            .date > i {
+                font-size: 1.5em;
+                margin-right: 5px
+            }
+
+            .date > * {
+                vertical-align: middle
+            }
+
+        .card {
+            width: 300px;
+            display: inline-block;
+            margin-right: 30px;
+            vertical-align: top;
+            background-color: white;
+            padding: 0px;
+        }
+
+
+            .card a {
+                text-decoration: none;
+            }
+
+        .card-title {
+            height: 38px;
+            padding: 0;
+            text-align: left;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 30px;
+            color: #333;
+            white-space: normal;
+            cursor: pointer;
+            overflow: hidden;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .tags {
+            height: 22px;
+            padding-top: 5px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 50%;
+            text-align: left;
+        }
+
+        .counts {
+            position: absolute;
+            right: 0;
+            top: 3px;
+            background: #fff;
+            padding-left: 5px
+        }
+
+            .counts > * {
+                padding-left: 5px
+            }
+
+            .counts i {
+                vertical-align: middle
+            }
+
+        .theme {
+            width: 100%;
+            position: relative;
+            overflow: hidden
+        }
+
+        .theme-container {
+            display: -webkit-box;
+            display: flex;
+            width: 100%;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .article {
+            margin: 15px 0px 15px 0px;
+            /*margin: 20px auto;*/
+            padding-bottom: 10px;
+        }
+
+        .tag {
+            font-weight: 600;
+            margin-right: 5px
+        }
+
+        .counts {
+            position: absolute;
+            right: 0;
+            top: 3px;
+            background: #fff;
+            padding-left: 5px
+        }
+
+            .counts > * {
+                padding-left: 5px
+            }
+
+            .counts i {
+                vertical-align: middle;
+            }
+
+        .bt {
+            margin-left: 45%;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            /*            color:white;*/
+            font-weight: 700;
+            background-color: white;
+        }
+
+        .h3Div {
+            background-color: white;
+            opacity: 0.8;
+        }
+        /*================================================================*/
+        .row {
+            padding: -20px;
+        }
+
+        .push_right {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .button_margin {
+            margin: 10px;
+        }
+
+        .response_range {
+            display: flex;
+        }
+
+        .main_BCC {
+            background-color: #FFF8D7;
+            border-radius: 5px;
+        }
+
+        .text_mragin {
+            margin-right: 10px;
+        }
+
+        .figure_range {
+            margin: 5px;
+        }
+
+        .header-area {
+            background-color: white;
+        }
+
+        header {
+            background-color: #91D4C2;
+        }
+
+        body {
+            background-color: #d5f0f0;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        hr {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .slicknav_nav {
+            height: 420px;
+        }
+    </style>
+</head>
+@*<body style=" background-color:#f8f8f8 !important;">*@
+<body>
+    <header>
+        <!-- Header Start -->
+        <div class="header-area" style="background-color: white;">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="#"><img src="../assets/img/Gladxy_co._LOGO_Small.png" alt=""></a>
+                                </div>
+                            </div>
+                            @*<h3 class="col-xl-2 col-lg-4 col-md-3" style="display:flex;justify-content:center;">員工福利網</h3>
+                                <div class="col-xl-8 col-lg-6 col-md-8">*@
+                            <h3 class="col-xl-2 col-lg-2 col-md-2" style="display:flex;justify-content:center;">員工福利網</h3>
+                            <div class="col-xl-8 col-lg-10 col-md-10">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/cBlog/BlogList">部落格</a></li>
+                                            <li><a href="~/forumtestpage.html">討論區</a></li>
+                                            <li><a href="/cBlog/PurchaseList">揪團Go</a></li>
+                                            @*<li class="nav-item dropdown">
+                                                    <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                       role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                       aria-expanded="false">
+                                                        揪團GO
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                        <a class=" dropdown-item" href="/cBlog/Purchase_Open" style="padding: 10px;">
+                                                            我要開團
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                            開團紀錄
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                            我的跟團
+                                                        </a>
+
+
+                                                    </div>
+                                                </li>*@
+
+                                            @*<li><a href="/cBlog/Action">活動區</a></li>*@
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/Action" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    活動區
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item" href="/cBlog/aCreate" style="padding: 10px;">
+                                                        舉辦活動
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/ActionList" style="padding: 10px;">
+                                                        我舉辦的活動清單
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/BookingListView" style="padding: 10px;">
+                                                        我報名的活動清單
+                                                    </a>
+
+                                                </div>
+                                            </li>
+                                            <li>歡迎 @ViewBag.username </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    會員專區
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        我的開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+                                                    @*<div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                            我的郵件
+                                                        </a>*@
+                                                    @*<div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                            我要發信
+                                                        </a>*@
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/MemberDataEdit/@ViewBag.enumber2" style="padding: 10px;">
+                                                        修改資料
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Vote" style="padding: 10px;">
+                                                        我的投票
+                                                    </a>
+
+                                                </div>
+                                            </li>
+                                            <li><a href="/cBlog/LogOut">登出</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container body-content ">
+
+        @using (Html.BeginForm("Action", "cBlog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+        <div class="row" style="margin-top:50px;margin-bottom:50px;margin-top:10px;">
+            <div style="float:left;margin-left:23px;margin-top:10px;">
+                <label class="col-form-label" style="font-size:20px;font-weight:700">活動名稱</label>
+            </div>
+            <div style="float:left;margin-left:3px;margin-top:10px;">
+                <input id="keyword" name="keyword" value="@ViewBag.keyword" class="form-control" style="max-width:500px;min-width:300px;" placeholder="請輸入活動名稱">
+            </div>
+            <div style="float:left;margin-left:20px;margin-top:10px;">
+                <div style="float:left;margin-left:3px;">
+                    <label class="col-form-label" style="font-size:20px;font-weight:700">活動起迄</label>
+                </div>
+                <div style="float:left;margin-left:3px;">
+                    <input id="startdate" name="startdate" value="@ViewBag.startdate" readonly class="form-control datepicker" style="width:110px;background-color:white;">
+                </div>
+                <span style="float:left;margin-left:5px;font-size:23px;">
+                    ~
+                </span>
+                <div style="float:left;margin-left:3px;">
+                    <input id="enddate" name="enddate" value="@ViewBag.enddate" readonly class="form-control datepicker" style="width:110px;background-color:white;">
+                </div>
+            </div>
+
+            <div style="float:left;margin-left:5px;">
+            </div>
+            <div style="float:left;margin-left:25px;margin-top:10px;">
+                <button id="btnSearch" class="btn " type="submit" style="width:80px;font-size:20px;background-color:midnightblue;color:white;padding:20px !important">搜尋</button>
+                <button id="btnClear" class="btn " type="button" style="width:80px;font-size:20px;background-color:midnightblue;color:white;padding:20px !important">清除</button>
+            </div>
+        </div>
+        }
+
+        <div class="h3Div" style=" color: black; font-weight: bolder;  padding: 3px; margin-bottom:10px;">
+            <h3 class="bt">熱門活動(前五名)</h3>
+        </div>
+
+        <div class="theme">
+            <div class="theme-container">
+                @foreach (var item in ViewBag.Top5)
+                {
+
+
+                    if (item.LikeCount > 0)
+                    {
+                        <div>
+
+                            <div class="card" style="width: 340px;">
+
+                                <div>
+                                    <div>
+                                        <a href=@Href("~/cBlog/EventReading/", new { id = item.Event_ID })>
+                                            <img data-src="@item.EventImage" class="style-39e1696a-image" style="width: 100%;" src="@item.EventImage"><noscript></noscript>
+                                        </a>
+                                    </div>
+                                    <br />
+                                    <div>
+                                        <a href="@Href("~/cBlog/EventReading/", new { id = item.Event_ID })" style="display: block; width: 100%; ">
+                                            <h3 class="card-title">@item.EventName</h3>
+                                        </a>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="date" style="padding-bottom: 8px;">
+                                            <i class="far fa-clock"></i>
+                                            <div>@item.EventStartDate.ToString("yyyy-MM-dd HH:mm")</div>
+                                            <div>@item.EventEndDate.ToString("yyyy-MM-dd HH:mm")</div>
+                                        </div>
+                                        <div style="position: relative; margin-top: 6px; border-top: 1px solid rgb(245, 245, 245);">
+                                            <div class="tags" style="width: auto; color: rgb(177, 9, 35);height: 35px;">
+                                                <div>
+                                                    <a class="tag" style="color: rgb(177, 9, 35);font-size: 20px;">可報名餘額 @item.RemainCount</a>
+                                                </div>
+                                            </div>
+                                            <div class="counts" style="color: rgb(177, 9, 35); height: 35px;">
+                                                <span>
+                                                    <i class="fas fa-heart" style="font-size: 20px;height: 28px;"></i>
+                                                    <span style="vertical-align:top; font-size: 20px;">@item.LikeCount</span>
+
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container ">
+        <div class="h3Div" style=" color: black; font-weight: bolder;  padding: 3px">
+            <h3 class="bt">即將舉辦的活動</h3>
+        </div>
+
+        <div class="row artical-area border-bottom mb-3" style="margin-left:10px">
+
+
+            @foreach (var item in Model)
+            {
+                <div class="article col-sm-12 col-md-6 col-lg-4 ">
+                    <div>
+                        <div class="card">
+                            <div>
+                                <div>
+                                    <a href="@Href("~/cBlog/EventReading/",new { id=item.Event_ID})" style="display: block; width: 100%;"><img data-src="@item.EventImage" style="width: 100%;" src="@item.EventImage"><noscript></noscript></a>
+                                </div>
+                                <br>
+                                <div>
+                                    <a href="@Href("~/cBlog/EventReading/", new { id = item.Event_ID })" style="display: block; width: 100%;">
+                                        <h3 class="card-title">@item.EventName</h3>
+                                    </a>
+                                </div>
+                                <div class="bottom">
+                                    <div class="date" style="padding-bottom: 8px;">
+                                        <i class="far fa-clock"></i>
+                                        <div>@item.EventStartDate.Value.ToString("yyyy-MM-dd HH:mm")</div>
+                                        <div>@item.EventEndDate.Value.ToString("yyyy-MM-dd HH:mm")</div>
+                                    </div>
+
+                                    <div style="position: relative; margin-top: 6px; border-top: 1px solid rgb(245, 245, 245);">
+                                        <div class="tags" style="width: auto; color: rgb(177, 9, 35);height: 35px;">
+                                            <div>
+                                                <a class="tag" style="color: rgb(177, 9, 35);font-size: 20px">可報名餘額 @item.RemainCount</a>
+                                            </div>
+                                        </div>
+                                        <div class="counts" style="color: rgb(177, 9, 35); height: 35px;">
+                                            <span>
+                                                <i class="fas fa-heart" style="font-size: 20px;height: 28px;"></i>
+                                                <span style="vertical-align:top; font-size: 20px;">@item.LikeCount</span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @*========================================================================*@
+    @*新增footer!!!!!!!!!!!!*@
+    <footer>
+        <div class="footer_range footer-area footer-padding footer-bg"
+             data-background="../assets/img/footer_bg.jpg">
+            <div class="container">
+                <div class="footer-end-range footer_link">
+                    <div class="col-xl-7 col-lg-7 col-md-7">
+                        <div class="footer-end-left ">
+                            <a href="#">公司主頁</a>
+                            <a href="#">福委會主頁</a>
+                            <a href="#">與我聯繫</a>
+                            <a href="#">聲明事項</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-5 col-lg-5 col-md-5">
+                        <div class="footer-social f-right">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-end-range">
+                    <P>© 2020 Gladxy Daily. All rights reserved</P>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <script src="/../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/LinkScriptforAction/js/modernizr-2.6.2.js"></script>
+    <script src="~/LinkScriptforAction/js/all.min.js"></script>
+    <script src="/../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/../assets/js/popper.min.js"></script>
+    <script src="/../assets/js/bootstrap.min.js"></script>
+    <script src="/../assets/js/jquery.slicknav.min.js"></script>
+    <script src="/../assets/js/slick.min.js"></script>
+    <script src="/../assets/js/wow.min.js"></script>
+    <script src="/../assets/js/animated.headline.js"></script>
+    <script src="/../assets/js/jquery.magnific-popup.js"></script>
+    <script src="/../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="/../assets/js/jquery.nice-select.min.js"></script>
+    <script src="/../assets/js/jquery.sticky.js"></script>
+    <script src="/../assets/js/main.js"></script>
+    <script src="~/spforaction/js/jquery-ui.min.js"></script>
+
+    <script>
+
+
+        //查詢
+        $(document).ready(function () {
+            $(".datepicker").datepicker({ dateFormat: "yy-mm-dd" }).val();
+
+            $('#btnClear').click(function () {
+                $('form input').val('');
+            });
+        });
+
+    </script>
+
+</body>
+</html>

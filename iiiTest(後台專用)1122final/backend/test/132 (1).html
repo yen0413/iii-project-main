@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <button id="text" onclick="addField()">新增欄位</button>
+    <button id="text" onclick="view()">新增欄位</button>
+    <div id="123"></div>
+    <script>
+     var count222=0 
+     var countMin = 0; 
+     var countMax = 999;
+     var commonName = "test";
+        var count = countMin;
+          function addField() { 
+            
+             if(count == countMax) 
+              {
+                 alert("最多"+countMax+"個欄位"); 
+              }
+                 else{	 
+          document.getElementById("123").innerHTML += "<div>" + (++count) + '<input type="text" id="' + commonName + count + '"></div>';      
+                 }
+                 count222++;
+                
+}
+          
+
+         
+
+function view(){
+    for(let i=1; i<=count222; i++){
+        console.log(document.getElementById(`test${i}`).value)
+    }
+    
+}
+
+
+
+      function delField() {
+      if (count > countMin) {
+         var fs = document.getElementById("123"); 
+          fs.removeChild(fs.lastChild);
+          count--;
+      } else {
+      alert("無新增欄位可以刪除");
+      }	
+  }
+console.log(document.getElementById(`test`))
+
+</script>
+</body>
+</html>

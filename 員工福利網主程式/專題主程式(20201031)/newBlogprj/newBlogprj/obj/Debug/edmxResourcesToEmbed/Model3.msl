@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EventdbModelStoreContainer" CdmEntityContainer="EventdbEntities1">
+    <EntitySetMapping Name="EventBooking2">
+      <EntityTypeMapping TypeName="EventdbModel.EventBooking2">
+        <MappingFragment StoreEntitySet="EventBooking2">
+          <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+          <ScalarProperty Name="mb_ID" ColumnName="mb_ID" />
+          <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+          <ScalarProperty Name="EmployeeJoinStatus" ColumnName="EmployeeJoinStatus" />
+          <ScalarProperty Name="BookingCount" ColumnName="BookingCount" />
+          <ScalarProperty Name="Event" ColumnName="Event" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventComment2">
+      <EntityTypeMapping TypeName="EventdbModel.EventComment2">
+        <MappingFragment StoreEntitySet="EventComment2">
+          <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+          <ScalarProperty Name="mb_ID" ColumnName="mb_ID" />
+          <ScalarProperty Name="CommentStatus" ColumnName="CommentStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event2">
+      <EntityTypeMapping TypeName="EventdbModel.Event2">
+        <MappingFragment StoreEntitySet="Event2">
+          <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+          <ScalarProperty Name="EventCreateEmployeeID" ColumnName="EventCreateEmployeeID" />
+          <ScalarProperty Name="EventNowJoin" ColumnName="EventNowJoin" />
+          <ScalarProperty Name="EventLocationY" ColumnName="EventLocationY" />
+          <ScalarProperty Name="EventLocationX" ColumnName="EventLocationX" />
+          <ScalarProperty Name="EventMinPeople" ColumnName="EventMinPeople" />
+          <ScalarProperty Name="EventMaxPeople" ColumnName="EventMaxPeople" />
+          <ScalarProperty Name="EventRemark" ColumnName="EventRemark" />
+          <ScalarProperty Name="EventContent" ColumnName="EventContent" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />
+          <ScalarProperty Name="EventEndDate" ColumnName="EventEndDate" />
+          <ScalarProperty Name="EventStartDate" ColumnName="EventStartDate" />
+          <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

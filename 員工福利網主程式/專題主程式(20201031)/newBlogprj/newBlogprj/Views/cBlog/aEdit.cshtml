@@ -1,0 +1,482 @@
+﻿@using Action.Models
+@model ActionViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "aEdit";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link href="~/spforaction/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/spforaction/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/spforaction/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/spforaction/css/Site.css" rel="stylesheet" />
+    @*========================================================================*@
+
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet" />
+        <link href="~/Content/fontawesome-free-5.15.1-web/css/fontawesome.min.css" rel="stylesheet" />*@
+    @*========================================================================*@
+    @*forumtestpage*@
+    <link rel="shortcut icon" type="image/x-icon" href="/../assets/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="assets/css/owl.carousel.min.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/flaticon.css"> -->
+    <link href="~/assets/css/slicknav.css" rel="stylesheet" />
+    <link href="~/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="~/assets/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/assets/css/themify-icons.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="assets/css/slick.css"> -->
+    <link href="~/assets/css/nice-select.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+    <style>
+        body {
+            padding-top: 0px;
+            background-color: #91D4C2;
+        }
+
+        .bg-light {
+            background-color: white !important;
+            border-bottom: 1px solid #aeaeae;
+        }
+
+        .container {
+            width: 90% !important;
+        }
+
+        .nav-link {
+            font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
+            color: #555555 !important;
+        }
+
+        .fixed-center {
+            position: fixed;
+            top: 60px;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+        }
+
+        .form-control {
+            background-color: lightgray;
+        }
+
+        .btn1 {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+
+        .form-horizontal {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        textarea {
+            resize: none;
+            width: 100%;
+        }
+        /*================================================================*/
+        .row {
+            padding: -20px;
+        }
+
+        .push_right {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .button_margin {
+            margin: 10px;
+        }
+
+        .response_range {
+            display: flex;
+        }
+
+        .main_BCC {
+            background-color: #FFF8D7;
+            border-radius: 5px;
+        }
+
+        .text_mragin {
+            margin-right: 10px;
+        }
+
+        .figure_range {
+            margin: 5px;
+        }
+
+        .header-area {
+            background-color: white;
+        }
+
+        header {
+            background-color: #91D4C2;
+        }
+
+        body {
+            background-color: #d5f0f0;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        hr {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .slicknav_nav {
+            height: 450px;
+        }
+
+        .jumbotron {
+            background-color: #91D4C2 !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Header Start -->
+        <div class="header-area" style="background-color: white;">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="#"><img src="~/assets/img/Gladxy_co._LOGO_Small.png" />></a>
+                                </div>
+                            </div>
+                            @*<h3 class="col-xl-2 col-lg-4 col-md-3"*@
+                            <h3 class="col-xl-3 col-lg-2 col-md-2" style="display:flex;justify-content:center;">員工福利網</h3>
+                            @*<div class="col-xl-8 col-lg-6 col-md-8">*@
+                            <div class="col-xl-7 col-lg-10 col-md-10">
+
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/cBlog/BlogList">部落格</a></li>
+                                            <li><a href="~/forumtestpage.html">討論區</a></li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    揪團GO
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_Open" style="padding: 10px;">
+                                                        我要開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        開團紀錄
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+
+
+                                                </div>
+                                            </li>
+
+                                            @*<li><a href="/cBlog/Action">活動區</a></li>*@
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/Action" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    活動區
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <a class=" dropdown-item" href="/cBlog/Action" style="padding: 10px;">
+                                                        回活動平台
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/aCreate" style="padding: 10px;">
+                                                        舉辦活動
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/ActionList" style="padding: 10px;">
+                                                        我舉辦的活動清單
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/BookingListView" style="padding: 10px;">
+                                                        我參加的活動清單
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            @*<li>歡迎 @ViewBag.username</li>*@
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    會員專區
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        我的開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+                                                    @*<div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                            我的郵件
+                                                        </a>*@
+                                                    @*<div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                            我要發信
+                                                        </a>*@
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/MemberDataEdit/@ViewBag.enumber2" style="padding: 10px;">
+                                                        修改資料
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Vote" style="padding: 10px;">
+                                                        我的投票
+                                                    </a>
+
+                                                </div>
+                                            </li>
+                                            <li><a href="/cBlog/LogOut">登出</a></li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container body-content">
+
+        <div class="jumbotron">
+            <div class="row">
+                <h2 style="float:left;">修改活動</h2>
+                <a onclick="goBack()" class="btn opener" style="padding:20px;font-size:16px; font-weight:bolder; border-radius:5px;background-color:#4CAF50;color:aliceblue;float:left;margin-left:20px;width:120px;">
+                    回上一頁
+                </a>
+            </div>
+            @using (Html.BeginForm("aEdit", "cBlog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="Event_ID" value="@Model.Event_ID">
+                <div class="form-horizontal">
+                    @*<h4>修改活動</h4>*@
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        活動名稱
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EventName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.EventName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        活動內容
+                        <div class="col-md-10 ">
+                            @Html.TextAreaFor(model => model.EventContent, new { htmlAttributes = new { @class = "form-control", rows = "10", cols = "20" } })
+                            @Html.ValidationMessageFor(model => model.EventName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="clear:both;">
+                            活動地點
+                        </div>
+                        <div id="twzipcode" style="margin-left: 16px;float:left;">
+
+                        </div>
+                        <div style="margin-left: 16px;float:left;">
+                            <input type="text" id="location" placeholder="請輸入地點名稱" disabled="disabled">
+                        </div>
+
+                        <div class="col-md-10" style="clear: both;">
+                            @Html.EditorFor(model => model.EventLocation, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", id = "srt", @Value = Model.EventLocation } })
+                            @Html.ValidationMessageFor(model => model.EventLocation, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        活動開始日期
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EventStartDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            @Html.ValidationMessageFor(model => model.EventStartDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        活動結束日期
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EventEndDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            @Html.ValidationMessageFor(model => model.EventEndDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        活動報名上限人數
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EventMaxPeople, new { htmlAttributes = new { @class = "form-control", @required = "required", @style = "width:20%;", Min = 1 } })
+                            @Html.ValidationMessageFor(model => model.EventMaxPeople, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>活動照片 <a href="@Model.EventImage" target="_blank">(點擊看原圖)</a> </span>
+
+                        <div class="col-md-10">
+                            <input type="file" name="XXX" class="EventImage" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input id="submit" type="submit" value="送出" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+
+    </div> @*=====================================================================*@
+        @*新增footer!!!!!!!!!!!!*@
+        <footer>
+            <div class="footer_range footer-area footer-padding footer-bg"
+                 data-background="/../assets/img/footer_bg.jpg">
+                <div class="container">
+                    <div class="footer-end-range footer_link">
+                        <div class="col-xl-7 col-lg-7 col-md-7">
+                            <div class="footer-end-left ">
+                                <a href="#">公司主頁</a>
+                                <a href="#">福委會主頁</a>
+                                <a href="#">與我聯繫</a>
+                                <a href="#">聲明事項</a>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-5 col-lg-5 col-md-5">
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-end-range">
+                        <P>© 2020 Gladxy Daily. All rights reserved</P>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+        @*<script src="~/Scripts/modernizr-2.6.2.js"></script>
+        <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Content/fontawesome-free-5.15.1-web/js/all.min.js"></script>*@
+
+        @*========================================================================*@
+
+        @*修改datetimepicker js!!!!!!!!!!!!!!*@
+        @*<script src="~/spforaction/js/all.min.js"></script>
+        <script src="~/spforaction/js/jquery-3.0.0.min.js"></script>
+        <script src="~/spforaction/js/jquery-ui.min.js"></script>*@
+        @*<script src="~/spforaction/js/bootstrap.min.js"></script>*@
+        @* <script src="~/spforaction/js/modernizr-2.6.2.js"></script>*@
+
+        <link href="~/spforaction/css/jquery-ui.min.css" rel="stylesheet" />
+        <link href="~/spforaction/css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+        <script src="~/spforaction/js/jquery-3.0.0.min.js"></script>
+        <script src="~/spforaction/js/jquery-ui.min.js"></script>
+        <script src="~/spforaction/js/jquery-ui-timepicker-addon.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $(".datepicker").datetimepicker({
+                    "dateFormat": "yy-mm-dd",
+                    "timeFormat": "HH:mm",
+                });
+            });
+        </script>
+        @*========================================================================*@
+
+        <!-- Jquery, Popper, Bootstrap -->
+        @*以下這行會發生衝突，因上方jquery ui是jquery-ui-1.12.1版本*@
+        @*<script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>*@
+
+        <script src="/../assets/js/popper.min.js"></script>
+        <script src="/../assets/js/bootstrap.min.js"></script>
+        <!-- Jquery Mobile Menu -->
+        <script src="/../assets/js/jquery.slicknav.min.js"></script>
+
+        <!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="/../assets/js/owl.carousel.min.js"></script>
+        <script src="/../assets/js/slick.min.js"></script>
+        <!-- One Page, Animated-HeadLin -->
+        <script src="/../assets/js/wow.min.js"></script>
+        <script src="/../assets/js/animated.headline.js"></script>
+        <script src="/../assets/js/jquery.magnific-popup.js"></script>
+
+        <!-- Scrollup, nice-select, sticky -->
+        <script src="/../assets/js/jquery.scrollUp.min.js"></script>
+        <script src="/../assets/js/jquery.nice-select.min.js"></script>
+        <script src="/../assets/js/jquery.sticky.js"></script>
+        <script src="/../assets/js/main.js"></script>
+
+        <script src="~/Scripts/jquery.twzipcode.js"></script>
+        <script>
+            $("#twzipcode").twzipcode({
+                zipcodeIntoDistrict: true,
+                css: ["city form-control; width: 30px", "town form-control; width: 30px"],
+                countyName: "city",
+                districtName: "town"
+            });
+            $(".city").change(function () {
+                $("#srt").val($(".city").val() + $(".town").val());
+            })
+
+            $(".town").change(function () {
+                $("#srt").val($(".city").val() + $(".town").val());
+                $("#location").removeAttr('disabled');
+            })
+            $("#location").change(function () {
+                $("#srt").val($(".city").val() + $(".town").val() + $("#location").val());
+                $(".form-control").removeAttr('disabled');
+            })
+            $('#submit').click(function () {
+                $(".form-control").removeAttr('disabled');
+            });
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+</body>
+</html>

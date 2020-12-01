@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a2abcd7d57244ffca52f334cdb19b52f" Name="Diagram1">
+        <EntityTypeShape EntityType="finaldbModel.blog" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.blogBinding" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.departmentdb" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.Event" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.EventBooking" Width="1.5" PointX="7.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.EventComment" Width="1.5" PointX="7.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.forumBinding" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.forumContent" Width="1.5" PointX="11.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.forumLikebinding" Width="1.5" PointX="13.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.forumMemberBinding" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.forummessage" Width="1.5" PointX="11.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.forumMessageBinding" Width="1.5" PointX="13.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.forumPicture" Width="1.5" PointX="13.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.forumType" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.Groupdb" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.groupOrderDetaildb" Width="1.5" PointX="12.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.groupProductBinding" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.GroupType" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.likeType" Width="1.5" PointX="11.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.memberdb" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.MemberGroupOrder" Width="1.5" PointX="10.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.MembersType" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.productdb" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.productPictureBinding" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="finaldbModel.sysdiagrams" Width="1.5" PointX="14.75" PointY="13.25" IsExpanded="true" />
+        <AssociationConnector Association="finaldbModel.FK_blogBinding_blog" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_blogBinding_memberdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_memberdb_departmentdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_Event_memberdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_EventBooking_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_EventComment_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_EventBooking_memberdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_EventComment_memberdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumBinding_forumContent" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumBinding_forumMemberBinding" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumLikebinding_forumContent" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumMessageBinding_forumContent" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumPicture_forumContent" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumLikebinding_forumLikebinding" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumLikebinding_likeType" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumMemberBinding_forumType" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumMemberBinding_memberdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumMessageBinding_forumMemberBinding" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_forumMessageBinding_forummessage" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_Groupdb_GroupType" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_Groupdb_memberdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_groupProductBinding_Groupdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_MemberGroupOrderBinding_Groupdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_groupOrderDetaildb_MemberGroupOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_groupProductBinding_productdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_memberdb_MembersType" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_MemberGroupOrderBinding_memberdb" ManuallyRouted="false" />
+        <AssociationConnector Association="finaldbModel.FK_productdb_productPictureBinding" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

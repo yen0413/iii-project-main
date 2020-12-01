@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="finaldbEntities-Web.config Connection String" description="finaldbEntities 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=finaldb;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Johnny\\Desktop\\newBlogprj\(20201030最新進度_更新purchaselist的viewmodel\)\\newBlogprj\\newBlogprj\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='finaldbEntities']/@connectionString" />
+  </parameter>
+  <parameter name="final_pEntities-Web.config Connection String" description="final_pEntities 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Model2.csdl|res://*/Model2.ssdl|res://*/Model2.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=final_p;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Johnny\\Desktop\\newBlogprj\(20201030最新進度_更新purchaselist的viewmodel\)\\newBlogprj\\newBlogprj\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='final_pEntities']/@connectionString" />
+  </parameter>
+  <parameter name="final_pEntities1-Web.config Connection String" description="final_pEntities1 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="metadata=res://*/Model2.csdl|res://*/Model2.ssdl|res://*/Model2.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=final_p;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Johnny\\Desktop\\newBlogprj\(20201030最新進度_更新purchaselist的viewmodel\)\\newBlogprj\\newBlogprj\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='final_pEntities1']/@connectionString" />
+  </parameter>
+</parameters>

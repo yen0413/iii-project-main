@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="final_pModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Group_Order_Binding">
+    <Key>
+      <PropertyRef Name="Go_id" />
+    </Key>
+    <Property Name="Go_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupdID" Type="Int32" />
+    <Property Name="Orderid" Type="Int32" />
+    <NavigationProperty Name="pGroupdb" Relationship="Self.FK_Group_Order_Binding_Groupdb" FromRole="Group_Order_Binding" ToRole="pGroupdb" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Group_Order_Binding_Order" FromRole="Group_Order_Binding" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Group_Product_Binding">
+    <Key>
+      <PropertyRef Name="gp_id" />
+    </Key>
+    <Property Name="gp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Groupid" Type="Int32" />
+    <Property Name="Productid" Type="Int32" />
+    <NavigationProperty Name="pGroupdb" Relationship="Self.FK_Group_Product_Binding_Groupdb" FromRole="Group_Product_Binding" ToRole="pGroupdb" />
+    <NavigationProperty Name="pProductdb" Relationship="Self.FK_Group_Product_Binding_Productdb" FromRole="Group_Product_Binding" ToRole="pProductdb" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Orderid" />
+    </Key>
+    <Property Name="Orderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="productID" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="orderdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="orderstate" Type="Int32" />
+    <Property Name="followmember_id" Type="Int32" />
+    <NavigationProperty Name="Group_Order_Binding" Relationship="Self.FK_Group_Order_Binding_Order" FromRole="Order" ToRole="Group_Order_Binding" />
+  </EntityType>
+  <EntityType Name="pGroupdb">
+    <Key>
+      <PropertyRef Name="Group_ID" />
+    </Key>
+    <Property Name="Group_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Group_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Group_StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Group_EndDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Group_TartgetNumber1" Type="Int32" />
+    <Property Name="Group_TartgetNumber2" Type="Int32" />
+    <Property Name="Group_type" Type="Int32" />
+    <Property Name="Group_description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerMember_ID" Type="Int32" />
+    <NavigationProperty Name="Group_Order_Binding" Relationship="Self.FK_Group_Order_Binding_Groupdb" FromRole="pGroupdb" ToRole="Group_Order_Binding" />
+    <NavigationProperty Name="Group_Product_Binding" Relationship="Self.FK_Group_Product_Binding_Groupdb" FromRole="pGroupdb" ToRole="Group_Product_Binding" />
+  </EntityType>
+  <EntityType Name="pProductdb">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Price" Type="Int32" />
+    <Property Name="Product_currentnum" Type="Int32" />
+    <Property Name="Product_restnumber" Type="Int32" />
+    <Property Name="Product_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PictureURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Picturebyte" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Group_Product_Binding" Relationship="Self.FK_Group_Product_Binding_Productdb" FromRole="pProductdb" ToRole="Group_Product_Binding" />
+  </EntityType>
+  <Association Name="FK_Group_Order_Binding_Groupdb">
+    <End Role="pGroupdb" Type="Self.pGroupdb" Multiplicity="0..1" />
+    <End Role="Group_Order_Binding" Type="Self.Group_Order_Binding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pGroupdb">
+        <PropertyRef Name="Group_ID" />
+      </Principal>
+      <Dependent Role="Group_Order_Binding">
+        <PropertyRef Name="GroupdID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group_Order_Binding_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Group_Order_Binding" Type="Self.Group_Order_Binding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Orderid" />
+      </Principal>
+      <Dependent Role="Group_Order_Binding">
+        <PropertyRef Name="Orderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group_Product_Binding_Groupdb">
+    <End Role="pGroupdb" Type="Self.pGroupdb" Multiplicity="0..1" />
+    <End Role="Group_Product_Binding" Type="Self.Group_Product_Binding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pGroupdb">
+        <PropertyRef Name="Group_ID" />
+      </Principal>
+      <Dependent Role="Group_Product_Binding">
+        <PropertyRef Name="Groupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group_Product_Binding_Productdb">
+    <End Role="pProductdb" Type="Self.pProductdb" Multiplicity="0..1" />
+    <End Role="Group_Product_Binding" Type="Self.Group_Product_Binding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pProductdb">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Group_Product_Binding">
+        <PropertyRef Name="Productid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="final_pEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Group_Order_Binding" EntityType="Self.Group_Order_Binding" />
+    <EntitySet Name="Group_Product_Binding" EntityType="Self.Group_Product_Binding" />
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="pGroupdb" EntityType="Self.pGroupdb" />
+    <EntitySet Name="pProductdb" EntityType="Self.pProductdb" />
+    <AssociationSet Name="FK_Group_Order_Binding_Groupdb" Association="Self.FK_Group_Order_Binding_Groupdb">
+      <End Role="pGroupdb" EntitySet="pGroupdb" />
+      <End Role="Group_Order_Binding" EntitySet="Group_Order_Binding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group_Order_Binding_Order" Association="Self.FK_Group_Order_Binding_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Group_Order_Binding" EntitySet="Group_Order_Binding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group_Product_Binding_Groupdb" Association="Self.FK_Group_Product_Binding_Groupdb">
+      <End Role="pGroupdb" EntitySet="pGroupdb" />
+      <End Role="Group_Product_Binding" EntitySet="Group_Product_Binding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group_Product_Binding_Productdb" Association="Self.FK_Group_Product_Binding_Productdb">
+      <End Role="pProductdb" EntitySet="pProductdb" />
+      <End Role="Group_Product_Binding" EntitySet="Group_Product_Binding" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

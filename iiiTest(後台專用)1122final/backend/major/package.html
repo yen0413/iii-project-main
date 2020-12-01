@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>員工包裹收發系統</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="package.css">
+</head>
+
+<body>
+    <div class="header-blue">
+        <nav class="navbar navbar-default navigation-clean-button">
+            <div class="container">
+                <div class=""><a class="navbar-brand" href="#">郵件包裹系統</a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span
+                            class="sr-only"></span><span class="icon-bar"></span><span class="icon-bar"></span><span
+                            class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+
+                    <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="#"></a> <a
+                            type="submit" class="btn btn-default action-button" role="button" onclick="logOut()">登出</a>
+                    </p>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="blue">
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-md-12 jumbotron">
+                    <form name='form' action='#' method='post' class="formtxt midform col-md-12" id="addNew">
+                        <p class="midcenter"><label style="margin-right: 2px;">姓名:</label>
+                            <input type="text" list="browsers" name="myBrowser" id="memberedit" class="inputname"style="color: black;"></p>
+                        <datalist id="browsers">
+                        </datalist>
+
+                        <p class="midcenter"><label style="margin-right: 2px;">數量:</label> <input type="number"
+                                id="numedit" min="1" style="color: black;"></p>
+                        <div></div>
+                        <div class="btnn">
+                            <div class="wrapper"><input type='button' id="submit" value='送出' onclick="sendData()"
+                                    class="btn btn-primary"></div>
+                            <div class="wrapper"><input type='button' οnclick="cancel" value='取消' onclick="sendData()"
+                                    class="btn btn-primary"></div>
+                        </div>
+                    </form>
+                    <div></div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table ">
+                    <thead>
+                        <tr class="ff">
+                            <th>工號</th>
+                            <th>姓名</th>
+                            <th>數量</th>
+                            <th>修改/已領取</th>
+                            <!-- <th scope="col">已領取</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        const countnum = 0;
+        const request = new XMLHttpRequest();
+        jQuery.support.cors = true;
+
+        let cURL = 'https://1fuen12iii.azurewebsites.net';
+
+        const sendHttpRequest = (method, url, data) => {  //fetch的上半部整理成function
+            return fetch(url, {
+                method: method,
+                body: JSON.stringify(data),
+                headers: data ? { 'Content-Type': 'application/json', } : { Authorization: 'Bearer ' + localStorage.getItem("Packagetoken") },
+                //{}裡面可放物件//三元表達式
+            })  //get data  
+                .then(response => {
+                    if (response.status >= 400) {       //參考xml httprequest對於錯誤的處理方法
+                        //!response.ok
+                        return response.json().then(errResData => {
+                            const error = new Error('Something went wrong!');
+                            error.data = errResData;   //找出錯誤的資料為何
+                            throw error;
+                        });
+                    }
+                    return response.json();
+                })
+        }
+
+
+
+        const getData = () => {
+            sendHttpRequest('get', cURL+'/api/mbPackage')
+                .then(responseData => {
+                    let str = '';
+                    responseData.ftable.forEach(i => {
+                        count = i.count;
+                        str += content_tpl(i);
+
+                    })
+                    $('tbody').html(str);
+                })
+        };
+
+
+        const idArr = []
+        const nameArr = []
+
+        $.ajax({
+            url: cURL+"/api/memberback",
+            type: "GET", headers: { Authorization: 'Bearer ' + localStorage.getItem("Packagetoken") },
+            success: function (response) {
+                response.ftable.forEach((v, i) => {
+                    idArr[i] = v.id
+                    nameArr[i] = v.name
+                });
+
+            }
+        });
+
+        console.log(idArr)
+
+        const content_tpl = tpl => {
+
+            return ` <tr style="color:white">
+                    <td>${tpl.id}</td>
+                    <td  id="name_${tpl.id}">${tpl.name}</td>
+                    <td contentEditable="true" id="package_${tpl.id}">${tpl.package}</td>    
+                    <td><button class="btn btn-primary" onclick="getData_edite(${tpl.id})">修改數量</button><button class="btn btn-danger" onclick="getData_zero(${tpl.id})">已領取</button><td>                                    
+                   </tr>`;
+        };
+        request.onload = getData();
+
+        const getData_zero = (id) => {
+            var check = confirm("確定包裹都已領取?");
+            let UrlPutID = cURL+`/api/mbPackage/?putID=${id}`
+            sendHttpRequest('Put', UrlPutID, {
+                "packageNumber": "0",
+            }).then(responseData => {
+                request.onload = getData();
+            }).catch(err => {
+                console.log(err, err.data);
+            });
+
+        };
+
+        const getData_edite = (id) => {
+            const packageNum = document.querySelector(`#package_${id}`).innerText;
+            var check = confirm("確定修改包裹數量?");
+            let UrlPutID = cURL+`/api/mbPackage/?putID=${id}`
+            sendHttpRequest('Put', UrlPutID, {
+                "packageNumber": packageNum,
+            }).then(responseData => {
+                request.onload = getData();
+            }).catch(err => {
+                console.log(err, err.data);
+            });
+        };
+
+    
+
+
+        function sendData() {
+            axios.put(cURL+`/api/mbPackage/?putID=${idArr[nameArr.indexOf(document.getElementById("memberedit").value)]}`,
+
+                {
+                    packageNumber: document.getElementById("numedit").value
+                })
+                .then(function (data) {
+                    request.onload = getData();
+                })
+
+        };
+
+
+
+
+
+
+
+        let availableTags;
+        const string1 = [];
+        let selectTags;
+        const string2 = [];
+
+        $.ajax({
+            url: cURL+"/api/memberback",
+            type: "GET", headers: { Authorization: 'Bearer ' + localStorage.getItem("Packagetoken") },
+            success: function (response) {
+
+
+                response.ftable.forEach((v, i) => {
+                    string1[i] = v.id
+                    string2[i] = v.name
+                });
+                selectTags = string2.splice(",");
+
+                selectTags.forEach(element => {//console.log(element);
+                    document.getElementById('browsers').innerHTML += `<option value="${element}">${element}</option>`
+                });
+            }
+        });
+       
+
+        function logOut() {
+            localStorage.removeItem("Packagetoken");
+            location.href = "packagelogin.html"
+        }
+
+    </script>
+    <footer>
+        <div class="row mb-3 blue">
+            <div class="col-md-6 foot">
+                <p class="foot">Gladxy Co. Copyright © 2020</p>
+            </div>
+           
+        </div>
+    </footer>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>

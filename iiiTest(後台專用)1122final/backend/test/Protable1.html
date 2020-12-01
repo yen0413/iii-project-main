@@ -1,0 +1,1152 @@
+<!--
+=========================================================
+ Light Bootstrap Dashboard - v2.0.1
+=========================================================
+
+ Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+ Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard/blob/master/LICENSE)
+
+ Coded by Creative Tim
+
+=========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Light Bootstrap Dashboard - Free Bootstrap 4 Admin Dashboard by Creative Tim</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/css/demo.css" rel="stylesheet" />
+   
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https:/resources/demos/style.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+</head>
+<style>
+.displaynon{
+    display: none;
+}
+.creatform{
+    display: flex;
+    position: absolute;
+    justify-content: space-evenly;
+}
+.creatformdiv{
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+    height: 300px;
+}
+.displaynonform{
+    display: none;
+}
+.imgproduct{
+    width: 100px;
+    height: 100px;
+}
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="" class="simple-text">
+                        員工福利網
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="index.html">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p>主頁</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Blogtable.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>部落格</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Emptable.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>員工</p>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a class="nav-link" href="./Event.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>開團</p>
+                        </a>
+                    </li> -->
+                    <li>
+                        <a class="nav-link" href="./Forum.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>討論區</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Protable.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>團購</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#pablo"> Table List </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-toggle="dropdown">
+                                    <i class="nc-icon nc-palette"></i>
+                                    <span class="d-lg-none">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <i class="nc-icon nc-planet"></i>
+                                    <span class="notification">5</span>
+                                    <span class="d-lg-none">Notification</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Notification 1</a>
+                                    <a class="dropdown-item" href="#">Notification 2</a>
+                                    <a class="dropdown-item" href="#">Notification 3</a>
+                                    <a class="dropdown-item" href="#">Notification 4</a>
+                                    <a class="dropdown-item" href="#">Another notification</a>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nc-icon nc-zoom-split"></i>
+                                    <span class="d-lg-block">&nbsp;Search</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pablo">
+                                    <span class="no-icon">Account</span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="no-icon">Dropdown</span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pablo">
+                                    <span class="no-icon">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card strpied-tabled-with-hover">
+                                <div class="card-header ">
+                                    <h4 class="card-title">團購列表</h4>
+                                    <button id="btn1" type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#creatgroup1">新增購物團</button>                          
+                                </div>
+                                <!-- <div id="creatgroup" style="display: none;">
+                                    <form >
+                                        <div class="form-row">
+                                          <div class="form-group col-md-6">
+                                            <label for="inputEmail4">團購名稱</label>
+                                            <input type="text" class="form-control" id="newGroup_Title" >
+                                            <label for="inputEmail4">團購種類</label>
+                                            <input type="text" class="form-control" id="newGroup_type" >
+                                          </div>
+                                          <div class="form-group col-md-6">
+                                            <label for="from">團購開始日期</label>
+                                            <input type="date" class="form-control" id="newGroup_StartDate" name="from">
+                                            <label for="to">團購結束日期</label>
+                                            <input type="date" class="form-control" id="newGroup_EndDate" name="to">
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputAddress">團購敘述</label>
+                                            <input type="text" class="form-control" id="newGroup_description" style="margin-left: 10px;">
+                                          </div>
+                                        <div>
+                                          <div class="form-group col-md-6">
+                                            <label for="inputEmail4">團購商品一目標人數</label>
+                                            <input type="number" class="form-control" id="newGroup_TartgetNumber1">
+                                            <label for="inputEmail4">團購商品二目標人數</label>
+                                            <input type="number" class="form-control" id="newGroup_TartgetNumber2" >
+                                          </div>
+                                          <div class="form-group col-md-6">
+                                            <label for="inputEmail4">創團人編號</label>
+                                            <input type="number" class="form-control" id="newOwnerMember_ID" style="margin-left: 10px;">
+                                            <button  class="btn btn-primary" onclick="sendData()" style="margin-top: 30px;">送出</button>
+                                          </div>
+                                         
+                                        </div>
+                                    
+                                        
+                                        
+                                      </form>
+                                </div> -->
+                                <!-- <div id="creatproduct" >
+                                    <form >
+                                        <div class="form-row">
+                                          <div class="form-group col-md-6">
+                                            <label for="inputEmail4">團購編號</label>
+                                                <input type="number" class="form-control" id="newgroupid" disabled>
+                                            <label for="inputEmail4">商品名稱</label>
+                                            <input type="text" class="form-control" id="newproductname" >
+                                            
+                                          </div>
+                                          <div class="form-group col-md-6">
+                                            <label for="from">商品價格</label>
+                                            <input type="number" class="form-control" id="newproductprice" >
+                                            <label for="to">商品訂購量</label>
+                                            <input  type="number" class="form-control" id="newproductcurrentnum" >
+                                          </div>
+                                          <div class="form-group col-md-6">
+                                            <label for="from">商品庫存</label>
+                                            <input type="number" class="form-control" id="newproductrestnumber" style="margin-left: 10px;">
+                                            <label for="to">商品描述</label>
+                                            <input  type="text" class="form-control" id="newproductdescription" style="margin-left: 10px;">
+                                            <textarea style="display: none;" id="uploadPic" rows="1"></textarea>
+                                            <label for="to">商品圖片 </label>
+                                            <input  type="file" class="form-control" id="newproductpictureurl" name="file" accept="image/*">
+                                            <img id="img" width="300px" height="300px">
+                                             
+                                            
+                                            
+                                          </div>
+                                        </div>
+                                        
+                                    </form> 
+                                    <button  class="btn btn-primary" onclick="sendData2()" style="margin-top: 30px; margin-left: 10px;">送出</button> 
+                                        
+                                      
+                                      
+                                </div> -->
+                            <!-- <div id="creatorder" style="display: none;" >
+                                    <form >
+                                        <div class="form-row">
+                                          <div class="form-group col-md-6">
+                                            <label for="inputEmail4">訂購團編號</label>
+                                                <input type="number" class="form-control" id="newordergroupid" disabled>
+                                            <label for="inputEmail4">商品編號</label>
+                                            <input type="number" class="form-control" id="neworderproductid" >
+                                            
+                                          </div>
+                                          <div class="form-group col-md-6">
+                                            <label for="from">訂購人編號</label>
+                                            <input type="number" class="form-control" id="newordermemberid" >
+                                            <label for="to">訂購數量</label>
+                                            <input  type="number" class="form-control" id="neworderquantity" >
+                                          </div>
+                                           <div class="form-group col-md-6">
+                                            <label for="from">訂購日期</label>
+                                            <input type="date" class="form-control" id="neworderdate" style="margin-left: 10px;">
+                                            <label for="to">訂購狀態</label>
+                                            <input  type="number" class="form-control" id="neworderstate" style="margin-left: 10px;">
+                                          </div>
+                                        </div>                                       
+                                    </form>
+                                      <button  class="btn btn-primary" onclick="sendData3()" style="margin-top: 30px; margin-left: 10px;">送出</button>
+                            </div>    -->
+                                
+                                <div class="card-body table-full-width table-responsive">
+                                            <th>團名搜尋</th>
+                                            <input type="text" class="search_txt" placeholder="請填寫團名" id="srchtxt_Title">
+                                            <button><i class="fas fa-search" onclick="`${getDataKey()}`"></i></button>
+                                    <table class="table table-hover table-striped " >
+                                        <thead>
+                                            <th>團購編號</th>
+                                            <th>團購名稱</th>
+                                            <th>團購開始日期</th>
+                                            <th>團購結束日期</th>
+                                            <th>產品一答標人數</th>
+                                            <th>產品二達標人數</th>
+                                            <th>團購狀態</th>
+                                            <th>團購描述</th>
+                                            <th>團購創辦人編號</th>
+                                            <th>商品清單</th>
+                                            <th>訂購清單</th>
+                                            <th>編輯</th>
+                                            <th>刪除</th>
+                                        </thead>
+                                        <tbody id="gptable" >
+
+                                        </tbody>
+                                        
+                                            <!-- <tbody id="Eventgroup" >
+
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Dakota Rice</td>
+                                                    <td>$36,738</td>
+                                                    <td>Niger</td>
+                                                    <td>Oud-Turnhout</td>
+                                                    <td>Niger</td>
+                                                    <td>Oud-Turnhout</td>
+                                                    <td>Oud-Turnhout</td>
+                                                    <td>Oud-Turnhout</td>
+                                                    <td ><button id="grouptitle" >參加人員</button></td>
+                                                </tr >
+                                                <tr>
+                                                    <th>參加日期</th>
+                                                    <th>參加人員id</th>
+                                                    <th>參加人員狀態</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                </tr>
+                                        </tbody > --> 
+                                            <!-- <tbody id="product"> -->
+
+                                                 <!-- <thead id="producttitle" style="display:none" >
+                                                    <th>商品編號</th>
+                                                <th>商品名稱</th>
+                                                <th>商品價格</th>
+                                                <th>商品描述</th>
+                                                <th>圖片編號</th>
+                                                <th>團購價</th>
+                                                </thead>
+                                            <tbody id="productlist" style="display:none">
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Minerva Hooper</td>
+                                                    <td>$23,789</td>
+                                                    <td>Curaçao</td>
+                                                    <td>Sinaai-Waas</td>
+                                                    <td>Curaçao</td>
+                                                </tr> -->
+                                            <!-- </tbody> -->
+                                     
+                                               
+                                          
+                                            
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav>
+                        <ul class="footer-menu">
+                            <li>
+                                <a href="#">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Company
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Portfolio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Blog
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+<!-- ------------------------------------------123 -->
+<div class="modal fade bd-example-modal-xl" id="creatgroup1" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div id="creatgroup" >
+            <form >
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4" type="button" onclick="demonewgroup()"> 團購名稱</label>
+                    <input type="text" class="form-control" id="newGroup_Title" >
+                    <label for="inputEmail4">團購種類</label>
+                    <input type="text" class="form-control" id="newGroup_type" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="from">團購開始日期</label>
+                    <input type="text" class="form-control" id="newGroup_StartDate" name="from">
+                    <label for="to">團購結束日期</label>
+                    <input type="text" class="form-control" id="newGroup_EndDate" name="to">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">團購敘述</label>
+                    <input type="text" class="form-control" id="newGroup_description" style="margin-left: 10px;">
+                  </div>
+                <div>
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">團購商品一目標人數</label>
+                    <input type="number" class="form-control" id="newGroup_TartgetNumber1">
+                    <label for="inputEmail4">團購商品二目標人數</label>
+                    <input type="number" class="form-control" id="newGroup_TartgetNumber2" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">創團人編號</label>
+                    <input type="number" class="form-control" id="newOwnerMember_ID" style="margin-left: 10px;">
+                    <button  class="btn btn-primary" onclick="sendData()" style="margin-top: 30px;">送出</button>
+                  </div>
+                 
+                </div>
+            
+                
+                
+              </form>
+        </div> 
+    </div>
+</div>
+</div>
+<div class="modal fade bd-example-modal-xl" id="creatorder1" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div id="creatorder"  >
+            <form >
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4" type="button" onclick="demoneworder()">訂購團編號</label>
+                        <input type="number" class="form-control" id="newordergroupid" disabled>
+                    <label for="inputEmail4">商品編號</label>
+                    <input type="number" class="form-control" id="neworderproductid" >
+                    
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="from">訂購人編號</label>
+                    <input type="number" class="form-control" id="newordermemberid" >
+                    <label for="to">訂購數量</label>
+                    <input  type="number" class="form-control" id="neworderquantity" >
+                  </div>
+                   <div class="form-group col-md-6">
+                    <label for="from">訂購日期</label>
+                    <input type="text" class="form-control" id="neworderdate" style="margin-left: 10px;">
+                    <label for="to">訂購狀態</label>
+                    <input  type="number" class="form-control" id="neworderstate" style="margin-left: 10px;">
+                  </div>
+                </div>                                       
+            </form>
+              <button  class="btn btn-primary" onclick="sendData3()" style="margin-top: 30px; margin-left: 10px;">送出</button>
+    </div>   
+    </div>
+</div>
+</div>
+<div class="modal fade bd-example-modal-xl" id="productlistu" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <table class="table table-hover table-striped" id="datatable">
+            <thead>
+                <tr>
+                    <th>購物團編號</th>
+                    <th>產品編號</th>
+                    <th>產品名稱</th>
+                    <th>產品價格</th>
+                    <th>產品訂購量</th>
+                    <th>產品庫存</th>
+                    <th>產品描述</th>
+                    <th>產品圖片</th>
+                    <th>修改</th>
+                    <th>刪除</th>
+                </tr>
+            </thead>
+            <tbody id="groupproducttable">
+                <!-- <tr>
+                    <td>charry</td>
+                    <td>14</td>
+                    <td>content</td>
+                    <td>datetime</td>
+                    <td><button onclick="MesDelete()">刪除<i class="fas fa-trash-alt"></i></button></td>
+                </tr> -->
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<div class="modal fade bd-example-modal-xl" id="creatproduct1" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div id="creatproduct" >
+            <form >
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4" type="button" onclick="demonewproduct()">團購編號</label>
+                        <input type="number" class="form-control" id="newgroupid" disabled>
+                    <label for="inputEmail4">商品名稱</label>
+                    <input type="text" class="form-control" id="newproductname" >
+                    
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="from">商品價格</label>
+                    <input type="number" class="form-control" id="newproductprice" >
+                    <label for="to">商品訂購量</label>
+                    <input  type="number" class="form-control" id="newproductcurrentnum" >
+                  </div>
+                <div class="form-group col-md-6">
+                    <label for="from">商品庫存</label>
+                    <input type="number" class="form-control" id="newproductrestnumber" >
+                    <label for="to">商品描述</label>
+                    <input  type="text" class="form-control" id="newproductdescription" >
+                </div>
+                <div>
+                    <textarea style="display: none;" id="uploadPic" rows="1"></textarea>
+                    <label for="to">商品圖片 </label>
+                    <input  type="file" class="form-control" id="newproductpictureurl" name="file" accept="image/*">
+                    <img id="img" width="300px" height="300px">
+                     
+                    
+                    
+                  </div>
+                </div>
+                
+            </form> 
+            <button  class="btn btn-primary" onclick="sendData2()" style="margin-top: 30px; margin-left: 10px;">送出</button> 
+                
+              
+              
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal fade bd-example-modal-xl" id="orderlist" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <table class="table table-hover table-striped" id="datatable">
+            <thead>
+                <tr>
+                    <th>訂購編號</th>
+                    <th>訂購產品編號</th>
+                    <th>訂購團編號</th>
+                    <th>訂購數量</th>
+                    <th>訂購日期</th>
+                    <th>訂購數量</th>
+                    <th>訂購人員編號</th>
+                    <th>修改</th>
+                    <th>刪除</th>
+                </tr>
+            </thead>
+            <tbody id="groupordertable">
+                <!-- <tr>
+                    <td>charry</td>
+                    <td>14</td>
+                    <td>content</td>
+                    <td>datetime</td>
+                    <td><button onclick="MesDelete()">刪除<i class="fas fa-trash-alt"></i></button></td>
+                </tr> -->
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</body>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="../assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--  Chartist Plugin  -->
+<script src="../assets/js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="../assets/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/js/demo.js"></script>
+
+
+<script>
+    const request = new XMLHttpRequest();   
+    jQuery.support.cors = true;
+
+  const sendHttpRequest = (method, url, data) => {  //fetch的上半部整理成function
+    return fetch(url, {
+        method: method,
+        body: JSON.stringify(data),
+        headers: data ? { 'Content-Type': 'application/json', } : {} //{}裡面可放物件//三元表達式
+    })  //get data  
+        .then(response => {
+            if (response.status >= 400) {       //參考xml httprequest對於錯誤的處理方法
+                //!response.ok
+                return response.json().then(errResData => {
+                    const error = new Error('Something went wrong!');
+                    error.data = errResData;   //找出錯誤的資料為何
+                    throw error;
+                });
+            }
+            return response.json();
+        })
+};
+const getData = () => {
+    sendHttpRequest('get', 'https://1fuen12iii.azurewebsites.net/api/gp')
+        .then(responseData => {
+            let str = '';
+            responseData.gtable.forEach(i => {
+                count = i.count;
+                str += content_tpl(i);              
+            })
+            $('#gptable').html(str);
+            console.log(responseData);          
+        })
+};
+const getDataKey = () => {
+    const url=`https://1fuen12iii.azurewebsites.net/api/gp/?grouptitle=${srchtxt_Title.value}`
+    sendHttpRequest('get', url)
+    .then(responseData => {
+            let str = '';
+            responseData.gtable.forEach(i => {
+                count = i.count;
+                str += content_tpl(i);              
+            })
+            $('#gptable').html(str);
+            console.log(responseData); 
+  console.log(document.getElementById("srchtxt_Title").value)
+        })
+        
+};
+const getData1 = (id) => { 
+     let UrlGetID = `https://1fuen12iii.azurewebsites.net/api/gpproduct/${id}`
+    sendHttpRequest('get', UrlGetID)
+   
+        .then(responseData => {
+            let str = '';
+            responseData.gptable.forEach(i => {
+                count = i.count;
+                str += content_tp2(i);              
+            })
+            $('#groupproducttable').html(str);
+            console.log(responseData);          
+        })
+};
+const getData2 = (id) => { 
+     let UrlGetID = `https://1fuen12iii.azurewebsites.net/api/gporder/${id}`
+    sendHttpRequest('get', UrlGetID)
+   
+        .then(responseData => {
+            let str = '';
+            responseData.gotable.forEach(i => {
+                count = i.count;
+                str += content_tp3(i);              
+            })
+            $('#groupordertable').html(str);
+            console.log(responseData);          
+        })
+};
+const getData_delete = (id) => {
+    var check = confirm("確定要刪除嗎?");
+    if (!check) {
+        return
+    };
+    let UrlPutID = `https://1fuen12iii.azurewebsites.net/api/gp/?id=${id}`
+    sendHttpRequest('Delete', UrlPutID
+    ).then(responseData => {
+        console.log(responseData);
+        //console.log(typeof responseData);
+        console.log(id);
+        //console.log(message.fmessage);
+        request.onload = getData();
+    }).catch(err => {
+        console.log(err, err.data);
+    });
+
+};
+const getData_delete1 = (id) => {
+    var check = confirm("確定要刪除嗎?");
+    if (!check) {
+        return
+    };
+    let UrlPutID = `https://1fuen12iii.azurewebsites.net/api/gpproduct/?id=${id}`
+    sendHttpRequest('Delete', UrlPutID
+    ).then(responseData => {
+        console.log(responseData);
+        //console.log(typeof responseData);
+        console.log(id);
+        //console.log(message.fmessage);
+        request.onload = getData();
+    }).catch(err => {
+        console.log(err, err.data);
+    });
+
+};
+const getData_delete2 = (id) => {
+    var check = confirm("確定要刪除嗎?");
+    if (!check) {
+        return 
+    }
+    let UrlPutID = `https://1fuen12iii.azurewebsites.net/api/gporder/?id=${id}`
+    sendHttpRequest('Delete', UrlPutID
+    ).then(responseData => {
+        console.log(responseData);
+        //console.log(typeof responseData);
+        console.log(id);
+        //console.log(message.fmessage);
+        request.onload = getData();
+    }).catch(err => {
+        console.log(err, err.data);
+    });
+
+};
+const putEditData = (id) => {
+    // currentPost.iID
+    // const title = document.querySelector(`#title_${id}`).innerText
+    const Group_Title=document.querySelector(`#Group_Title_${id}`).innerText;
+    const Group_StartDate=document.querySelector(`#Group_StartDate_${id}`).innerText;
+    const Group_EndDate=document.querySelector(`#Group_EndDate_${id}`).innerText;
+    const Group_TartgetNumber1=document.querySelector(`#Group_TartgetNumber1_${id}`).innerText;
+    const Group_TartgetNumber2=document.querySelector(`#Group_TartgetNumber2_${id}`).innerText;
+    const Group_type=document.querySelector(`#Group_type_${id}`).innerText;
+    const Group_description=document.querySelector(`#Group_description_${id}`).innerText;
+    const OwnerMember_ID=document.querySelector(`#OwnerMember_ID_${id}`).innerText;
+    let UrlPutID = `https://1fuen12iii.azurewebsites.net/api/gp/?id=${id}`
+    sendHttpRequest('Put', UrlPutID, {
+        // "title": title,     
+        "Group_Title": Group_Title,
+        "Group_StartDate": Group_StartDate,
+        "Group_EndDate": Group_EndDate,
+        "Group_TartgetNumber1": Group_TartgetNumber1,
+        "Group_TartgetNumber2": Group_TartgetNumber2,
+        "Group_type": Group_type,
+        "Group_description": Group_description,
+        "OwnerMember_ID": OwnerMember_ID,
+    }).then(responseData => {              
+        request.onload = getData();
+    }).catch(err => {
+        console.log(err, err.data);
+    });
+
+};
+const putEditData1 = (id) => {
+    // currentPost.iID
+    // const title = document.querySelector(`#title_${id}`).innerText
+    const productname=document.querySelector(`#productname_${id}`).innerText;
+    const productprice=document.querySelector(`#productprice_${id}`).innerText;
+    const productcurrentnum=document.querySelector(`#productcurrentnum_${id}`).innerText;
+    const productrestnumber=document.querySelector(`#productrestnumber_${id}`).innerText;
+    const productdescription=document.querySelector(`#productdescription_${id}`).innerText;
+    const productpictureurl=document.querySelector(`#productpictureurl_${id}`).innerText;
+    let UrlPutID = `https://1fuen12iii.azurewebsites.net/api/gpproduct/?id=${id}`
+    sendHttpRequest('Put', UrlPutID, {
+        // "title": title,     
+        "productname": productname,
+        "productprice": productprice,
+        "productcurrentnum": productcurrentnum,
+        "productrestnumber": productrestnumber,
+        "productdescription": productdescription,
+        "productpictureurl": productpictureurl,
+    }).then(responseData => {              
+        request.onload = getData();
+    }).catch(err => {
+        console.log(err, err.data);
+    });
+
+};
+const putEditData2 = (id) => {
+    // currentPost.iID
+    // const title = document.querySelector(`#title_${id}`).innerText
+    const orderquantity=document.querySelector(`#orderquantity_${id}`).innerText;
+    const orderdate=document.querySelector(`#orderdate_${id}`).innerText;
+    const orderstate=document.querySelector(`#orderstate_${id}`).innerText;
+    let UrlPutID = `https://1fuen12iii.azurewebsites.net/api/gporder/?id=${id}`
+    sendHttpRequest('Put', UrlPutID, {
+        // "title": title,     
+        "orderquantity": orderquantity,
+        "orderdate": orderdate,
+        "orderstate": orderstate,
+    }).then(responseData => {              
+        request.onload = getData();
+    }).catch(err => {
+        console.log(err, err.data);
+    });
+
+};
+const sendData = () => {
+     if (!document.getElementById("newGroup_Title").value) {
+         alert('請填入團購標題!');
+     }else if(!document.getElementById("newGroup_StartDate").value){
+         alert("請輸入團購開始日期")
+     }else if(!document.getElementById("newGroup_EndDate").value){
+         alert("請輸入團購結束日期")
+     }else if(!document.getElementById("newGroup_TartgetNumber1").value){
+         alert("請輸入商品一目標人數")
+     }else if(!document.getElementById("newGroup_TartgetNumber2").value){
+         alert("請輸入商品二目標人數")
+     }else if(!document.getElementById("newGroup_type").value){
+         alert("請輸入團購狀態")
+     }else if(!document.getElementById("newGroup_description").value){
+         alert("請輸入團購敘述")
+     }else if(!document.getElementById("newOwnerMember_ID").value){
+         alert("請輸入創團人編號")
+     }
+
+     else {
+         sendHttpRequest('post', 'https://1fuen12iii.azurewebsites.net/api/gp', {
+             "newGroup_Title": document.getElementById("newGroup_Title").value,
+             "newGroup_StartDate": document.getElementById("newGroup_StartDate").value,
+             "newGroup_TartgetNumber1": document.getElementById("newGroup_TartgetNumber1").value,
+             "newGroup_TartgetNumber2": document.getElementById("newGroup_TartgetNumber2").value,
+             "newGroup_type": document.getElementById("newGroup_type").value,
+             "newGroup_description": document.getElementById("newGroup_description").value,
+             "newOwnerMember_ID": document.getElementById("newOwnerMember_ID").value,
+             "newGroup_EndDate": document.getElementById("newGroup_EndDate").value,
+             
+         }).then(responseData => {
+             //再次從server取資料
+             console.log(responseData)
+             request.onload = getData();
+         }).catch(err => {
+             console.log(err, err.data);
+         });
+     }
+ };
+ const sendData2 = () => {
+     if (!document.getElementById("newproductname").value) {
+         alert('請填入產品名稱!');
+     }else if(!document.getElementById("newproductprice").value){
+         alert("請輸入產品價格")
+     }else if(!document.getElementById("newproductcurrentnum").value){
+         alert("請輸入產品訂購量")
+     }else if(!document.getElementById("newproductrestnumber").value){
+         alert("請輸入產品庫存")
+     }else if(!document.getElementById("newproductdescription").value){
+         alert("請輸入產品描述")
+     }
+    //  else if(!document.getElementById("newproductpictureurl").value){
+    //      alert("請輸入產品圖片")
+    //  }
+
+
+     else 
+  {
+
+         sendHttpRequest('post', 'https://1fuen12iii.azurewebsites.net/api/gpproduct', {
+            "newgroupid": document.getElementById("newgroupid").value,
+             "newproductname": document.getElementById("newproductname").value,
+             "newproductprice": document.getElementById("newproductprice").value,
+             "newproductcurrentnum": document.getElementById("newproductcurrentnum").value,
+             "newproductrestnumber": document.getElementById("newproductrestnumber").value,
+             "newproductdescription": document.getElementById("newproductdescription").value,
+            "newproductpictureurl": document.getElementById("uploadPic").value,
+
+         }).then(responseData => {
+             //再次從server取資料
+             $('#creatproduct1').modal("hide");
+                    $(".modal-backdrop").remove();
+             console.log(responseData)
+             request.onload = getData();
+         }).catch(err => {
+             console.log(err, err.data);
+         });
+     }
+ };
+ const sendData3 = () => {
+     if (!document.getElementById("neworderquantity").value) {
+        alert('請填入訂購數量!');
+     }else if(!document.getElementById("neworderdate").value){
+         alert("請輸入訂購日期")
+     }
+     else if(!document.getElementById("neworderquantity").value){
+         alert("請輸入訂購數量")
+     } else if(!document.getElementById("newordermemberid").value){
+         alert("請輸入人編號")
+     }else if(!document.getElementById("newordermemberid").value){
+         alert("請輸入訂購狀態")
+     }
+     else {
+
+         sendHttpRequest('post', 'https://1fuen12iii.azurewebsites.net/api/gporder', {
+            "newordergroupid": document.getElementById("newordergroupid").value,
+             "neworderproductid": document.getElementById("neworderproductid").value,
+             "neworderquantity": document.getElementById("neworderquantity").value,
+             "neworderdate": document.getElementById("neworderdate").value,
+             "neworderstate": document.getElementById("neworderstate").value,
+             "newordermemberid": document.getElementById("newordermemberid").value,
+            //  "newproductpictureurl": document.getElementById("newproductpictureurl").value,
+
+         }).then(responseData => {
+             //再次從server取資料
+             $('#creatorder1').modal("hide");
+                    $(".modal-backdrop").remove();
+             console.log(responseData)
+             request.onload = getData();
+
+         }).catch(err => {
+             console.log(err, err.data);
+         });
+     }
+ };
+const content_tpl = tpl => {
+    return ` 
+         <tr >
+             <td >${tpl.groupid}</td>
+             <td contentEditable="true" id="Group_Title_${tpl.groupid}">${tpl.grouptitle}</td>
+             <td contentEditable="true" id="Group_StartDate_${tpl.groupid}">${tpl.groupstartdate}</td>
+             <td contentEditable="true" id="Group_EndDate_${tpl.groupid}">${tpl.groupenddate}</td>
+             <td contentEditable="true" id="Group_TartgetNumber1_${tpl.groupid}">${tpl.grouptargetnumber}</td>
+             <td contentEditable="true" id="Group_TartgetNumber2_${tpl.groupid}">${tpl.grouptargetnumbertwo}</td>
+             <td contentEditable="true" id="Group_type_${tpl.groupid}">${tpl.grouptype}</td>
+             <td contentEditable="true" id="Group_description_${tpl.groupid}">${tpl.groupdescription}</td>
+             <td id="OwnerMember_ID_${tpl.groupid}">${tpl.ownermemberid}</td>
+             <td><button onclick="getData1(${tpl.groupid})" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#productlistu">團購商品列表</button></td>
+                <td><button onclick="getData2(${tpl.groupid})" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#orderlist">商品訂單列表</button></td>
+                <td ><button onclick="ccc(${tpl.groupid})" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#creatproduct1">新增商品</button></td>
+             <td ><button onclick="putEditData(${tpl.groupid})" class="btn btn-success">修改</button></td>
+             <td ><button  onclick="getData_delete(${tpl.groupid})"" class="btn btn-danger">刪除</button></td>
+  </tr >
+  `
+};
+const content_tp2 =tp2=>{
+    return`
+                    <tr >
+                        <td >${tp2.groupid}</td>
+                        <td >${tp2.productid}</td>
+                        <td contentEditable="true" id="productname_${tp2.productid}">${tp2.productname}</td>
+                        <td contentEditable="true" id="productprice_${tp2.productid}">${tp2.productprice}</td>
+                        <td contentEditable="true" id="productcurrentnum_${tp2.productid}">${tp2.productcurrentnum}</td>
+                        <td contentEditable="true" id="productrestnumber_${tp2.productid}">${tp2.productrestnumber}</td>
+                        <td contentEditable="true" id="productdescription_${tp2.productid}">${tp2.productdescription}</td>
+                        <td contentEditable="true" id="productpictureurl_${tp2.productid}"><img src=${tp2.productpictureurl} class="imgproduct"></td>
+                        <td ><button onclick="ddd(${tp2.groupid},${tp2.productid})"type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#creatorder1">新增商品訂單</button></td>
+                        <td ><button onclick="putEditData1(${tp2.productid})" class="btn btn-success">修改</button></td>
+                        <td ><button  onclick="getData_delete1(${tp2.productid})"" class="btn btn-danger">刪除</button></td>
+                    </tr>
+`}
+const content_tp3 =tp3=>{
+
+    return`
+                    <tr >
+                        <td >${tp3.orderid}</td>
+                        <td >${tp3.orderproductid}</td>
+                        <td id="ordergroupid_${tp3.ordergroupid}">${tp3.ordergroupid}</td>
+                        <td contentEditable="true" id="orderquantity_${tp3.orderid}">${tp3.orderquantity}</td>
+                        <td contentEditable="true" id="orderdate_${tp3.orderid}">${tp3.orderdate}</td>
+                        <td contentEditable="true" id="orderstate_${tp3.orderid}">${tp3.orderstate}</td>
+                        <td id="ordermemberid_${tp3.ordergroupid}">${tp3.ordermemberid}</td>
+                        <td ><button onclick="putEditData2(${tp3.orderid})" class="btn btn-success">修改</button></td>
+                        <td ><button  onclick="getData_delete2(${tp3.orderid})"" class="btn btn-danger">刪除</button></td>
+                    </tr>
+`};
+
+request.onload = getData();
+
+$(document).on('change','#newproductpictureurl', function(){
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjcectURL != undefined) {
+            url = window.createOjcectURL(file);
+        } else if (window.URL != undefined) {
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) {
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+
+    }
+    var objURL = getObjectURL(this.files[0]);//objURL為input file的真實路徑
+    getBase64(objURL, (dataURL) => {
+        //console.log(dataURL);
+        document.getElementById('uploadPic').value = dataURL
+    });
+})
+function getBase64(url, callback) {
+        //通過建構函式來建立的 img 例項，在賦予 src 值後就會立刻下載圖片，相比 createElement() 建立 <img> 省去了 append()，也就避免了文件冗餘和汙染
+        var Img = new Image(),
+            dataURL = '';
+        Img.src = url;
+        Img.setAttribute("crossOrigin", 'Anonymous')
+        Img.onload = function () { //要先確保圖片完整獲取到，這是個非同步事件
+            var canvas = document.createElement("canvas"), //建立canvas元素
+                width = Img.width, //確保canvas的尺寸和圖片一樣
+                height = Img.height;
+            canvas.width = width;
+            canvas.height = height;
+            canvas.getContext("2d").drawImage(Img, 0, 0, width, height); //將圖片繪製到canvas中
+            dataURL = canvas.toDataURL('image/jpg'); //轉換圖片為dataURL
+            callback ? callback(dataURL) : null; //呼叫回撥函式
+
+        };
+    }
+
+ const myFile = document.querySelector('#newproductpictureurl')
+
+myFile.addEventListener('change', function(e) {
+  const file = e.target.files[0]
+  const reader = new FileReader()
+  // 轉換成 DataURL
+  reader.readAsDataURL(file)
+  reader.onload = function() {
+    // 將圖片 src 替換為 DataURL
+    img.src = reader.result
+
+  }
+ 
+})
+
+
+function ccc(id){
+
+    document.getElementById("newgroupid").value=id;
+
+    
+ 
+}
+
+function ddd(id,id2){
+//     if(document.getElementById("creatorder").style.display!='none'){
+//     document.getElementById("creatorder").style.display='none';
+// }else{
+//     document.getElementById("creatorder").style.display='';
+//     document.getElementById("newordergroupid").value=id;
+//     document.getElementById("neworderproductid").value=id2;
+    document.getElementById("newordergroupid").value=id;
+    document.getElementById("neworderproductid").value=id2;
+$('#productlistu').modal('hide');
+$(".modal-backdrop").remove();
+
+
+// function hide_tr(id)
+// {
+ 
+//       $("#eventflower1").children.Toggle();
+  
+//   console.log(id);
+//   console.log(id1);
+}
+
+//     $("#showmember").off("click").on("click", function(e){ 
+//     var $table = $(e.currentTarget) 
+//     $table.toggleClass("hidden") 
+// }); 
+function demonewgroup(){
+    document.getElementById("newGroup_Title" ).value="大家來買鞋";
+    document.getElementById("newGroup_type" ).value="2";
+    document.getElementById("newGroup_description" ).value="鞋子好看喔";
+    document.getElementById("newGroup_TartgetNumber1" ).value="100";
+    document.getElementById("newGroup_TartgetNumber2" ).value="10";
+    document.getElementById("newOwnerMember_ID" ).value="1027";
+
+}
+
+function demonewproduct(){
+    document.getElementById("newproductname").value="愛迪達";
+    document.getElementById("newproductprice").value="2500";
+    document.getElementById("newproductcurrentnum").value="200";
+    document.getElementById("newproductrestnumber").value="300"
+    document.getElementById("newproductdescription").value="任何尺寸都有快來買"
+    
+}
+function demoneworder(){
+    document.getElementById("newordermemberid").value="1027"
+    document.getElementById("neworderquantity").value="10"
+    document.getElementById("neworderdate").value="2020/11/25"
+    document.getElementById("neworderstate").value="1"
+}
+</script>
+
+
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#newGroup_StartDate" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 3
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#newGroup_EndDate" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
+  </script>
+
+</html>

@@ -1,0 +1,369 @@
+﻿@model  IEnumerable<newBlogprj.Models.vm_FollowList>
+@{
+    int count = 1;
+}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>揪團go跟團 </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/flaticon.css">
+    <link rel="stylesheet" href="../assets/css/slicknav.css">
+    <link rel="stylesheet" href="../assets/css/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/css/themify-icons.css">
+    <link rel="stylesheet" href="../assets/css/slick.css">
+    <link rel="stylesheet" href="../assets/css/nice-select.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-free-5.14.0-web/css/all.css">
+    <style>
+        header{
+            background-color:white;
+        }
+        body {
+            background-color: #d5f0f0;
+            padding-top: 0px;
+        }
+        .push_right {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .button_margin {
+            margin: 10px;
+        }
+
+        .footer_range {
+            margin-top: 40px;
+        }
+
+        /* .footer-end-social a,
+        .footer_link a {
+            font-size: 120%;
+            color: black;
+            text-decoration: none;
+            margin: 5px;
+        } */
+
+        .footer-end-range {
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            /* width: 900px; */
+        }
+
+        .response_range {
+            display: flex;
+        }
+
+        .main_BCC {
+            background-color: #FFF8D7;
+            border-radius: 5px;
+        }
+
+        .text_mragin {
+            margin-right: 10px;
+        }
+
+        .figure_range {
+            margin: 5px;
+        }
+
+
+
+
+
+
+
+
+        .btn1 {
+            padding: 1px 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 40px;
+            border-radius: 6px;
+            margin-top: 6px;
+        }
+
+        .form-group1 {
+            width: 800px;
+            /* border: 1px solid blue; */
+        }
+        .t {
+            background-color: #d5f0f0;
+            border-color: #d5f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    @*<img src="../assets/img/logo.png" alt="">*@
+                    <img src="~/assets/img/Gladxy_co._LOGO_Small.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="#"><img src="../assets/img/Gladxy_co._LOGO_Small.png" alt=""></a>
+                                </div>
+                            </div>
+                            <h3 class="col-xl-2 col-lg-4 col-md-3" style="display:flex;justify-content:center;">員工福利網</h3>
+
+                            <div class="col-xl-8 col-lg-10 col-md-10">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/cBlog/BlogList">部落格</a></li>
+                                            <li><a href="/cBlog/ForumList">討論區</a></li>
+
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    揪團GO
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <a class=" dropdown-item" href="/cBlog/PurchaseList" style="padding: 10px;">
+                                                        回到主頁
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_Open" style="padding: 10px;">
+                                                        我要開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        開團紀錄
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+
+
+                                                </div>
+                                            </li>
+
+                                            <li><a href="/cBlog/Action">活動區</a></li>
+                                            <!-- <li><a href="#">Blog</a>
+        <ul class="submenu">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Blog Details</a></li>
+        </ul>
+    </li> -->
+                                            <!-- <li><a href="#">Pages</a>
+        <ul class="submenu">
+            <li><a href="#">Element</a></li>
+        </ul>
+    </li> -->
+                                            @*<li><a href="/cBlog/MemberDataEdit/@ViewBag.enumber7">修改資料</a></li>/*@
+                                           <li>歡迎 @ViewBag.username </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    會員專區
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        我的開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+                                                    @*<div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                        我的郵件
+                                                    </a>*@
+                                                    @*<div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                        我要發信
+                                                    </a>*@
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/MemberDataEdit/@ViewBag.enumber7" style="padding: 10px;">
+                                                        修改資料
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Vote" style="padding: 10px;">
+                                                        我的投票
+                                                    </a>
+
+                                                </div>
+                                            </li>
+
+
+                                            <li><a href="/cBlog/LogOut">登出</a></li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+
+    <br />
+    <main style="height:1600px;">
+        <div class="container">
+            <table class="table table-light t" style="margin-left: 10px;">
+                <thead>
+                    <tr>
+                        <th scope="col">流水號</th>
+                        <th scope="col">開團編號</th>
+                        <th scope="col">開團人ID</th>
+
+                        <th scope="col">截止日期</th>
+                        @*<th scope="col">達標人數</th>*@
+                        <th scope="col">價格</th>
+                        <th scope="col">我的訂購數</th>
+                        <th scope="col">小計</th>
+                        <th scope="col">團購類型</th>
+                        <th scope="col">狀態</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td>@item.Group_ID</td>
+                            <td>@item.ownerMBID</td>
+
+                            <td>@item.Enddate</td>
+                            @*<td>@item.targetnum</td>*@
+                            <td>@item.singleprice</td>
+                            <td>@item.ordernum</td>
+                            <td>@item.totalprice</td>
+                            <td>@item.grouptype</td>
+                            <td>@item.groupcondition</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+
+
+
+        </div>
+    </main>
+    <footer>
+        <div class="footer_range footer-area footer-padding footer-bg"
+             data-background="../assets/img/footer_bg.jpg">
+            <div class="container">
+                <div class="footer-end-range footer_link">
+                    <div class="col-xl-7 col-lg-7 col-md-7">
+                        <div class="footer-end-left ">
+                            <a href="#">公司主頁</a>
+                            <a href="#">福委會主頁</a>
+                            <a href="#">與我聯繫</a>
+                            <a href="#">聲明事項</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-5 col-lg-5 col-md-5">
+                        <div class="footer-social f-right">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-end-range">
+                    <P>© 2020 Gladxy Daily. All rights reserved</P>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="../assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/animated.headline.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="../assets/js/jquery.nice-select.min.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
+
+    <!-- contact js -->
+    <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/jquery.form.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/mail-script.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+
+</body>
+
+</html>

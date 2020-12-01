@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="finaldbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="blog">
+    <Key>
+      <PropertyRef Name="Blog_ID" />
+    </Key>
+    <Property Name="Blog_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlogContent" Type="varchar(max)" />
+    <Property Name="blogTitle" Type="nvarchar" MaxLength="255" />
+    <Property Name="Blogdate" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="blogBinding">
+    <Key>
+      <PropertyRef Name="B_ID" />
+    </Key>
+    <Property Name="B_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Memberdb_ID" Type="int" />
+    <Property Name="Blog_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="departmentdb">
+    <Key>
+      <PropertyRef Name="dept_ID" />
+    </Key>
+    <Property Name="dept_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dept_department" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Event_ID" />
+    </Key>
+    <Property Name="Event_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventStartDate" Type="datetime" />
+    <Property Name="EventEndDate" Type="datetime" />
+    <Property Name="EventLocation" Type="nvarchar" MaxLength="50" />
+    <Property Name="EventName" Type="nvarchar" MaxLength="200" />
+    <Property Name="EventContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="EventRemark" Type="nvarchar" MaxLength="500" />
+    <Property Name="EventMaxPeople" Type="int" />
+    <Property Name="EventMinPeople" Type="int" />
+    <Property Name="EventLocationX" Type="varchar" MaxLength="50" />
+    <Property Name="EventLocationY" Type="varchar" MaxLength="50" />
+    <Property Name="EventNowJoin" Type="int" />
+    <Property Name="EventCreateEmployeeID" Type="int" />
+  </EntityType>
+  <EntityType Name="EventBooking">
+    <Key>
+      <PropertyRef Name="Event_ID" />
+      <PropertyRef Name="mb_ID" />
+    </Key>
+    <Property Name="Event_ID" Type="int" Nullable="false" />
+    <Property Name="mb_ID" Type="int" Nullable="false" />
+    <Property Name="BookingDate" Type="datetime" />
+    <Property Name="EmployeeJoinStatus" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="EventComment">
+    <Key>
+      <PropertyRef Name="Event_ID" />
+      <PropertyRef Name="mb_ID" />
+    </Key>
+    <Property Name="Event_ID" Type="int" Nullable="false" />
+    <Property Name="mb_ID" Type="int" Nullable="false" />
+    <Property Name="CommentStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="forumBinding">
+    <Key>
+      <PropertyRef Name="ForumBinding_ID" />
+    </Key>
+    <Property Name="ForumBinding_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fmb_ID" Type="int" />
+    <Property Name="ForumContentID" Type="int" />
+  </EntityType>
+  <EntityType Name="forumContent">
+    <Key>
+      <PropertyRef Name="ForumContentID" />
+    </Key>
+    <Property Name="ForumContentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ForumTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ForumContent" Type="nvarchar" MaxLength="255" />
+    <Property Name="ForumContentTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ForumDelete" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="forumLikebinding">
+    <Key>
+      <PropertyRef Name="ForumLike_ID" />
+    </Key>
+    <Property Name="ForumLike_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fmb_ID" Type="int" />
+    <Property Name="ForumContentID" Type="int" />
+    <Property Name="Like_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="forumMemberBinding">
+    <Key>
+      <PropertyRef Name="ForumMemberBinding_ID" />
+    </Key>
+    <Property Name="ForumMemberBinding_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mb_ID" Type="int" />
+    <Property Name="ForumTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="forummessage">
+    <Key>
+      <PropertyRef Name="ForumMessage_ID" />
+    </Key>
+    <Property Name="ForumMessage_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ForumMessageContent" Type="nvarchar(max)" />
+    <Property Name="ForumMessageTime" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="forumMessageBinding">
+    <Key>
+      <PropertyRef Name="FMB_ID" />
+    </Key>
+    <Property Name="FMB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mb_ID" Type="int" />
+    <Property Name="ForumContentID" Type="int" />
+    <Property Name="ForumMessage_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="forumPicture">
+    <Key>
+      <PropertyRef Name="ForumPictureID" />
+    </Key>
+    <Property Name="ForumPictureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ForumPicture" Type="varchar(max)" />
+    <Property Name="ForumContentID" Type="int" />
+  </EntityType>
+  <EntityType Name="forumType">
+    <Key>
+      <PropertyRef Name="ForumTypeID" />
+    </Key>
+    <Property Name="ForumTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Groupdb">
+    <Key>
+      <PropertyRef Name="Group_ID" />
+    </Key>
+    <Property Name="Group_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Group_startDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Group_endDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Group_targetNumber" Type="int" />
+    <Property Name="Group_type" Type="int" />
+    <Property Name="Group_description" Type="nvarchar" MaxLength="255" />
+    <Property Name="Member_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="groupOrderDetaildb">
+    <Key>
+      <PropertyRef Name="GID" />
+    </Key>
+    <Property Name="MGOB_ID" Type="int" Nullable="false" />
+    <Property Name="GID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupOrder_Quantity" Type="int" />
+    <Property Name="GroupOrder_Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="GroupOrder_State" Type="bit" />
+    <Property Name="followmember_ID" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="groupProductBinding">
+    <Key>
+      <PropertyRef Name="GPB_ID" />
+    </Key>
+    <Property Name="GPB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Group_ID" Type="int" />
+    <Property Name="Product_ID" Type="int" />
+    <Property Name="Product_lowprice" Type="int" />
+  </EntityType>
+  <EntityType Name="GroupType">
+    <Key>
+      <PropertyRef Name="Group_typeID" />
+    </Key>
+    <Property Name="Group_typeID" Type="int" Nullable="false" />
+    <Property Name="Group_type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="likeType">
+    <Key>
+      <PropertyRef Name="Like_ID" />
+    </Key>
+    <Property Name="Like_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LikeType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="memberdb">
+    <Key>
+      <PropertyRef Name="mb_ID" />
+    </Key>
+    <Property Name="mb_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mb_employeeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="mb_employeeAccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="mb_employeePassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="mb_employeeDeptID" Type="int" />
+    <Property Name="mb_employeePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="mb_employeeEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="mb_employeeAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="mb_employeeGender" Type="char" MaxLength="2" />
+    <Property Name="mb_employeeHobby" Type="nvarchar" MaxLength="50" />
+    <Property Name="mb_employeePicture" Type="nvarchar(max)" />
+    <Property Name="mb_employeeBirthday" Type="nvarchar" MaxLength="50" />
+    <Property Name="mb_employeeLiveCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="mb_employeeHireDate" Type="date" />
+    <Property Name="mb_employeeTransport" Type="nvarchar" MaxLength="50" />
+    <Property Name="mb_employeeState" Type="int" />
+    <Property Name="mb_package" Type="int" />
+  </EntityType>
+  <EntityType Name="MemberGroupOrder">
+    <Key>
+      <PropertyRef Name="MGOB_ID" />
+    </Key>
+    <Property Name="MGOB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="openmemberdb_ID" Type="int" />
+    <Property Name="Group_ID" Type="int" />
+    <Property Name="Product_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="MembersType">
+    <Key>
+      <PropertyRef Name="mb_state" />
+    </Key>
+    <Property Name="mb_state" Type="int" Nullable="false" />
+    <Property Name="mb_type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="memberVoteitem">
+    <Key>
+      <PropertyRef Name="memberVoteID" />
+    </Key>
+    <Property Name="memberVoteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="memberID" Type="int" />
+    <Property Name="itemsID" Type="int" />
+  </EntityType>
+  <EntityType Name="productdb">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Price" Type="int" />
+    <Property Name="Product_description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pid" Type="int" />
+  </EntityType>
+  <EntityType Name="productPictureBinding">
+    <Key>
+      <PropertyRef Name="PIC_ID" />
+    </Key>
+    <Property Name="PIC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Picture_URL" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="voteitem">
+    <Key>
+      <PropertyRef Name="itemsID" />
+    </Key>
+    <Property Name="itemsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="items" Type="nvarchar" MaxLength="50" />
+    <Property Name="titleID" Type="int" />
+  </EntityType>
+  <EntityType Name="voteMember">
+    <Key>
+      <PropertyRef Name="memberID" />
+    </Key>
+    <Property Name="memberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="memberNAME" Type="int" />
+  </EntityType>
+  <EntityType Name="voteTitle">
+    <Key>
+      <PropertyRef Name="titleID" />
+    </Key>
+    <Property Name="titleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="startTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="endTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="memberID" Type="int" />
+  </EntityType>
+  <Association Name="FK_blogBinding_blog">
+    <End Role="blog" Type="Self.blog" Multiplicity="0..1" />
+    <End Role="blogBinding" Type="Self.blogBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blog">
+        <PropertyRef Name="Blog_ID" />
+      </Principal>
+      <Dependent Role="blogBinding">
+        <PropertyRef Name="Blog_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_blogBinding_memberdb">
+    <End Role="memberdb" Type="Self.memberdb" Multiplicity="0..1" />
+    <End Role="blogBinding" Type="Self.blogBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="memberdb">
+        <PropertyRef Name="mb_ID" />
+      </Principal>
+      <Dependent Role="blogBinding">
+        <PropertyRef Name="Memberdb_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_memberdb">
+    <End Role="memberdb" Type="Self.memberdb" Multiplicity="0..1" />
+    <End Role="Event" Type="Self.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="memberdb">
+        <PropertyRef Name="mb_ID" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="EventCreateEmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventBooking_Event">
+    <End Role="Event" Type="Self.Event" Multiplicity="1" />
+    <End Role="EventBooking" Type="Self.EventBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Event_ID" />
+      </Principal>
+      <Dependent Role="EventBooking">
+        <PropertyRef Name="Event_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventBooking_memberdb">
+    <End Role="memberdb" Type="Self.memberdb" Multiplicity="1" />
+    <End Role="EventBooking" Type="Self.EventBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="memberdb">
+        <PropertyRef Name="mb_ID" />
+      </Principal>
+      <Dependent Role="EventBooking">
+        <PropertyRef Name="mb_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventComment_Event">
+    <End Role="Event" Type="Self.Event" Multiplicity="1" />
+    <End Role="EventComment" Type="Self.EventComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Event_ID" />
+      </Principal>
+      <Dependent Role="EventComment">
+        <PropertyRef Name="Event_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventComment_memberdb">
+    <End Role="memberdb" Type="Self.memberdb" Multiplicity="1" />
+    <End Role="EventComment" Type="Self.EventComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="memberdb">
+        <PropertyRef Name="mb_ID" />
+      </Principal>
+      <Dependent Role="EventComment">
+        <PropertyRef Name="mb_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumBinding_forumContent">
+    <End Role="forumContent" Type="Self.forumContent" Multiplicity="0..1" />
+    <End Role="forumBinding" Type="Self.forumBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forumContent">
+        <PropertyRef Name="ForumContentID" />
+      </Principal>
+      <Dependent Role="forumBinding">
+        <PropertyRef Name="ForumContentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumBinding_forumMemberBinding">
+    <End Role="forumMemberBinding" Type="Self.forumMemberBinding" Multiplicity="0..1" />
+    <End Role="forumBinding" Type="Self.forumBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forumMemberBinding">
+        <PropertyRef Name="ForumMemberBinding_ID" />
+      </Principal>
+      <Dependent Role="forumBinding">
+        <PropertyRef Name="fmb_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumLikebinding_forumContent">
+    <End Role="forumContent" Type="Self.forumContent" Multiplicity="0..1" />
+    <End Role="forumLikebinding" Type="Self.forumLikebinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forumContent">
+        <PropertyRef Name="ForumContentID" />
+      </Principal>
+      <Dependent Role="forumLikebinding">
+        <PropertyRef Name="ForumContentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumLikebinding_forumLikebinding">
+    <End Role="forumMemberBinding" Type="Self.forumMemberBinding" Multiplicity="0..1" />
+    <End Role="forumLikebinding" Type="Self.forumLikebinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forumMemberBinding">
+        <PropertyRef Name="ForumMemberBinding_ID" />
+      </Principal>
+      <Dependent Role="forumLikebinding">
+        <PropertyRef Name="fmb_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumLikebinding_likeType">
+    <End Role="likeType" Type="Self.likeType" Multiplicity="0..1" />
+    <End Role="forumLikebinding" Type="Self.forumLikebinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="likeType">
+        <PropertyRef Name="Like_ID" />
+      </Principal>
+      <Dependent Role="forumLikebinding">
+        <PropertyRef Name="Like_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumMemberBinding_forumType">
+    <End Role="forumType" Type="Self.forumType" Multiplicity="0..1" />
+    <End Role="forumMemberBinding" Type="Self.forumMemberBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forumType">
+        <PropertyRef Name="ForumTypeID" />
+      </Principal>
+      <Dependent Role="forumMemberBinding">
+        <PropertyRef Name="ForumTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumMemberBinding_memberdb">
+    <End Role="memberdb" Type="Self.memberdb" Multiplicity="0..1" />
+    <End Role="forumMemberBinding" Type="Self.forumMemberBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="memberdb">
+        <PropertyRef Name="mb_ID" />
+      </Principal>
+      <Dependent Role="forumMemberBinding">
+        <PropertyRef Name="mb_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumMessageBinding_forumContent">
+    <End Role="forumContent" Type="Self.forumContent" Multiplicity="0..1" />
+    <End Role="forumMessageBinding" Type="Self.forumMessageBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forumContent">
+        <PropertyRef Name="ForumContentID" />
+      </Principal>
+      <Dependent Role="forumMessageBinding">
+        <PropertyRef Name="ForumContentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumMessageBinding_forumMemberBinding">
+    <End Role="forumMemberBinding" Type="Self.forumMemberBinding" Multiplicity="0..1" />
+    <End Role="forumMessageBinding" Type="Self.forumMessageBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forumMemberBinding">
+        <PropertyRef Name="ForumMemberBinding_ID" />
+      </Principal>
+      <Dependent Role="forumMessageBinding">
+        <PropertyRef Name="mb_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumMessageBinding_forummessage">
+    <End Role="forummessage" Type="Self.forummessage" Multiplicity="0..1" />
+    <End Role="forumMessageBinding" Type="Self.forumMessageBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forummessage">
+        <PropertyRef Name="ForumMessage_ID" />
+      </Principal>
+      <Dependent Role="forumMessageBinding">
+        <PropertyRef Name="ForumMessage_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_forumPicture_forumContent">
+    <End Role="forumContent" Type="Self.forumContent" Multiplicity="0..1" />
+    <End Role="forumPicture" Type="Self.forumPicture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forumContent">
+        <PropertyRef Name="ForumContentID" />
+      </Principal>
+      <Dependent Role="forumPicture">
+        <PropertyRef Name="ForumContentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Groupdb_GroupType">
+    <End Role="GroupType" Type="Self.GroupType" Multiplicity="1" />
+    <End Role="Groupdb" Type="Self.Groupdb" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="GroupType">
+        <PropertyRef Name="Group_typeID" />
+      </Principal>
+      <Dependent Role="Groupdb">
+        <PropertyRef Name="Group_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Groupdb_memberdb">
+    <End Role="memberdb" Type="Self.memberdb" Multiplicity="0..1" />
+    <End Role="Groupdb" Type="Self.Groupdb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="memberdb">
+        <PropertyRef Name="mb_ID" />
+      </Principal>
+      <Dependent Role="Groupdb">
+        <PropertyRef Name="Member_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_groupOrderDetaildb_MemberGroupOrder">
+    <End Role="MemberGroupOrder" Type="Self.MemberGroupOrder" Multiplicity="1" />
+    <End Role="groupOrderDetaildb" Type="Self.groupOrderDetaildb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberGroupOrder">
+        <PropertyRef Name="MGOB_ID" />
+      </Principal>
+      <Dependent Role="groupOrderDetaildb">
+        <PropertyRef Name="MGOB_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_groupProductBinding_Groupdb">
+    <End Role="Groupdb" Type="Self.Groupdb" Multiplicity="0..1" />
+    <End Role="groupProductBinding" Type="Self.groupProductBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groupdb">
+        <PropertyRef Name="Group_ID" />
+      </Principal>
+      <Dependent Role="groupProductBinding">
+        <PropertyRef Name="Group_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_groupProductBinding_productdb">
+    <End Role="productdb" Type="Self.productdb" Multiplicity="0..1" />
+    <End Role="groupProductBinding" Type="Self.groupProductBinding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productdb">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="groupProductBinding">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_memberdb_departmentdb">
+    <End Role="departmentdb" Type="Self.departmentdb" Multiplicity="0..1" />
+    <End Role="memberdb" Type="Self.memberdb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departmentdb">
+        <PropertyRef Name="dept_ID" />
+      </Principal>
+      <Dependent Role="memberdb">
+        <PropertyRef Name="mb_employeeDeptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_memberdb_MembersType">
+    <End Role="MembersType" Type="Self.MembersType" Multiplicity="0..1" />
+    <End Role="memberdb" Type="Self.memberdb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MembersType">
+        <PropertyRef Name="mb_state" />
+      </Principal>
+      <Dependent Role="memberdb">
+        <PropertyRef Name="mb_employeeState" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberGroupOrderBinding_Groupdb">
+    <End Role="Groupdb" Type="Self.Groupdb" Multiplicity="0..1" />
+    <End Role="MemberGroupOrder" Type="Self.MemberGroupOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groupdb">
+        <PropertyRef Name="Group_ID" />
+      </Principal>
+      <Dependent Role="MemberGroupOrder">
+        <PropertyRef Name="Group_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberGroupOrderBinding_memberdb">
+    <End Role="memberdb" Type="Self.memberdb" Multiplicity="0..1" />
+    <End Role="MemberGroupOrder" Type="Self.MemberGroupOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="memberdb">
+        <PropertyRef Name="mb_ID" />
+      </Principal>
+      <Dependent Role="MemberGroupOrder">
+        <PropertyRef Name="openmemberdb_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_memberVoteitem_voteitem">
+    <End Role="voteitem" Type="Self.voteitem" Multiplicity="0..1" />
+    <End Role="memberVoteitem" Type="Self.memberVoteitem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="voteitem">
+        <PropertyRef Name="itemsID" />
+      </Principal>
+      <Dependent Role="memberVoteitem">
+        <PropertyRef Name="itemsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_memberVoteitem_voteMember">
+    <End Role="voteMember" Type="Self.voteMember" Multiplicity="0..1" />
+    <End Role="memberVoteitem" Type="Self.memberVoteitem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="voteMember">
+        <PropertyRef Name="memberID" />
+      </Principal>
+      <Dependent Role="memberVoteitem">
+        <PropertyRef Name="memberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productdb_productPictureBinding">
+    <End Role="productPictureBinding" Type="Self.productPictureBinding" Multiplicity="0..1" />
+    <End Role="productdb" Type="Self.productdb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productPictureBinding">
+        <PropertyRef Name="PIC_ID" />
+      </Principal>
+      <Dependent Role="productdb">
+        <PropertyRef Name="Pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_voteitem_voteTitle">
+    <End Role="voteTitle" Type="Self.voteTitle" Multiplicity="0..1" />
+    <End Role="voteitem" Type="Self.voteitem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="voteTitle">
+        <PropertyRef Name="titleID" />
+      </Principal>
+      <Dependent Role="voteitem">
+        <PropertyRef Name="titleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_voteMember_memberdb">
+    <End Role="memberdb" Type="Self.memberdb" Multiplicity="0..1" />
+    <End Role="voteMember" Type="Self.voteMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="memberdb">
+        <PropertyRef Name="mb_ID" />
+      </Principal>
+      <Dependent Role="voteMember">
+        <PropertyRef Name="memberNAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_voteTitle_voteMember">
+    <End Role="voteMember" Type="Self.voteMember" Multiplicity="0..1" />
+    <End Role="voteTitle" Type="Self.voteTitle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="voteMember">
+        <PropertyRef Name="memberID" />
+      </Principal>
+      <Dependent Role="voteTitle">
+        <PropertyRef Name="memberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="finaldbModel1StoreContainer">
+    <EntitySet Name="blog" EntityType="Self.blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="blogBinding" EntityType="Self.blogBinding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="departmentdb" EntityType="Self.departmentdb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventBooking" EntityType="Self.EventBooking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventComment" EntityType="Self.EventComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forumBinding" EntityType="Self.forumBinding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forumContent" EntityType="Self.forumContent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forumLikebinding" EntityType="Self.forumLikebinding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forumMemberBinding" EntityType="Self.forumMemberBinding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forummessage" EntityType="Self.forummessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forumMessageBinding" EntityType="Self.forumMessageBinding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forumPicture" EntityType="Self.forumPicture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forumType" EntityType="Self.forumType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groupdb" EntityType="Self.Groupdb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="groupOrderDetaildb" EntityType="Self.groupOrderDetaildb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="groupProductBinding" EntityType="Self.groupProductBinding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupType" EntityType="Self.GroupType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="likeType" EntityType="Self.likeType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="memberdb" EntityType="Self.memberdb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberGroupOrder" EntityType="Self.MemberGroupOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MembersType" EntityType="Self.MembersType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="memberVoteitem" EntityType="Self.memberVoteitem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productdb" EntityType="Self.productdb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productPictureBinding" EntityType="Self.productPictureBinding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="voteitem" EntityType="Self.voteitem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="voteMember" EntityType="Self.voteMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="voteTitle" EntityType="Self.voteTitle" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_blogBinding_blog" Association="Self.FK_blogBinding_blog">
+      <End Role="blog" EntitySet="blog" />
+      <End Role="blogBinding" EntitySet="blogBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_blogBinding_memberdb" Association="Self.FK_blogBinding_memberdb">
+      <End Role="memberdb" EntitySet="memberdb" />
+      <End Role="blogBinding" EntitySet="blogBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_memberdb" Association="Self.FK_Event_memberdb">
+      <End Role="memberdb" EntitySet="memberdb" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventBooking_Event" Association="Self.FK_EventBooking_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EventBooking" EntitySet="EventBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventBooking_memberdb" Association="Self.FK_EventBooking_memberdb">
+      <End Role="memberdb" EntitySet="memberdb" />
+      <End Role="EventBooking" EntitySet="EventBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventComment_Event" Association="Self.FK_EventComment_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EventComment" EntitySet="EventComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventComment_memberdb" Association="Self.FK_EventComment_memberdb">
+      <End Role="memberdb" EntitySet="memberdb" />
+      <End Role="EventComment" EntitySet="EventComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumBinding_forumContent" Association="Self.FK_forumBinding_forumContent">
+      <End Role="forumContent" EntitySet="forumContent" />
+      <End Role="forumBinding" EntitySet="forumBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumBinding_forumMemberBinding" Association="Self.FK_forumBinding_forumMemberBinding">
+      <End Role="forumMemberBinding" EntitySet="forumMemberBinding" />
+      <End Role="forumBinding" EntitySet="forumBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumLikebinding_forumContent" Association="Self.FK_forumLikebinding_forumContent">
+      <End Role="forumContent" EntitySet="forumContent" />
+      <End Role="forumLikebinding" EntitySet="forumLikebinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumLikebinding_forumLikebinding" Association="Self.FK_forumLikebinding_forumLikebinding">
+      <End Role="forumMemberBinding" EntitySet="forumMemberBinding" />
+      <End Role="forumLikebinding" EntitySet="forumLikebinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumLikebinding_likeType" Association="Self.FK_forumLikebinding_likeType">
+      <End Role="likeType" EntitySet="likeType" />
+      <End Role="forumLikebinding" EntitySet="forumLikebinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumMemberBinding_forumType" Association="Self.FK_forumMemberBinding_forumType">
+      <End Role="forumType" EntitySet="forumType" />
+      <End Role="forumMemberBinding" EntitySet="forumMemberBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumMemberBinding_memberdb" Association="Self.FK_forumMemberBinding_memberdb">
+      <End Role="memberdb" EntitySet="memberdb" />
+      <End Role="forumMemberBinding" EntitySet="forumMemberBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumMessageBinding_forumContent" Association="Self.FK_forumMessageBinding_forumContent">
+      <End Role="forumContent" EntitySet="forumContent" />
+      <End Role="forumMessageBinding" EntitySet="forumMessageBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumMessageBinding_forumMemberBinding" Association="Self.FK_forumMessageBinding_forumMemberBinding">
+      <End Role="forumMemberBinding" EntitySet="forumMemberBinding" />
+      <End Role="forumMessageBinding" EntitySet="forumMessageBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumMessageBinding_forummessage" Association="Self.FK_forumMessageBinding_forummessage">
+      <End Role="forummessage" EntitySet="forummessage" />
+      <End Role="forumMessageBinding" EntitySet="forumMessageBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_forumPicture_forumContent" Association="Self.FK_forumPicture_forumContent">
+      <End Role="forumContent" EntitySet="forumContent" />
+      <End Role="forumPicture" EntitySet="forumPicture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Groupdb_GroupType" Association="Self.FK_Groupdb_GroupType">
+      <End Role="GroupType" EntitySet="GroupType" />
+      <End Role="Groupdb" EntitySet="Groupdb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Groupdb_memberdb" Association="Self.FK_Groupdb_memberdb">
+      <End Role="memberdb" EntitySet="memberdb" />
+      <End Role="Groupdb" EntitySet="Groupdb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_groupOrderDetaildb_MemberGroupOrder" Association="Self.FK_groupOrderDetaildb_MemberGroupOrder">
+      <End Role="MemberGroupOrder" EntitySet="MemberGroupOrder" />
+      <End Role="groupOrderDetaildb" EntitySet="groupOrderDetaildb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_groupProductBinding_Groupdb" Association="Self.FK_groupProductBinding_Groupdb">
+      <End Role="Groupdb" EntitySet="Groupdb" />
+      <End Role="groupProductBinding" EntitySet="groupProductBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_groupProductBinding_productdb" Association="Self.FK_groupProductBinding_productdb">
+      <End Role="productdb" EntitySet="productdb" />
+      <End Role="groupProductBinding" EntitySet="groupProductBinding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_memberdb_departmentdb" Association="Self.FK_memberdb_departmentdb">
+      <End Role="departmentdb" EntitySet="departmentdb" />
+      <End Role="memberdb" EntitySet="memberdb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_memberdb_MembersType" Association="Self.FK_memberdb_MembersType">
+      <End Role="MembersType" EntitySet="MembersType" />
+      <End Role="memberdb" EntitySet="memberdb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberGroupOrderBinding_Groupdb" Association="Self.FK_MemberGroupOrderBinding_Groupdb">
+      <End Role="Groupdb" EntitySet="Groupdb" />
+      <End Role="MemberGroupOrder" EntitySet="MemberGroupOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberGroupOrderBinding_memberdb" Association="Self.FK_MemberGroupOrderBinding_memberdb">
+      <End Role="memberdb" EntitySet="memberdb" />
+      <End Role="MemberGroupOrder" EntitySet="MemberGroupOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_memberVoteitem_voteitem" Association="Self.FK_memberVoteitem_voteitem">
+      <End Role="voteitem" EntitySet="voteitem" />
+      <End Role="memberVoteitem" EntitySet="memberVoteitem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_memberVoteitem_voteMember" Association="Self.FK_memberVoteitem_voteMember">
+      <End Role="voteMember" EntitySet="voteMember" />
+      <End Role="memberVoteitem" EntitySet="memberVoteitem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productdb_productPictureBinding" Association="Self.FK_productdb_productPictureBinding">
+      <End Role="productPictureBinding" EntitySet="productPictureBinding" />
+      <End Role="productdb" EntitySet="productdb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_voteitem_voteTitle" Association="Self.FK_voteitem_voteTitle">
+      <End Role="voteTitle" EntitySet="voteTitle" />
+      <End Role="voteitem" EntitySet="voteitem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_voteMember_memberdb" Association="Self.FK_voteMember_memberdb">
+      <End Role="memberdb" EntitySet="memberdb" />
+      <End Role="voteMember" EntitySet="voteMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_voteTitle_voteMember" Association="Self.FK_voteTitle_voteMember">
+      <End Role="voteMember" EntitySet="voteMember" />
+      <End Role="voteTitle" EntitySet="voteTitle" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,545 @@
+﻿@using Action.Models
+@model IEnumerable<ActionViewModel>
+@{
+    ViewBag.Title = "BookingListView";
+    int count = 0;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*<link href="../spforaction/Site.css" rel="stylesheet" type="text/css" />*@
+
+    @*<link href="../spforaction/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+    @*<link href="../spforaction/all.min.css" rel="stylesheet" />*@
+    @*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">*@   @*========================================================================*@
+    <link href="~/spforaction/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/spforaction/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/spforaction/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/spforaction/css/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    @*========================================================================*@
+    @*forumtestpage*@
+    <link rel="shortcut icon" type="image/x-icon" href="/../assets/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="assets/css/owl.carousel.min.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/flaticon.css"> -->
+    <link href="~/assets/css/slicknav.css" rel="stylesheet" />
+    <link href="~/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="~/assets/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/assets/css/themify-icons.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="assets/css/slick.css"> -->
+    <link href="~/assets/css/nice-select.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+
+    <style>
+        body {
+            padding-top: 0px;
+            background-color: #91D4C2;
+        }
+
+
+
+        .bg-light {
+            background-color: white !important;
+            border-bottom: 1px solid #aeaeae;
+        }
+
+        .container {
+            width: 100%;
+            /*margin: 30px auto;*/
+        }
+
+            .container body-content {
+            border-width: 30rem;
+            }
+
+        .nav-link {
+            font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
+            color: #555555 !important;
+        }
+
+        .fixed-center {
+            position: fixed;
+            top: 60px;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+        }
+
+        label {
+            font-size: 15px;
+        }
+
+        tbody {
+            font-size: 15px;
+            text-align: center;
+        }
+
+        th {
+            font-size: 18px;
+            text-align: center;
+            background-color: lightblue
+        }
+        td {
+            font-size: 16px !important;
+        }
+
+        .dataTables_info {
+            font-size: 15px;
+        }
+
+        #table_id_paginate {
+            font-size: 15px;
+        }
+
+        h3 {
+            padding: 15px 15px;
+        }
+        #table_id_wrapper {
+            background-color: lightblue;
+        }
+
+        #table_id2_wrapper th {
+            background-color: burlywood;
+        }
+        #table_id2_wrapper {
+            background-color: burlywood;
+        }
+
+        .hh1 {
+            display: flex;
+            justify-content: center;
+        }
+        .h3Div {
+            background-color: white;
+            opacity: 0.8;
+        }
+        label {
+            font-size: 15px !important;
+            font-weight: bold !important;
+        }
+        input {
+            background: white !important;
+        }
+        /*================================================================*/
+        .row {
+            padding: -20px;
+        }
+
+        .push_right {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .button_margin {
+            margin: 10px;
+        }
+
+        .response_range {
+            display: flex;
+        }
+
+        .main_BCC {
+            background-color: #FFF8D7;
+            border-radius: 5px;
+        }
+
+        .text_mragin {
+            margin-right: 10px;
+        }
+
+        .figure_range {
+            margin: 5px;
+        }
+
+        .header-area {
+            background-color: white;
+        }
+
+        header {
+            background-color: #91D4C2;
+        }
+        /*.header-bottom {
+        height:140px;
+        }*/
+        body {
+            background-color: #d5f0f0;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        hr {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .slicknav_nav {
+            height: 420px;
+        }
+        .main-menu {
+           float:left !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Header Start -->
+        <div class="header-area" style="background-color: white;">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a href="#"><img src="~/assets/img/Gladxy_co._LOGO_Small.png" />></a>
+                                </div>
+                            </div>
+                            @*<h3 class="col-xl-2 col-lg-4 col-md-3"*@
+                            <h3 class="col-xl-2 col-lg-2 col-md-2" style="display:flex;justify-content:center;">員工福利網</h3>
+                            @*<div class="col-xl-8 col-lg-6 col-md-8">*@
+                            <div class="col-xl-8 col-lg-10 col-md-10">
+
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/cBlog/BlogList">部落格</a></li>
+                                            <li><a href="~/forumtestpage.html">討論區</a></li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    揪團GO
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_Open" style="padding: 10px;">
+                                                        我要開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        開團紀錄
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+
+
+                                                </div>
+                                            </li>
+
+                                            @*<li><a href="/cBlog/Action">活動區</a></li>*@
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/Action" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    活動區
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <a class=" dropdown-item" href="/cBlog/Action" style="padding: 10px;">
+                                                        回活動平台
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/aCreate" style="padding: 10px;">
+                                                        舉辦活動
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/ActionList" style="padding: 10px;">
+                                                        我舉辦的活動清單
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/BookingListView" style="padding: 10px;">
+                                                        我報名的活動清單
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            @*<li>歡迎 @ViewBag.username</li>*@
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="/cBlog/PurchaseList" id="navbarDropdown"
+                                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false">
+                                                    會員專區
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_OpenList" style="padding: 10px;">
+                                                        我的開團
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class=" dropdown-item" href="/cBlog/Purchase_FollowList" style="padding: 10px;">
+                                                        我的跟團
+                                                    </a>
+                                                    @*<div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                            我的郵件
+                                                        </a>*@
+                                                    @*<div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#" style="padding: 10px;">
+                                                            我要發信
+                                                        </a>*@
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/MemberDataEdit/@ViewBag.enumber2" style="padding: 10px;">
+                                                        修改資料
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="/cBlog/Vote" style="padding: 10px;">
+                                                        我的投票
+                                                    </a>
+
+                                                </div>
+                                            </li>
+                                            <li><a href="/cBlog/LogOut">登出</a></li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container body-content;">
+        <h1 style=" color: black; font-weight: bolder;text-align:center;">
+            我報名的活動清單
+            <a onclick="goBack()" class="btn" style="padding:20px;font-size:16px; font-weight:bolder; border-radius:5px;background-color:#4CAF50;color:aliceblue;float:left;margin-left:20px;width:120px;">
+                回上一頁
+            </a>
+        </h1>
+        <h3 class="h3Div" style=" color: black; font-weight: bolder;text-align:center;">
+            即將舉辦的活動
+        </h3>
+        <table id="table_id" class="diplay table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>序</th>
+                    <th style="width:80px !important;">活動名稱</th>
+                    <th style="width:180px !important;">活動地點</th>
+                    <th>活動起日</th>
+                    <th>活動迄日</th>
+                    <th>活動照片</th>
+                    <th>報名日期</th>
+                    <th style="width:40px !important;">編輯</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.CommingEvent != null)
+                {
+
+                    foreach (var item in ViewBag.CommingEvent)
+                    {
+                        count++;
+                        <tr>
+                            <td class="orderCount">@count.ToString()</td>
+                            <td>@item.EventName</td>
+                            <td>@item.EventLocation</td>
+                            <td>@item.EventStartDate.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>@item.EventEndDate.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>
+                                <img width="96" height="52" src="@item.EventImage">
+                            </td>
+                            <td>@item.BookingDate.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>
+                                @Html.ActionLink("取消", "BookingDelete", new { id = item.Event_ID }, new { OnClick = "return confirm('確定要取消嗎?')", @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                    <td colspan = "7" style = "text-align:center;" > 無參加的活動 </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br>
+        <h3 class="h3Div" style=" color: black; font-weight: bolder;text-align:center;">
+            過去參加過的活動
+        </h3>
+        <table id="table_id2" class="diplay table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>序</th>
+                    <th>活動名稱</th>
+                    <th>活動地點</th>
+                    <th>活動起日</th>
+                    <th>活動迄日</th>
+                    <th>活動照片</th>
+                    <th>報名日期</th>
+                    @*<th>編輯</th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.historyEvent != null)
+                {
+                    foreach (var item in ViewBag.historyEvent)
+                    {
+                        count++;
+                        <tr>
+                            <td class="orderCount2"> @count.ToString()</td>
+                            <td> @item.EventName</td>
+                            <td> @item.EventLocation</td>
+                            <td>@item.EventStartDate</td>
+                            <td>@item.EventEndDate</td>
+                            <td>
+                                <img width="96" height="52" src="@item.EventImage">
+                            </td>
+                            <td>@item.BookingDate</td>
+                            @*<td>
+                                @Html.ActionLink("取消參加", "BookingDelete", new { id = item.Event_ID }, new { OnClick = "return confirm('確定要取消嗎?')", @class = "btn btn-danger" })
+                            </td>*@
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                    <td colspan = "7" style = "text-align:center;"> 無參加的活動 </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    @*========================================================================*@
+    @*新增footer!!!!!!!!!!!!*@
+    <footer>
+        <div class="footer_range footer-area footer-padding footer-bg"
+             data-background="../assets/img/footer_bg.jpg">
+            <div class="container">
+                <div class="footer-end-range footer_link">
+                    <div class="col-xl-7 col-lg-7 col-md-7">
+                        <div class="footer-end-left ">
+                            <a href="#">公司主頁</a>
+                            <a href="#">福委會主頁</a>
+                            <a href="#">與我聯繫</a>
+                            <a href="#">聲明事項</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-5 col-lg-5 col-md-5">
+                        <div class="footer-social f-right">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-end-range">
+                    <P>© 2020 Gladxy Daily. All rights reserved</P>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    @*修改datetimepicker js!!!!!!!!!!!!!!*@
+    <script src="~/spforaction/js/all.min.js"></script>
+    <script src="~/spforaction/js/jquery-3.0.0.min.js"></script>
+    <script src="~/spforaction/js/jquery-ui.min.js"></script>
+    @*<script src="~/spforaction/js/bootstrap.min.js"></script>*@
+    <script src="~/spforaction/js/modernizr-2.6.2.js"></script>
+    @*=================================================*@
+    @*<script src="../spforaction/modernizr-2.6.2.js"></script>*@
+    @*<script src="../Scripts/jquery-3.0.0.min.js"></script>*@
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    @*<script src="../spforaction/bootstrap.min.js"></script>*@
+    @*<script src="../spforaction/all.min.js"></script>*@
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    @*=================================================*@
+
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+            $('#table_id2').DataTable();
+        });
+         let CommingTable = $('#table_id').DataTable({
+            language: {
+                url: "@Url.Content("~/Content/i18n/Chinese-traditional.json")"
+             },
+             "order": [[3, "desc"]],
+             "lengthMenu": [[5, 10, 15], [5, 10, 15]],
+             "drawCallback": function () {
+                 reOrder();
+             }
+
+        })
+
+        let HistoryTable = $('#table_id2').DataTable({
+            language: {
+                url: "@Url.Content("~/Content/i18n/Chinese-traditional.json")"
+            },
+            "order": [[3, "desc"]],
+            "lengthMenu": [[5, 10, 15], [5, 10, 15]],
+            "drawCallback": function () {
+                reOrder2();
+            }
+
+        })
+
+        $("#table_id").find("thead").on('click', 'th', function () {
+            reOrder();
+        });
+
+        $("#table_id2").find("thead").on('click', 'th', function () {
+            reOrder2();
+        });
+
+        function reOrder() {
+            $('.orderCount').each(function (index, item) {
+                $(this).text(index + 1);
+            });
+        }
+        function reOrder2() {
+            $('.orderCount2').each(function (index, item) {
+                $(this).text(index + 1);
+            });
+        }
+        function goBack() {
+            window.history.back();
+        }
+
+    </script>
+
+    @*<script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>*@
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../assets/js/popper.min.js"></script>
+    <script src="/../assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/../assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    @*<script src="../assets/js/owl.carousel.min.js"></script>*@
+    <script src="/../assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/../assets/js/wow.min.js"></script>
+    <script src="/../assets/js/animated.headline.js"></script>
+    <script src="/../assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="/../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="/../assets/js/jquery.nice-select.min.js"></script>
+    <script src="/../assets/js/jquery.sticky.js"></script>
+    <script src="/../assets/js/main.js"></script>
+
+</body>
+</html>
+
+
+

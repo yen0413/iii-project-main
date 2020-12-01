@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EventdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Event2">
+    <Key>
+      <PropertyRef Name="Event_ID" />
+    </Key>
+    <Property Name="Event_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventStartDate" Type="datetime" />
+    <Property Name="EventEndDate" Type="datetime" />
+    <Property Name="EventLocation" Type="nvarchar" MaxLength="50" />
+    <Property Name="EventName" Type="nvarchar" MaxLength="200" />
+    <Property Name="EventContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="EventRemark" Type="nvarchar" MaxLength="500" />
+    <Property Name="EventMaxPeople" Type="int" Nullable="false" />
+    <Property Name="EventMinPeople" Type="int" />
+    <Property Name="EventLocationX" Type="varchar" MaxLength="50" />
+    <Property Name="EventLocationY" Type="varchar" MaxLength="50" />
+    <Property Name="EventNowJoin" Type="int" />
+    <Property Name="EventCreateEmployeeID" Type="int" />
+    <Property Name="EventImage" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="EventBooking2">
+    <Key>
+      <PropertyRef Name="Event_ID" />
+      <PropertyRef Name="mb_ID" />
+    </Key>
+    <Property Name="Event_ID" Type="int" Nullable="false" />
+    <Property Name="mb_ID" Type="int" Nullable="false" />
+    <Property Name="BookingDate" Type="datetime" Nullable="false" />
+    <Property Name="EmployeeJoinStatus" Type="int" Nullable="false" />
+    <Property Name="BookingCount" Type="int" />
+    <Property Name="Event" Type="int" />
+  </EntityType>
+  <EntityType Name="EventComment2">
+    <Key>
+      <PropertyRef Name="Event_ID" />
+      <PropertyRef Name="mb_ID" />
+    </Key>
+    <Property Name="Event_ID" Type="int" Nullable="false" />
+    <Property Name="mb_ID" Type="int" Nullable="false" />
+    <Property Name="CommentStatus" Type="int" />
+  </EntityType>
+  <Association Name="FK_EventBooking_Event">
+    <End Role="Event2" Type="Self.Event2" Multiplicity="1" />
+    <End Role="EventBooking2" Type="Self.EventBooking2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event2">
+        <PropertyRef Name="Event_ID" />
+      </Principal>
+      <Dependent Role="EventBooking2">
+        <PropertyRef Name="Event_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventComment_Event">
+    <End Role="Event2" Type="Self.Event2" Multiplicity="1" />
+    <End Role="EventComment2" Type="Self.EventComment2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event2">
+        <PropertyRef Name="Event_ID" />
+      </Principal>
+      <Dependent Role="EventComment2">
+        <PropertyRef Name="Event_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EventdbModelStoreContainer">
+    <EntitySet Name="Event2" EntityType="Self.Event2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventBooking2" EntityType="Self.EventBooking2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventComment2" EntityType="Self.EventComment2" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_EventBooking_Event" Association="Self.FK_EventBooking_Event">
+      <End Role="Event2" EntitySet="Event2" />
+      <End Role="EventBooking2" EntitySet="EventBooking2" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventComment_Event" Association="Self.FK_EventComment_Event">
+      <End Role="Event2" EntitySet="Event2" />
+      <End Role="EventComment2" EntitySet="EventComment2" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

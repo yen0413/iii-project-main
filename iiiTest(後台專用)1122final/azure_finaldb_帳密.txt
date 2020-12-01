@@ -1,0 +1,12 @@
+database:
+johnny80826.database.windows.net
+
+帳號:
+Johnny80826
+
+密碼:
+
+Johnny@gmail.com
+
+後台C# web api
+https://1fuen12iii.azurewebsites.net

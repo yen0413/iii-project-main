@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Light Bootstrap Dashboard - Free Bootstrap 4 Admin Dashboard by Creative Tim</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/css/demo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<style>
+    .displaynon {
+        display: none;
+    }
+
+    .creatform {
+        display: flex;
+        position: absolute;
+        justify-content: space-evenly;
+    }
+
+    .creatformdiv {
+        display: flex;
+        justify-content: space-evenly;
+        width: 500px;
+        height: 300px;
+    }
+
+    .displaynonform {
+        display: none;
+    }
+
+    .flexcontrol {
+        margin-left: 2px;
+    }
+
+    .btnsty {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .btnsubmit {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="" class="simple-text">
+                        員工福利網
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" href="index.html">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p>主頁</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Blogtable.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>部落格</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Emptable.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>員工</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Event.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>開團</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Forum.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>討論區</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./Protable.html">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>團購</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#pablo"> Table List </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            <li class="nav-item">
+                            </li>
+                            <li class="dropdown nav-item">
+                                <ul class="dropdown-menu">
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nc-icon nc-zoom-split"></i>
+                                    <span class="d-lg-block">&nbsp;Search</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                            </li>
+                            <li class="nav-item dropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                                    <div class="divider"></div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pablo">
+                                    <span class="no-icon" onclick="logOut()">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card strpied-tabled-with-hover">
+                                <div class="card-header ">
+                                    <h4 class="card-title">開團列表</h4>
+                                    <button id="btn1" class="btnsty" onclick="bbb()">新增</button>
+                                </div>
+                                <div id="creat" style="display: none;">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">活動名稱</label>
+                                                <input type="text" class="form-control" id="newEventname">
+                                                <label for="inputEmail4">活動地點</label>
+                                                <input type="text" class="form-control" id="newEventlocation">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="from">活動開始日期</label>
+                                                <input type="datetime" class="form-control" id="newEventstartdate"
+                                                    name="from">
+                                                <label for="to">活動結束日期</label>
+                                                <input type="datetime" class="form-control" id="newEventenddate"
+                                                    name="to">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-10 flexcontrol">
+                                            <label for="inputAddress">活動敘述</label>
+                                            <input type="text" class="form-control" id="newEventcontent">
+                                        </div>
+                                        <div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">活動人數上限</label>
+                                                <input type="number" class="form-control" id="newEventmaxpeople">
+                                                <label for="inputEmail4">活動最少人數</label>
+                                                <input type="number" class="form-control" id="newEventminpeople">
+                                            </div>
+                                            <div class="form-group col-md-6 flexcontrol">
+                                                <label for="inputEmail4">活動人數id</label>
+                                                <input type="number" class="form-control" id="newEventcreatpeople">
+                                            </div>
+                                            <button class="btn btn-primary btnsubmit" onclick="sendData1()">送出</button>
+
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="creatbooking" style="display: none;">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">活動編號</label>
+                                                <input type="text" class="form-control" id="neweventid" disabled>
+                                                <label for="inputEmail4">參加人員編號</label>
+                                                <input type="text" class="form-control" id="newmemberid">
+
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="from">參加日期</label>
+                                                <input type="datetime" class="form-control" id="newbookingdate"
+                                                    name="from">
+                                                <label for="to">參加狀態</label>
+                                                <input type="char" class="form-control" id="newemployeestatus"
+                                                    name="to">
+                                                <button class="btn btn-primary btnsubmit" onclick="sendData1()">送出</button>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                </div>
+                                </form>
+                            </div>
+                            <div class="card-body table-full-width table-responsive">
+
+                                <table class="table table-hover table-striped ">
+                                    <thead>
+                                        <th>活動編號</th>
+                                        <th>活動名稱</th>
+                                        <th>活動開始日期</th>
+                                        <th>活動結束日期</th>
+                                        <th>活動地點</th>
+                                        <th>活動敘述</th>
+                                        <th>活動人數上限</th>
+                                        <th>活動最少人數</th>
+                                        <th>活動創辦人id</th>
+                                        <th>詳細</th>
+                                        <th>新增</th>
+                                        <th>編輯</th>
+                                        <th>刪除</th>
+                                    </thead>
+                                    <tbody id="eventtable">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav>
+                    <p class="copyright text-center">
+                        © xxxxx有限公司
+                    </p>
+                </nav>
+            </div>
+        </footer>
+    </div>
+    </div>
+    <!-- ------------------------------------------123 -->
+    <div class="modal fade bd-example-modal-xl" id="editMessage" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <table class="table table-hover table-striped" id="datatable">
+                    <thead>
+                        <tr>
+                            <th>活動編號</th>
+                            <th>參加日期</th>
+                            <th>參加人員編號</th>
+                            <th>參加人員狀態</th>
+                            <th>刪除</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventbookingtable">
+                        <!-- <tr>
+                    <td>charry</td>
+                    <td>14</td>
+                    <td>content</td>
+                    <td>datetime</td>
+                    <td><button onclick="MesDelete()">刪除<i class="fas fa-trash-alt"></i></button></td>
+                </tr> -->
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="../assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--  Chartist Plugin  -->
+<script src="../assets/js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="../assets/js/light-bootstrap-dashboard.js?v=2.0.0 " type="text/javascript"></script>
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/js/demo.js"></script>
+
+
+<script>
+    const request = new XMLHttpRequest();
+    jQuery.support.cors = true;
+
+    const sendHttpRequest = (method, url, data) => {  //fetch的上半部整理成function
+        return fetch(url, {
+            method: method,
+            body: JSON.stringify(data),
+            headers: data ? { 'Content-Type': 'application/json', } : {Authorization: 'Bearer ' + localStorage.getItem("token")} //{}裡面可放物件//三元表達式
+        })  //get data  
+            .then(response => {
+                if (response.status >= 400) {       //參考xml httprequest對於錯誤的處理方法
+                    //!response.ok
+                    return response.json().then(errResData => {
+                        const error = new Error('Something went wrong!');
+                        error.data = errResData;   //找出錯誤的資料為何
+                        throw error;
+                    });
+                }
+                return response.json();
+            })
+    };
+    const getData = () => {
+        sendHttpRequest('get', 'https://localhost:44310/api/eventg')
+            .then(responseData => {
+                let str = '';
+                responseData.etable.forEach(i => {
+                    count = i.count;
+                    str += content_tpl(i);
+                })
+                $('#eventtable').html(str);
+                console.log(responseData);
+            })
+    };
+    const getData1 = (id) => {
+        let UrlGetID = `https://localhost:44310/api/evevntbooking/${id}`
+        sendHttpRequest('get', UrlGetID)
+
+            .then(responseData => {
+                let str = '';
+                responseData.ebtable.forEach(i => {
+                    count = i.count;
+                    str += content_tp2(i);
+                })
+                $('#eventbookingtable').html(str);
+                console.log(responseData);
+            })
+    };
+    // const getData1 = () => {
+    //     sendHttpRequest('get', 'https://localhost:44310/api/eventg')
+    //         .then(responseData => {
+    //             let str = '';
+    //             responseData.ebtable.forEach(i => {
+    //                 count = i.count;
+    //                 str += content_tpl(i);              
+    //             })
+    //             $('#eventtable').html(str);
+    //             console.log(responseData);          
+    //         })
+    // };
+    const getData_delete = (id) => {
+        var check = confirm("確定要刪除嗎?");
+        if (!check) {
+            return
+        };
+        let UrlPutID = `https://localhost:44310/api/eventg/?id=${id}`
+        sendHttpRequest('Delete', UrlPutID
+        ).then(responseData => {
+            console.log(responseData);
+            //console.log(typeof responseData);
+            console.log(id);
+            //console.log(message.fmessage);
+            request.onload = getData();
+        }).catch(err => {
+            console.log(err, err.data);
+        });
+
+    };
+    const getData_delete1 = (id) => {
+        var check = confirm("確定要刪除嗎?");
+        if (!check) {
+            return
+        };
+        let UrlPutID = `https://localhost:44310/api/evevntbooking/?id=${id}`
+        sendHttpRequest('Delete', UrlPutID
+        ).then(responseData => {
+            console.log(responseData);
+            //console.log(typeof responseData);
+            console.log(id);
+            //console.log(message.fmessage);
+            request.onload = getData();
+        }).catch(err => {
+            console.log(err, err.data);
+        });
+
+    };
+    const putEditData = (id) => {
+        // currentPost.iID
+        // const title = document.querySelector(`#title_${id}`).innerText
+        const eventname = document.querySelector(`#eventname_${id}`).innerText;
+        const eventstartdate = document.querySelector(`#eventstartdate_${id}`).innerText;
+        const eventenddate = document.querySelector(`#eventenddate_${id}`).innerText;
+        const eventlocation = document.querySelector(`#eventlocation_${id}`).innerText;
+        const eventcontent = document.querySelector(`#eventcontent_${id}`).innerText;
+        const eventmaxpeople = document.querySelector(`#eventmaxpeople_${id}`).innerText;
+        const eventminpeople = document.querySelector(`#eventminpeople_${id}`).innerText;
+        const eventcreatpeople = document.querySelector(`#eventcreatpeople_${id}`).innerText;
+        let UrlPutID = `https://localhost:44310/api/eventg/?id=${id}`
+        sendHttpRequest('Put', UrlPutID, {
+            // "title": title,     
+            "eventname": eventname,
+            "eventstartdate": eventstartdate,
+            "eventenddate": eventenddate,
+            "eventlocation": eventlocation,
+            "eventcontent": eventcontent,
+            "eventmaxpeople": eventmaxpeople,
+            "eventminpeople": eventminpeople,
+            "eventcreatpeople": eventcreatpeople,
+        }).then(responseData => {
+            request.onload = getData();
+        }).catch(err => {
+            console.log(err, err.data);
+        });
+
+    };
+    const putEditData1 = (id) => {
+        // currentPost.iID
+        // const title = document.querySelector(`#title_${id}`).innerText
+        const bookingdate = document.querySelector(`#bookingdate_${id}`).innerText;
+        const employeestatus = document.querySelector(`#employeestatus_${id}`).innerText;
+        let UrlPutID = `https://localhost:44310/api/evevntbooking/?id=${id}`
+        sendHttpRequest('Put', UrlPutID, {
+            // "title": title,     
+            "bookingdate": bookingdate,
+            "employeestatus": employeestatus,
+        }).then(responseData => {
+            request.onload = getData();
+        }).catch(err => {
+            console.log(err, err.data);
+        });
+
+    };
+    const sendData = () => {
+        if (!document.getElementById("newEventname").value) {
+            alert('請填入活動名稱!');
+        } else if (!document.getElementById("newEventstartdate").value) {
+            alert("請輸入活動開始日期")
+        } else if (!document.getElementById("newEventenddate").value) {
+            alert("請輸入活動結束日期")
+        } else if (!document.getElementById("newEventlocation").value) {
+            alert("請輸入活動地點")
+        } else if (!document.getElementById("newEventcontent").value) {
+            alert("請輸入活動內容")
+        } else if (!document.getElementById("newEventmaxpeople").value) {
+            alert("請輸入活動人數上限")
+        } else if (!document.getElementById("newEventminpeople").value) {
+            alert("請輸入活動最少參加人數")
+        } else if (!document.getElementById("newEventcreatpeople").value) {
+            alert("請輸入活動創建人ID")
+        }
+
+        else {
+            sendHttpRequest('post', 'https://localhost:44310/api/eventg', {
+                "newEventname": document.getElementById("newEventname").value,
+                "newEventstartdate": document.getElementById("newEventstartdate").value,
+                "newEventenddate": document.getElementById("newEventenddate").value,
+                "newEventlocation": document.getElementById("newEventlocation").value,
+                "newEventcontent": document.getElementById("newEventcontent").value,
+                "newEventmaxpeople": document.getElementById("newEventmaxpeople").value,
+                "newEventminpeople": document.getElementById("newEventminpeople").value,
+                "newEventcreatpeople": document.getElementById("newEventcreatpeople").value,
+
+            }).then(responseData => {
+                //再次從server取資料
+                request.onload = getData();
+            }).catch(err => {
+                console.log(err, err.data);
+            });
+        }
+    };
+    const sendData1 = () => {
+        if (!document.getElementById("newmemberid").value) {
+            alert('請填入參加人員編號!');
+        } else if (!document.getElementById("newbookingdate").value) {
+            alert("請輸入參加日期")
+        } else if (!document.getElementById("newemployeestatus").value) {
+            alert("請輸入參加狀態")
+        }
+
+        else {
+            sendHttpRequest('post', 'https://localhost:44310/api/evevntbooking', {
+                "neweventid": document.getElementById("neweventid").value,
+                "newmemberid": document.getElementById("newmemberid").value,
+                "newbookingdate": document.getElementById("newbookingdate").value,
+                "newemployeestatus": document.getElementById("newemployeestatus").value,
+
+            }).then(responseData => {
+                //再次從server取資料
+                console.log(responseData)
+                request.onload = getData();
+            }).catch(err => {
+                console.log(err, err.data);
+            });
+        }
+    };
+    const content_tpl = tpl => {
+        return ` 
+         <tr >
+             <td >${tpl.eventid}</td>
+             <td contentEditable="true" id="eventname_${tpl.eventid}">${tpl.eventname}</td>
+             <td contentEditable="true" id="eventstartdate_${tpl.eventid}">${tpl.eventstartdate}</td>
+             <td contentEditable="true" id="eventenddate_${tpl.eventid}">${tpl.eventenddate}</td>
+             <td contentEditable="true" id="eventlocation_${tpl.eventid}">${tpl.eventlocation}</td>
+             <td contentEditable="true" id="eventcontent_${tpl.eventid}">${tpl.eventcontent}</td>
+             <td contentEditable="true" id="eventmaxpeople_${tpl.eventid}">${tpl.eventmaxpeople}</td>
+             <td contentEditable="true" id="eventminpeople_${tpl.eventid}">${tpl.eventminpeople}</td>
+             <td contentEditable="true" id="eventcreatpeople_${tpl.eventid}">${tpl.eventcreatpeople}</td>
+             <td><button onclick="getData1(${tpl.eventid})" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target=".bd-example-modal-xl">已參加活動人員</button></td>
+                <td ><button onclick="ccc(${tpl.eventid})">新增參加人員</button></td>  
+             <td ><button onclick="putEditData1(${tpl.eventid})">修改</button></td>
+             <td ><button  onclick="getData_delete(${tpl.eventid})"">刪除</button></td>
+  </tr >
+  `
+    };
+    const content_tp2 = tp2 => {
+        return `
+                    <tr >
+                        
+                        <td >${tp2.eventid}</td>
+                        <td contentEditable="true" id="bookingdate_${tp2.bookingpeopleid}">${tp2.bookingdate}</td>
+                        <td >${tp2.bookingpeopleid}</td>
+                        <td contentEditable="true" id="employeestatus_${tp2.bookingpeopleid}">${tp2.employeestatus}</td>
+                        
+                        <td ><button onclick="putEditData1(${tp2.bookingpeopleid})">修改</button></td>
+                        <td ><button  onclick="getData_delete1(${tp2.bookingpeopleid})"">刪除</button></td>
+                    </tr>
+`}
+
+
+
+
+
+
+
+
+
+
+    // style="display: none"
+    request.onload = getData();
+
+    // function aaa(id){
+    //     if(document.getElementById("aaa_"+id).style.display!='none'){
+    //         document.getElementById("aaa_"+id).style.display='none'
+    //         document.getElementById("aa_"+id).style.display='none'
+    //     }else{
+
+    //     document.getElementById("aa_"+id).style.display=''
+    //     document.getElementById("aaa_"+id).style.display=''
+    //     }
+
+    // }
+
+    function bbb() {
+        if (document.getElementById("creat").style.display != 'none') {
+            document.getElementById("creat").style.display = 'none';
+        } else {
+            document.getElementById("creat").style.display = '';
+        }
+
+        console.log(document.getElementById("creat"))
+    };
+    function ccc(id) {
+        if (document.getElementById("creatbooking").style.display != 'none') {
+            document.getElementById("creatbooking").style.display = 'none';
+        } else {
+            document.getElementById("creatbooking").style.display = '';
+            document.getElementById("neweventid").value = id;
+        }
+
+        console.log(document.getElementById("neweventid").value = id)
+    }
+
+    function logOut() {
+        location.href = "login.html"
+        localStorage.removeItem("token");
+    }
+
+</script>
+
+</html>
